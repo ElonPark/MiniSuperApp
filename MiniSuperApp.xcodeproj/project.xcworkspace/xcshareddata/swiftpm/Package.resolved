@@ -1,0 +1,70 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "FlexLayout",
+        "repositoryURL": "https://github.com/layoutBox/FlexLayout",
+        "state": {
+          "branch": null,
+          "revision": "f8227b3bb9bc2cf7676ff836d458a7a184f1da7f",
+          "version": "1.10.1"
+        }
+      },
+      {
+        "package": "KarrotFlex",
+        "repositoryURL": "https://github.com/daangn/KarrotFlex.git",
+        "state": {
+          "branch": null,
+          "revision": "a52271b5550cc940042cd6f74b8ff5c551c79657",
+          "version": "1.0.1"
+        }
+      },
+      {
+        "package": "NeedleFoundation",
+        "repositoryURL": "https://github.com/uber/needle.git",
+        "state": {
+          "branch": "master",
+          "revision": "847fd0f38e76a041d4d9ca1c931db334021e3525",
+          "version": null
+        }
+      },
+      {
+        "package": "PinLayout",
+        "repositoryURL": "https://github.com/layoutBox/PinLayout",
+        "state": {
+          "branch": null,
+          "revision": "93feb9f10c669033b52e6fd9589152036fcbd809",
+          "version": "1.10.0"
+        }
+      },
+      {
+        "package": "RIBs",
+        "repositoryURL": "https://github.com/uber/RIBs.git",
+        "state": {
+          "branch": "master",
+          "revision": "9571f986b8393eed5dbc56a7dcb876a62ffbe2ca",
+          "version": null
+        }
+      },
+      {
+        "package": "RxSwift",
+        "repositoryURL": "https://github.com/ReactiveX/RxSwift",
+        "state": {
+          "branch": null,
+          "revision": "b4307ba0b6425c0ba4178e138799946c3da594f8",
+          "version": "6.5.0"
+        }
+      },
+      {
+        "package": "Then",
+        "repositoryURL": "https://github.com/devxoul/Then",
+        "state": {
+          "branch": null,
+          "revision": "e421a7b3440a271834337694e6050133a3958bc7",
+          "version": "2.7.0"
+        }
+      }
+    ]
+  },
+  "version": 1
+}
