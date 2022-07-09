@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DB0CA7052879CE0900D60913 /* FlexLayout in Frameworks */ = {isa = PBXBuildFile; productRef = DB0CA7042879CE0900D60913 /* FlexLayout */; };
+		DB0CA7082879CE5F00D60913 /* PinLayout in Frameworks */ = {isa = PBXBuildFile; productRef = DB0CA7072879CE5F00D60913 /* PinLayout */; };
 		DBD6364B279DC10D00843B35 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD6364A279DC10D00843B35 /* AppDelegate.swift */; };
 		DBD6364D279DC10D00843B35 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD6364C279DC10D00843B35 /* SceneDelegate.swift */; };
 		DBD6364F279DC10D00843B35 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD6364E279DC10D00843B35 /* ViewController.swift */; };
@@ -20,7 +22,6 @@
 		DBD6367F279DC67900843B35 /* NeedleFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = DBD6367E279DC67900843B35 /* NeedleFoundation */; };
 		DBD63681279DC67900843B35 /* NeedleFoundationTest in Frameworks */ = {isa = PBXBuildFile; productRef = DBD63680279DC67900843B35 /* NeedleFoundationTest */; };
 		DBD63684279DC6A900843B35 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = DBD63683279DC6A900843B35 /* Then */; };
-		DBD63687279DC73A00843B35 /* KarrotFlex in Frameworks */ = {isa = PBXBuildFile; productRef = DBD63686279DC73A00843B35 /* KarrotFlex */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,10 +62,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DBD63687279DC73A00843B35 /* KarrotFlex in Frameworks */,
 				DBD6367F279DC67900843B35 /* NeedleFoundation in Frameworks */,
+				DBB9500A287AB57D0096BD09 /* RIBs in Frameworks */,
+				DB0CA7082879CE5F00D60913 /* PinLayout in Frameworks */,
 				DBD63684279DC6A900843B35 /* Then in Frameworks */,
-				DBD6367C279DC5C900843B35 /* RIBs in Frameworks */,
+				DB0CA7052879CE0900D60913 /* FlexLayout in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -154,10 +156,11 @@
 			);
 			name = MiniSuperApp;
 			packageProductDependencies = (
-				DBD6367B279DC5C900843B35 /* RIBs */,
 				DBD6367E279DC67900843B35 /* NeedleFoundation */,
 				DBD63683279DC6A900843B35 /* Then */,
-				DBD63686279DC73A00843B35 /* KarrotFlex */,
+				DB0CA7042879CE0900D60913 /* FlexLayout */,
+				DB0CA7072879CE5F00D60913 /* PinLayout */,
+				DBB95009287AB57D0096BD09 /* RIBs */,
 			);
 			productName = MiniSuperApp;
 			productReference = DBD63647279DC10D00843B35 /* MiniSuperApp.app */;
@@ -235,10 +238,11 @@
 			);
 			mainGroup = DBD6363E279DC10D00843B35;
 			packageReferences = (
-				DBD6367A279DC5C900843B35 /* XCRemoteSwiftPackageReference "RIBs" */,
 				DBD6367D279DC67900843B35 /* XCRemoteSwiftPackageReference "needle" */,
 				DBD63682279DC6A900843B35 /* XCRemoteSwiftPackageReference "Then" */,
-				DBD63685279DC73A00843B35 /* XCRemoteSwiftPackageReference "KarrotFlex" */,
+				DB0CA7032879CE0900D60913 /* XCRemoteSwiftPackageReference "FlexLayout" */,
+				DB0CA7062879CE5F00D60913 /* XCRemoteSwiftPackageReference "PinLayout" */,
+				DBB95008287AB57D0096BD09 /* XCRemoteSwiftPackageReference "RIBs" */,
 			);
 			productRefGroup = DBD63648279DC10D00843B35 /* Products */;
 			projectDirPath = "";
@@ -631,11 +635,27 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		DBD6367A279DC5C900843B35 /* XCRemoteSwiftPackageReference "RIBs" */ = {
+		DB0CA7032879CE0900D60913 /* XCRemoteSwiftPackageReference "FlexLayout" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/layoutBox/FlexLayout.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.3.0;
+			};
+		};
+		DB0CA7062879CE5F00D60913 /* XCRemoteSwiftPackageReference "PinLayout" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/layoutBox/PinLayout.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.10.0;
+			};
+		};
+		DBB95008287AB57D0096BD09 /* XCRemoteSwiftPackageReference "RIBs" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/uber/RIBs.git";
 			requirement = {
-				branch = master;
+				branch = main;
 				kind = branch;
 			};
 		};
@@ -643,8 +663,8 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/uber/needle.git";
 			requirement = {
-				branch = master;
-				kind = branch;
+				kind = upToNextMinorVersion;
+				minimumVersion = 0.18.0;
 			};
 		};
 		DBD63682279DC6A900843B35 /* XCRemoteSwiftPackageReference "Then" */ = {
@@ -652,23 +672,25 @@
 			repositoryURL = "https://github.com/devxoul/Then";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 2.0.0;
-			};
-		};
-		DBD63685279DC73A00843B35 /* XCRemoteSwiftPackageReference "KarrotFlex" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/daangn/KarrotFlex.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.0;
+				minimumVersion = 3.0.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		DBD6367B279DC5C900843B35 /* RIBs */ = {
+		DB0CA7042879CE0900D60913 /* FlexLayout */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = DBD6367A279DC5C900843B35 /* XCRemoteSwiftPackageReference "RIBs" */;
+			package = DB0CA7032879CE0900D60913 /* XCRemoteSwiftPackageReference "FlexLayout" */;
+			productName = FlexLayout;
+		};
+		DB0CA7072879CE5F00D60913 /* PinLayout */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DB0CA7062879CE5F00D60913 /* XCRemoteSwiftPackageReference "PinLayout" */;
+			productName = PinLayout;
+		};
+		DBB95009287AB57D0096BD09 /* RIBs */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DBB95008287AB57D0096BD09 /* XCRemoteSwiftPackageReference "RIBs" */;
 			productName = RIBs;
 		};
 		DBD6367E279DC67900843B35 /* NeedleFoundation */ = {
@@ -685,11 +707,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = DBD63682279DC6A900843B35 /* XCRemoteSwiftPackageReference "Then" */;
 			productName = Then;
-		};
-		DBD63686279DC73A00843B35 /* KarrotFlex */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = DBD63685279DC73A00843B35 /* XCRemoteSwiftPackageReference "KarrotFlex" */;
-			productName = KarrotFlex;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
