@@ -11,6 +11,7 @@
 		DB0CA7082879CE5F00D60913 /* PinLayout in Frameworks */ = {isa = PBXBuildFile; productRef = DB0CA7072879CE5F00D60913 /* PinLayout */; };
 		DB7F38EF2879E8DC00E4CF39 /* AppComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7F38EE2879E8DC00E4CF39 /* AppComponent.swift */; };
 		DB7F39002879F27D00E4CF39 /* NeedleGenerated.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7F38FF2879F27D00E4CF39 /* NeedleGenerated.swift */; };
+		DB7F38FD2879EA0100E4CF39 /* ComponentizedBuilderExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7F38FC2879EA0100E4CF39 /* ComponentizedBuilderExtensions.swift */; };
 		DBD6364B279DC10D00843B35 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD6364A279DC10D00843B35 /* AppDelegate.swift */; };
 		DBD6364D279DC10D00843B35 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD6364C279DC10D00843B35 /* SceneDelegate.swift */; };
 		DBD6364F279DC10D00843B35 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD6364E279DC10D00843B35 /* ViewController.swift */; };
@@ -45,6 +46,7 @@
 /* Begin PBXFileReference section */
 		DB7F38EE2879E8DC00E4CF39 /* AppComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppComponent.swift; sourceTree = "<group>"; };
 		DB7F38FF2879F27D00E4CF39 /* NeedleGenerated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NeedleGenerated.swift; sourceTree = "<group>"; };
+		DB7F38FC2879EA0100E4CF39 /* ComponentizedBuilderExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentizedBuilderExtensions.swift; sourceTree = "<group>"; };
 		DBD63647279DC10D00843B35 /* MiniSuperApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MiniSuperApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBD6364A279DC10D00843B35 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DBD6364C279DC10D00843B35 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 		DB7F38EB2879E76F00E4CF39 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				DB7F38F92879E99300E4CF39 /* Core */,
 				DB7F38EC2879E77800E4CF39 /* AppStart */,
 			);
 			path = Sources;
@@ -117,6 +120,30 @@
 				DB7F38FF2879F27D00E4CF39 /* NeedleGenerated.swift */,
 			);
 			path = AppStart;
+			sourceTree = "<group>";
+		};
+		DB7F38F92879E99300E4CF39 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				DB7F38FA2879E9C500E4CF39 /* Extensions */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		DB7F38FA2879E9C500E4CF39 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				DB7F38FB2879E9E900E4CF39 /* RIBsExtensions */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		DB7F38FB2879E9E900E4CF39 /* RIBsExtensions */ = {
+			isa = PBXGroup;
+			children = (
+				DB7F38FC2879EA0100E4CF39 /* ComponentizedBuilderExtensions.swift */,
+			);
+			path = RIBsExtensions;
 			sourceTree = "<group>";
 		};
 		DBD6363E279DC10D00843B35 = {
@@ -337,6 +364,7 @@
 			files = (
 				DBD6364F279DC10D00843B35 /* ViewController.swift in Sources */,
 				DB7F39002879F27D00E4CF39 /* NeedleGenerated.swift in Sources */,
+				DB7F38FD2879EA0100E4CF39 /* ComponentizedBuilderExtensions.swift in Sources */,
 				DB7F38EF2879E8DC00E4CF39 /* AppComponent.swift in Sources */,
 				DBD6364B279DC10D00843B35 /* AppDelegate.swift in Sources */,
 				DBD6364D279DC10D00843B35 /* SceneDelegate.swift in Sources */,
