@@ -10,6 +10,7 @@
 		DB0CA7052879CE0900D60913 /* FlexLayout in Frameworks */ = {isa = PBXBuildFile; productRef = DB0CA7042879CE0900D60913 /* FlexLayout */; };
 		DB0CA7082879CE5F00D60913 /* PinLayout in Frameworks */ = {isa = PBXBuildFile; productRef = DB0CA7072879CE5F00D60913 /* PinLayout */; };
 		DB7F38EF2879E8DC00E4CF39 /* AppComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7F38EE2879E8DC00E4CF39 /* AppComponent.swift */; };
+		DB7F39002879F27D00E4CF39 /* NeedleGenerated.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7F38FF2879F27D00E4CF39 /* NeedleGenerated.swift */; };
 		DBD6364B279DC10D00843B35 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD6364A279DC10D00843B35 /* AppDelegate.swift */; };
 		DBD6364D279DC10D00843B35 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD6364C279DC10D00843B35 /* SceneDelegate.swift */; };
 		DBD6364F279DC10D00843B35 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD6364E279DC10D00843B35 /* ViewController.swift */; };
@@ -43,6 +44,7 @@
 
 /* Begin PBXFileReference section */
 		DB7F38EE2879E8DC00E4CF39 /* AppComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppComponent.swift; sourceTree = "<group>"; };
+		DB7F38FF2879F27D00E4CF39 /* NeedleGenerated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NeedleGenerated.swift; sourceTree = "<group>"; };
 		DBD63647279DC10D00843B35 /* MiniSuperApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MiniSuperApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBD6364A279DC10D00843B35 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DBD6364C279DC10D00843B35 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 				DBD6364A279DC10D00843B35 /* AppDelegate.swift */,
 				DBD6364C279DC10D00843B35 /* SceneDelegate.swift */,
 				DB7F38EE2879E8DC00E4CF39 /* AppComponent.swift */,
+				DB7F38FF2879F27D00E4CF39 /* NeedleGenerated.swift */,
 			);
 			path = AppStart;
 			sourceTree = "<group>";
@@ -173,6 +176,7 @@
 				DBD63643279DC10D00843B35 /* Sources */,
 				DBD63644279DC10D00843B35 /* Frameworks */,
 				DBD63645279DC10D00843B35 /* Resources */,
+				DB7F38FE2879F16F00E4CF39 /* Needle */,
 			);
 			buildRules = (
 			);
@@ -305,12 +309,34 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		DB7F38FE2879F16F00E4CF39 /* Needle */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = Needle;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "SOURCE_ROOT=\"$(SRCROOT)MiniSuperApp/Sources\"\nFILE_PATH=\"${SOURCE_ROOT}/AppStart\"\nexport PATH=\"$PATH:/opt/homebrew/bin\"\nexport SOURCEKIT_LOGGING=0 && needle generate ${FILE_PATH}/NeedleGenerated.swift ${SOURCE_ROOT}/\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		DBD63643279DC10D00843B35 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				DBD6364F279DC10D00843B35 /* ViewController.swift in Sources */,
+				DB7F39002879F27D00E4CF39 /* NeedleGenerated.swift in Sources */,
 				DB7F38EF2879E8DC00E4CF39 /* AppComponent.swift in Sources */,
 				DBD6364B279DC10D00843B35 /* AppDelegate.swift in Sources */,
 				DBD6364D279DC10D00843B35 /* SceneDelegate.swift in Sources */,
