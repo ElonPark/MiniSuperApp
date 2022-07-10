@@ -7,12 +7,16 @@
 
 import RIBs
 
+// MARK: - RootInteractable
+
 protocol RootInteractable: Interactable {
   var router: RootRouting? { get set }
   var listener: RootListener? { get set }
 }
 
 protocol RootViewControllable: ViewControllable {}
+
+// MARK: - RootRouter
 
 final class RootRouter:
   LaunchRouter<RootInteractable, RootViewControllable>,

@@ -22,7 +22,7 @@ extension ComponentizedBuilder {
 // MARK: - SimpleComponentizedBuilder
 
 extension ComponentizedBuilder where DynamicComponentDependency == Void,
-                                     DynamicBuildDependency == Void {
+DynamicBuildDependency == Void {
   final func build() -> Router {
     return self.build(
       withDynamicBuildDependency: Void(),

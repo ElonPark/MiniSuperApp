@@ -9,16 +9,16 @@ import RIBs
 import RxSwift
 import UIKit
 
-protocol RootPresentableListener: AnyObject {
+protocol RootPresentableListener: AnyObject {}
 
-}
+// MARK: - RootTabBarController
 
 final class RootTabBarController:
   UITabBarController,
   RootPresentable,
   RootViewControllable
 {
-  
+
   weak var listener: RootPresentableListener?
 
   init() {
@@ -32,6 +32,5 @@ final class RootTabBarController:
 
   override func viewDidLoad() {
     super.viewDidLoad()
-
   }
 }

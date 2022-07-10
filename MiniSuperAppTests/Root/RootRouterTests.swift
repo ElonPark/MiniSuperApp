@@ -16,10 +16,9 @@ final class RootRouterTests: XCTestCase {
 
   override func setUpWithError() throws {
     try super.setUpWithError()
-    
+
     // TODO: instantiate objects and mocks
   }
-
 
   // MARK: - Tests
 

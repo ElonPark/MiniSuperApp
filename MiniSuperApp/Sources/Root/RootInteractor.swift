@@ -12,11 +12,15 @@ import RxSwift
 
 protocol RootRouting: ViewableRouting {}
 
+// MARK: - RootPresentable
+
 protocol RootPresentable: Presentable {
   var listener: RootPresentableListener? { get set }
 }
 
 protocol RootListener: AnyObject {}
+
+// MARK: - RootInteractor
 
 final class RootInteractor:
   PresentableInteractor<RootPresentable>,
@@ -24,7 +28,7 @@ final class RootInteractor:
   RootPresentableListener,
   URLHandler
 {
-  
+
   weak var router: RootRouting?
   weak var listener: RootListener?
 
@@ -32,10 +36,9 @@ final class RootInteractor:
     super.init(presenter: presenter)
     presenter.listener = self
   }
-  
+
   override func didBecomeActive() {
     super.didBecomeActive()
-
   }
 }
 

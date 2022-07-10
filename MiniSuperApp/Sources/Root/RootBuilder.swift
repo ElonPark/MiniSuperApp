@@ -10,9 +10,7 @@ import RIBs
 
 // MARK: - Dependency
 
-protocol RootDependency: NeedleFoundation.Dependency {
-
-}
+protocol RootDependency: NeedleFoundation.Dependency {}
 
 // MARK: - DynamicComponentDependency
 
@@ -20,19 +18,19 @@ typealias RootComponentDependency = Void
 
 // MARK: - Component
 
-final class RootComponent: NeedleFoundation.Component<RootDependency> {
-
-}
+final class RootComponent: NeedleFoundation.Component<RootDependency> {}
 
 // MARK: - DynamicBuildDependency
 
 typealias RootBuildDependency = Void
 
-// MARK: - Builder
+// MARK: - RootBuildable
 
 protocol RootBuildable: Buildable {
   func build() -> (launchRouter: LaunchRouting, urlHandler: URLHandler)
 }
+
+// MARK: - RootBuilder
 
 final class RootBuilder:
   ComponentizedBuilder<

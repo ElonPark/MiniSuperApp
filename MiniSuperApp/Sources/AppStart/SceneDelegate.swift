@@ -9,6 +9,8 @@ import UIKit
 
 import RIBs
 
+// MARK: - SceneDelegate
+
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
   var window: UIWindow?
