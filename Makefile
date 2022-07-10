@@ -15,3 +15,5 @@ mock:
 	 --use-mock-observable \
 	 --mock-final \
 	 --exclude-imports NeedleFoundation
+
+	swiftformat ./MiniSuperAppTests/OutputMocks.swift

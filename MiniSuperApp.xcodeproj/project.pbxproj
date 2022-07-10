@@ -245,10 +245,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DBD63671279DC10E00843B35 /* Build configuration list for PBXNativeTarget "MiniSuperApp" */;
 			buildPhases = (
+				DB7F38FE2879F16F00E4CF39 /* Needle */,
 				DBD63643279DC10D00843B35 /* Sources */,
 				DBD63644279DC10D00843B35 /* Frameworks */,
 				DBD63645279DC10D00843B35 /* Resources */,
-				DB7F38FE2879F16F00E4CF39 /* Needle */,
 			);
 			buildRules = (
 			);
@@ -399,7 +399,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "SOURCE_ROOT=\"$(SRCROOT)MiniSuperApp/Sources\"\nFILE_PATH=\"${SOURCE_ROOT}/AppStart\"\nexport PATH=\"$PATH:/opt/homebrew/bin\"\nexport SOURCEKIT_LOGGING=0 && needle generate ${FILE_PATH}/NeedleGenerated.swift ${SOURCE_ROOT}/\n";
+			shellScript = "SOURCE_ROOT=\"$(SRCROOT)MiniSuperApp/Sources\"\nFILE_PATH=\"${SOURCE_ROOT}/AppStart\"\nexport PATH=\"$PATH:/opt/homebrew/bin\"\nexport SOURCEKIT_LOGGING=0 && needle generate ${FILE_PATH}/NeedleGenerated.swift ${SOURCE_ROOT}/\nswiftformat ${FILE_PATH}/NeedleGenerated.swift\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
