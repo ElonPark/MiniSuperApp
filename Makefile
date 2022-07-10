@@ -1,6 +1,10 @@
 setup:
 	brew bundle
-	
+
+swiftgen:
+	swiftgen
+	swiftformat ./MiniSuperApp/Sources/Resource ./MiniSuperApp/Sources/Localization
+
 setup_swiftformat_hook:
 	mkdir -p .git/hooks
 	cp ./Scripts/pre-commit .git/hooks/pre-commit
@@ -11,7 +15,7 @@ mock:
 	 --mockfiles ./MiniSuperAppTests/RIBsMocks.swift \
 	 -d ./MiniSuperAppTests/OutputMocks.swift \
 	 -i MiniSuperApp \
-	 -x Resources \
+	 -x Resources Resource Localization \
 	 --use-mock-observable \
 	 --mock-final \
 	 --exclude-imports NeedleFoundation

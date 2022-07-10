@@ -1,0 +1,21 @@
+input_dir: MiniSuperApp/Sources/
+output_dir: MiniSuperApp/Sources/
+strings:
+  inputs: 
+  - Localization/ko.lproj/Localizable.strings
+  - Localization/ko.lproj/Localizable.stringsdict
+  options:
+    separator: "/"
+  outputs:
+    - templatePath: Scripts/templates/strings-structured-swift5.stencil
+      output: Localization/L10n.swift
+      params:
+        publicAccess: public
+xcassets:
+  inputs: Resource/Assets.xcassets
+  outputs:
+    - templatePath: Scripts/templates/xcassets-swift5.stencil
+      output: Resource/Assets.swift
+      params:
+        forceProvidesNamespaces: true
+        publicAccess: public
