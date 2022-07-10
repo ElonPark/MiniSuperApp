@@ -21,6 +21,7 @@
 		DB91046C287AC4A50066F4D7 /* RootRouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB91046A287AC4A50066F4D7 /* RootRouterTests.swift */; };
 		DB91046E287AC4B80066F4D7 /* URLHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB91046D287AC4B80066F4D7 /* URLHandler.swift */; };
 		DB910470287AC4D80066F4D7 /* NeedleGenerated.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB91046F287AC4D80066F4D7 /* NeedleGenerated.swift */; };
+		DB910472287AC7740066F4D7 /* RIBsMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB910471287AC7740066F4D7 /* RIBsMocks.swift */; };
 		DBD6364B279DC10D00843B35 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD6364A279DC10D00843B35 /* AppDelegate.swift */; };
 		DBD6364D279DC10D00843B35 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD6364C279DC10D00843B35 /* SceneDelegate.swift */; };
 		DBD63654279DC10E00843B35 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DBD63653279DC10E00843B35 /* Assets.xcassets */; };
@@ -61,6 +62,7 @@
 		DB91046A287AC4A50066F4D7 /* RootRouterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootRouterTests.swift; sourceTree = "<group>"; };
 		DB91046D287AC4B80066F4D7 /* URLHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLHandler.swift; sourceTree = "<group>"; };
 		DB91046F287AC4D80066F4D7 /* NeedleGenerated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NeedleGenerated.swift; sourceTree = "<group>"; };
+		DB910471287AC7740066F4D7 /* RIBsMocks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RIBsMocks.swift; path = MiniSuperAppTests/RIBsMocks.swift; sourceTree = SOURCE_ROOT; };
 		DBD63647279DC10D00843B35 /* MiniSuperApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MiniSuperApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBD6364A279DC10D00843B35 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DBD6364C279DC10D00843B35 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -221,6 +223,7 @@
 		DBD63660279DC10E00843B35 /* MiniSuperAppTests */ = {
 			isa = PBXGroup;
 			children = (
+				DB910471287AC7740066F4D7 /* RIBsMocks.swift */,
 				DB7F390D287A039100E4CF39 /* Root */,
 			);
 			path = MiniSuperAppTests;
@@ -423,6 +426,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB910472287AC7740066F4D7 /* RIBsMocks.swift in Sources */,
 				DB91046C287AC4A50066F4D7 /* RootRouterTests.swift in Sources */,
 				DB91046B287AC4A50066F4D7 /* RootInteractorTests.swift in Sources */,
 			);
