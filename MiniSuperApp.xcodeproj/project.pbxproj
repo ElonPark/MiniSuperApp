@@ -10,18 +10,23 @@
 		DB0CA7052879CE0900D60913 /* FlexLayout in Frameworks */ = {isa = PBXBuildFile; productRef = DB0CA7042879CE0900D60913 /* FlexLayout */; };
 		DB0CA7082879CE5F00D60913 /* PinLayout in Frameworks */ = {isa = PBXBuildFile; productRef = DB0CA7072879CE5F00D60913 /* PinLayout */; };
 		DB7F38EF2879E8DC00E4CF39 /* AppComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7F38EE2879E8DC00E4CF39 /* AppComponent.swift */; };
-		DB7F39002879F27D00E4CF39 /* NeedleGenerated.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7F38FF2879F27D00E4CF39 /* NeedleGenerated.swift */; };
+		DB7F38F52879E91B00E4CF39 /* RootRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7F38F12879E91B00E4CF39 /* RootRouter.swift */; };
+		DB7F38F62879E91B00E4CF39 /* RootTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7F38F22879E91B00E4CF39 /* RootTabBarController.swift */; };
+		DB7F38F72879E91B00E4CF39 /* RootBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7F38F32879E91B00E4CF39 /* RootBuilder.swift */; };
+		DB7F38F82879E91B00E4CF39 /* RootInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7F38F42879E91B00E4CF39 /* RootInteractor.swift */; };
 		DB7F38FD2879EA0100E4CF39 /* ComponentizedBuilderExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7F38FC2879EA0100E4CF39 /* ComponentizedBuilderExtensions.swift */; };
 		DB910466287AC1230066F4D7 /* ViewControllableExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB910465287AC1230066F4D7 /* ViewControllableExtensions.swift */; };
+		DB910468287AC4630066F4D7 /* RIBs in Frameworks */ = {isa = PBXBuildFile; productRef = DBB95009287AB57D0096BD09 /* RIBs */; };
+		DB91046B287AC4A50066F4D7 /* RootInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB910469287AC4A50066F4D7 /* RootInteractorTests.swift */; };
+		DB91046C287AC4A50066F4D7 /* RootRouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB91046A287AC4A50066F4D7 /* RootRouterTests.swift */; };
+		DB91046E287AC4B80066F4D7 /* URLHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB91046D287AC4B80066F4D7 /* URLHandler.swift */; };
+		DB910470287AC4D80066F4D7 /* NeedleGenerated.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB91046F287AC4D80066F4D7 /* NeedleGenerated.swift */; };
 		DBD6364B279DC10D00843B35 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD6364A279DC10D00843B35 /* AppDelegate.swift */; };
 		DBD6364D279DC10D00843B35 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD6364C279DC10D00843B35 /* SceneDelegate.swift */; };
-		DBD6364F279DC10D00843B35 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD6364E279DC10D00843B35 /* ViewController.swift */; };
 		DBD63654279DC10E00843B35 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DBD63653279DC10E00843B35 /* Assets.xcassets */; };
 		DBD63657279DC10E00843B35 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBD63655279DC10E00843B35 /* LaunchScreen.storyboard */; };
-		DBD63662279DC10E00843B35 /* MiniSuperAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD63661279DC10E00843B35 /* MiniSuperAppTests.swift */; };
 		DBD6366C279DC10E00843B35 /* MiniSuperAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD6366B279DC10E00843B35 /* MiniSuperAppUITests.swift */; };
 		DBD6366E279DC10E00843B35 /* MiniSuperAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD6366D279DC10E00843B35 /* MiniSuperAppUITestsLaunchTests.swift */; };
-		DBD6367C279DC5C900843B35 /* RIBs in Frameworks */ = {isa = PBXBuildFile; productRef = DBD6367B279DC5C900843B35 /* RIBs */; };
 		DBD6367F279DC67900843B35 /* NeedleFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = DBD6367E279DC67900843B35 /* NeedleFoundation */; };
 		DBD63681279DC67900843B35 /* NeedleFoundationTest in Frameworks */ = {isa = PBXBuildFile; productRef = DBD63680279DC67900843B35 /* NeedleFoundationTest */; };
 		DBD63684279DC6A900843B35 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = DBD63683279DC6A900843B35 /* Then */; };
@@ -46,18 +51,23 @@
 
 /* Begin PBXFileReference section */
 		DB7F38EE2879E8DC00E4CF39 /* AppComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppComponent.swift; sourceTree = "<group>"; };
-		DB7F38FF2879F27D00E4CF39 /* NeedleGenerated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NeedleGenerated.swift; sourceTree = "<group>"; };
+		DB7F38F12879E91B00E4CF39 /* RootRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootRouter.swift; sourceTree = "<group>"; };
+		DB7F38F22879E91B00E4CF39 /* RootTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootTabBarController.swift; sourceTree = "<group>"; };
+		DB7F38F32879E91B00E4CF39 /* RootBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootBuilder.swift; sourceTree = "<group>"; };
+		DB7F38F42879E91B00E4CF39 /* RootInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootInteractor.swift; sourceTree = "<group>"; };
 		DB7F38FC2879EA0100E4CF39 /* ComponentizedBuilderExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentizedBuilderExtensions.swift; sourceTree = "<group>"; };
 		DB910465287AC1230066F4D7 /* ViewControllableExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllableExtensions.swift; sourceTree = "<group>"; };
+		DB910469287AC4A50066F4D7 /* RootInteractorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootInteractorTests.swift; sourceTree = "<group>"; };
+		DB91046A287AC4A50066F4D7 /* RootRouterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootRouterTests.swift; sourceTree = "<group>"; };
+		DB91046D287AC4B80066F4D7 /* URLHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLHandler.swift; sourceTree = "<group>"; };
+		DB91046F287AC4D80066F4D7 /* NeedleGenerated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NeedleGenerated.swift; sourceTree = "<group>"; };
 		DBD63647279DC10D00843B35 /* MiniSuperApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MiniSuperApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBD6364A279DC10D00843B35 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DBD6364C279DC10D00843B35 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		DBD6364E279DC10D00843B35 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		DBD63653279DC10E00843B35 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DBD63656279DC10E00843B35 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DBD63658279DC10E00843B35 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DBD6365D279DC10E00843B35 /* MiniSuperAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MiniSuperAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		DBD63661279DC10E00843B35 /* MiniSuperAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniSuperAppTests.swift; sourceTree = "<group>"; };
 		DBD63667279DC10E00843B35 /* MiniSuperAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MiniSuperAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBD6366B279DC10E00843B35 /* MiniSuperAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniSuperAppUITests.swift; sourceTree = "<group>"; };
 		DBD6366D279DC10E00843B35 /* MiniSuperAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniSuperAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -68,8 +78,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB910468287AC4630066F4D7 /* RIBs in Frameworks */,
 				DBD6367F279DC67900843B35 /* NeedleFoundation in Frameworks */,
-				DBB9500A287AB57D0096BD09 /* RIBs in Frameworks */,
 				DB0CA7082879CE5F00D60913 /* PinLayout in Frameworks */,
 				DBD63684279DC6A900843B35 /* Then in Frameworks */,
 				DB0CA7052879CE0900D60913 /* FlexLayout in Frameworks */,
@@ -109,6 +119,7 @@
 			children = (
 				DB7F38F92879E99300E4CF39 /* Core */,
 				DB7F38EC2879E77800E4CF39 /* AppStart */,
+				DB7F38F02879E90300E4CF39 /* Root */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -116,17 +127,29 @@
 		DB7F38EC2879E77800E4CF39 /* AppStart */ = {
 			isa = PBXGroup;
 			children = (
+				DB7F38EE2879E8DC00E4CF39 /* AppComponent.swift */,
 				DBD6364A279DC10D00843B35 /* AppDelegate.swift */,
 				DBD6364C279DC10D00843B35 /* SceneDelegate.swift */,
-				DB7F38EE2879E8DC00E4CF39 /* AppComponent.swift */,
-				DB7F38FF2879F27D00E4CF39 /* NeedleGenerated.swift */,
+				DB91046F287AC4D80066F4D7 /* NeedleGenerated.swift */,
 			);
 			path = AppStart;
+			sourceTree = "<group>";
+		};
+		DB7F38F02879E90300E4CF39 /* Root */ = {
+			isa = PBXGroup;
+			children = (
+				DB7F38F32879E91B00E4CF39 /* RootBuilder.swift */,
+				DB7F38F12879E91B00E4CF39 /* RootRouter.swift */,
+				DB7F38F42879E91B00E4CF39 /* RootInteractor.swift */,
+				DB7F38F22879E91B00E4CF39 /* RootTabBarController.swift */,
+			);
+			path = Root;
 			sourceTree = "<group>";
 		};
 		DB7F38F92879E99300E4CF39 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				DB7F39012879F4BA00E4CF39 /* Protocols */,
 				DB7F38FA2879E9C500E4CF39 /* Extensions */,
 			);
 			path = Core;
@@ -147,6 +170,23 @@
 				DB910465287AC1230066F4D7 /* ViewControllableExtensions.swift */,
 			);
 			path = RIBsExtensions;
+			sourceTree = "<group>";
+		};
+		DB7F39012879F4BA00E4CF39 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				DB91046D287AC4B80066F4D7 /* URLHandler.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		DB7F390D287A039100E4CF39 /* Root */ = {
+			isa = PBXGroup;
+			children = (
+				DB910469287AC4A50066F4D7 /* RootInteractorTests.swift */,
+				DB91046A287AC4A50066F4D7 /* RootRouterTests.swift */,
+			);
+			path = Root;
 			sourceTree = "<group>";
 		};
 		DBD6363E279DC10D00843B35 = {
@@ -174,7 +214,6 @@
 			children = (
 				DB7F38EA2879E74A00E4CF39 /* Resources */,
 				DB7F38EB2879E76F00E4CF39 /* Sources */,
-				DBD6364E279DC10D00843B35 /* ViewController.swift */,
 			);
 			path = MiniSuperApp;
 			sourceTree = "<group>";
@@ -182,7 +221,7 @@
 		DBD63660279DC10E00843B35 /* MiniSuperAppTests */ = {
 			isa = PBXGroup;
 			children = (
-				DBD63661279DC10E00843B35 /* MiniSuperAppTests.swift */,
+				DB7F390D287A039100E4CF39 /* Root */,
 			);
 			path = MiniSuperAppTests;
 			sourceTree = "<group>";
@@ -278,6 +317,7 @@
 					};
 					DBD6365C279DC10E00843B35 = {
 						CreatedOnToolsVersion = 13.2.1;
+						LastSwiftMigration = 1340;
 						TestTargetID = DBD63646279DC10D00843B35;
 					};
 					DBD63666279DC10E00843B35 = {
@@ -365,13 +405,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DBD6364F279DC10D00843B35 /* ViewController.swift in Sources */,
-				DB7F39002879F27D00E4CF39 /* NeedleGenerated.swift in Sources */,
+				DB7F38F72879E91B00E4CF39 /* RootBuilder.swift in Sources */,
 				DB7F38FD2879EA0100E4CF39 /* ComponentizedBuilderExtensions.swift in Sources */,
+				DB7F38F52879E91B00E4CF39 /* RootRouter.swift in Sources */,
+				DB7F38F62879E91B00E4CF39 /* RootTabBarController.swift in Sources */,
 				DB7F38EF2879E8DC00E4CF39 /* AppComponent.swift in Sources */,
 				DBD6364B279DC10D00843B35 /* AppDelegate.swift in Sources */,
+				DB7F38F82879E91B00E4CF39 /* RootInteractor.swift in Sources */,
 				DBD6364D279DC10D00843B35 /* SceneDelegate.swift in Sources */,
+				DB91046E287AC4B80066F4D7 /* URLHandler.swift in Sources */,
 				DB910466287AC1230066F4D7 /* ViewControllableExtensions.swift in Sources */,
+				DB910470287AC4D80066F4D7 /* NeedleGenerated.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -379,7 +423,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DBD63662279DC10E00843B35 /* MiniSuperAppTests.swift in Sources */,
+				DB91046C287AC4A50066F4D7 /* RootRouterTests.swift in Sources */,
+				DB91046B287AC4A50066F4D7 /* RootInteractorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -596,15 +641,22 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = M77W68G9P5;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.elonpark.MiniSuperAppTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MiniSuperApp.app/MiniSuperApp";
@@ -616,11 +668,17 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = M77W68G9P5;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.elonpark.MiniSuperAppTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";

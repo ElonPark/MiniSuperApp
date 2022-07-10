@@ -10,5 +10,9 @@ import Foundation
 import NeedleFoundation
 
 final class AppComponent: BootstrapComponent {
-  
+  var rootBuilder: RootBuildable {
+    RootBuilder {
+      RootComponent(parent: self)
+    }
+  }
 }
