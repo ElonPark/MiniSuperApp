@@ -1,5 +1,10 @@
 setup:
 	brew bundle
+	
+setup_swiftformat_hook:
+	mkdir -p .git/hooks
+	cp ./Scripts/pre-commit .git/hooks/pre-commit
+	chmod 755 .git/hooks/pre-commit
 
 mock:
 	mockolo -s ./MiniSuperApp \
