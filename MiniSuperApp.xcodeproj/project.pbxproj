@@ -12,6 +12,7 @@
 		DB7F38EF2879E8DC00E4CF39 /* AppComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7F38EE2879E8DC00E4CF39 /* AppComponent.swift */; };
 		DB7F39002879F27D00E4CF39 /* NeedleGenerated.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7F38FF2879F27D00E4CF39 /* NeedleGenerated.swift */; };
 		DB7F38FD2879EA0100E4CF39 /* ComponentizedBuilderExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7F38FC2879EA0100E4CF39 /* ComponentizedBuilderExtensions.swift */; };
+		DB910466287AC1230066F4D7 /* ViewControllableExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB910465287AC1230066F4D7 /* ViewControllableExtensions.swift */; };
 		DBD6364B279DC10D00843B35 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD6364A279DC10D00843B35 /* AppDelegate.swift */; };
 		DBD6364D279DC10D00843B35 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD6364C279DC10D00843B35 /* SceneDelegate.swift */; };
 		DBD6364F279DC10D00843B35 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD6364E279DC10D00843B35 /* ViewController.swift */; };
@@ -47,6 +48,7 @@
 		DB7F38EE2879E8DC00E4CF39 /* AppComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppComponent.swift; sourceTree = "<group>"; };
 		DB7F38FF2879F27D00E4CF39 /* NeedleGenerated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NeedleGenerated.swift; sourceTree = "<group>"; };
 		DB7F38FC2879EA0100E4CF39 /* ComponentizedBuilderExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentizedBuilderExtensions.swift; sourceTree = "<group>"; };
+		DB910465287AC1230066F4D7 /* ViewControllableExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllableExtensions.swift; sourceTree = "<group>"; };
 		DBD63647279DC10D00843B35 /* MiniSuperApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MiniSuperApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBD6364A279DC10D00843B35 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DBD6364C279DC10D00843B35 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -142,6 +144,7 @@
 			isa = PBXGroup;
 			children = (
 				DB7F38FC2879EA0100E4CF39 /* ComponentizedBuilderExtensions.swift */,
+				DB910465287AC1230066F4D7 /* ViewControllableExtensions.swift */,
 			);
 			path = RIBsExtensions;
 			sourceTree = "<group>";
@@ -368,6 +371,7 @@
 				DB7F38EF2879E8DC00E4CF39 /* AppComponent.swift in Sources */,
 				DBD6364B279DC10D00843B35 /* AppDelegate.swift in Sources */,
 				DBD6364D279DC10D00843B35 /* SceneDelegate.swift in Sources */,
+				DB910466287AC1230066F4D7 /* ViewControllableExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
