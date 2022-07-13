@@ -47,12 +47,12 @@ public final class LocalDataSupplier: LocalDataSupplierProtocol {
 
 extension LocalDataSupplier {
   @propertyWrapper
-  public struct Property<Value> {
-    private let key: String
-    private let defaultValue: Value
-    private var container: UserDefaults?
-    private let relay: BehaviorRelay<Value>
+  public class Property<Value> {
+    let key: String
+    let defaultValue: Value
+    let relay: BehaviorRelay<Value>
 
+    var container: UserDefaults?
     private var _container: UserDefaults {
       self.container ?? LocalDataSupplier.container
     }
@@ -91,17 +91,13 @@ extension LocalDataSupplier {
 extension LocalDataSupplier {
 
   @propertyWrapper
-  public struct CodableProperty<Value: Codable> {
-    private let key: String
-    private let defaultValue: Value
-    private let container: UserDefaults?
-    private let relay: BehaviorRelay<Value>
+  public final class CodableProperty<Value: Codable>: Property<Value> {
 
     private var _container: UserDefaults {
       self.container ?? LocalDataSupplier.container
     }
 
-    public var wrappedValue: Value {
+    override public var wrappedValue: Value {
       get {
         self._container.codable(for: self.key) ?? self.defaultValue
       }
@@ -115,17 +111,6 @@ extension LocalDataSupplier {
       }
     }
 
-    public var projectedValue: Observable<Value> { self.relay.asObservable() }
-
-    public init(
-      key: String,
-      defaultValue: Value,
-      container: UserDefaults? = nil
-    ) {
-      self.key = key
-      self.defaultValue = defaultValue
-      self.container = container
-      self.relay = BehaviorRelay(value: self.defaultValue)
-    }
+    override public var projectedValue: Observable<Value> { self.relay.asObservable() }
   }
 }
