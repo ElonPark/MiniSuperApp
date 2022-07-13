@@ -7,14 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		DB0CA7052879CE0900D60913 /* FlexLayout in Frameworks */ = {isa = PBXBuildFile; productRef = DB0CA7042879CE0900D60913 /* FlexLayout */; };
-		DB0CA7082879CE5F00D60913 /* PinLayout in Frameworks */ = {isa = PBXBuildFile; productRef = DB0CA7072879CE5F00D60913 /* PinLayout */; };
 		DB7F38EF2879E8DC00E4CF39 /* AppComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7F38EE2879E8DC00E4CF39 /* AppComponent.swift */; };
 		DB7F38F52879E91B00E4CF39 /* RootRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7F38F12879E91B00E4CF39 /* RootRouter.swift */; };
 		DB7F38F62879E91B00E4CF39 /* RootTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7F38F22879E91B00E4CF39 /* RootTabBarController.swift */; };
 		DB7F38F72879E91B00E4CF39 /* RootBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7F38F32879E91B00E4CF39 /* RootBuilder.swift */; };
 		DB7F38F82879E91B00E4CF39 /* RootInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7F38F42879E91B00E4CF39 /* RootInteractor.swift */; };
 		DB7F38FD2879EA0100E4CF39 /* ComponentizedBuilderExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7F38FC2879EA0100E4CF39 /* ComponentizedBuilderExtensions.swift */; };
+		DB83324B287F0FCF001A2852 /* SplashRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB833247287F0FCF001A2852 /* SplashRouter.swift */; };
+		DB83324C287F0FCF001A2852 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB833248287F0FCF001A2852 /* SplashViewController.swift */; };
+		DB83324D287F0FCF001A2852 /* SplashBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB833249287F0FCF001A2852 /* SplashBuilder.swift */; };
+		DB83324E287F0FCF001A2852 /* SplashInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB83324A287F0FCF001A2852 /* SplashInteractor.swift */; };
+		DB833252287F1412001A2852 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB833251287F1412001A2852 /* SplashView.swift */; };
+		DB833255287F1496001A2852 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB833254287F1496001A2852 /* BaseView.swift */; };
+		DB833257287F18EA001A2852 /* SplashModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB833256287F18EA001A2852 /* SplashModels.swift */; };
+		DB833261287F25A4001A2852 /* FlexLayout in Frameworks */ = {isa = PBXBuildFile; productRef = DB833260287F25A4001A2852 /* FlexLayout */; };
+		DB833263287F25A4001A2852 /* FlexLayoutYoga in Frameworks */ = {isa = PBXBuildFile; productRef = DB833262287F25A4001A2852 /* FlexLayoutYoga */; };
+		DB833265287F25A4001A2852 /* FlexLayoutYogaKit in Frameworks */ = {isa = PBXBuildFile; productRef = DB833264287F25A4001A2852 /* FlexLayoutYogaKit */; };
+		DB833268287F25EA001A2852 /* PinLayout in Frameworks */ = {isa = PBXBuildFile; productRef = DB833267287F25EA001A2852 /* PinLayout */; };
 		DB910466287AC1230066F4D7 /* ViewControllableExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB910465287AC1230066F4D7 /* ViewControllableExtensions.swift */; };
 		DB910468287AC4630066F4D7 /* RIBs in Frameworks */ = {isa = PBXBuildFile; productRef = DBB95009287AB57D0096BD09 /* RIBs */; };
 		DB91046B287AC4A50066F4D7 /* RootInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB910469287AC4A50066F4D7 /* RootInteractorTests.swift */; };
@@ -69,6 +78,13 @@
 		DB7F38F32879E91B00E4CF39 /* RootBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootBuilder.swift; sourceTree = "<group>"; };
 		DB7F38F42879E91B00E4CF39 /* RootInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootInteractor.swift; sourceTree = "<group>"; };
 		DB7F38FC2879EA0100E4CF39 /* ComponentizedBuilderExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentizedBuilderExtensions.swift; sourceTree = "<group>"; };
+		DB833247287F0FCF001A2852 /* SplashRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashRouter.swift; sourceTree = "<group>"; };
+		DB833248287F0FCF001A2852 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
+		DB833249287F0FCF001A2852 /* SplashBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashBuilder.swift; sourceTree = "<group>"; };
+		DB83324A287F0FCF001A2852 /* SplashInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashInteractor.swift; sourceTree = "<group>"; };
+		DB833251287F1412001A2852 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
+		DB833254287F1496001A2852 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
+		DB833256287F18EA001A2852 /* SplashModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashModels.swift; sourceTree = "<group>"; };
 		DB910465287AC1230066F4D7 /* ViewControllableExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllableExtensions.swift; sourceTree = "<group>"; };
 		DB910469287AC4A50066F4D7 /* RootInteractorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootInteractorTests.swift; sourceTree = "<group>"; };
 		DB91046A287AC4A50066F4D7 /* RootRouterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootRouterTests.swift; sourceTree = "<group>"; };
@@ -109,9 +125,11 @@
 			files = (
 				DB910468287AC4630066F4D7 /* RIBs in Frameworks */,
 				DBD6367F279DC67900843B35 /* NeedleFoundation in Frameworks */,
-				DB0CA7082879CE5F00D60913 /* PinLayout in Frameworks */,
+				DB833261287F25A4001A2852 /* FlexLayout in Frameworks */,
+				DB833265287F25A4001A2852 /* FlexLayoutYogaKit in Frameworks */,
 				DBD63684279DC6A900843B35 /* Then in Frameworks */,
-				DB0CA7052879CE0900D60913 /* FlexLayout in Frameworks */,
+				DB833268287F25EA001A2852 /* PinLayout in Frameworks */,
+				DB833263287F25A4001A2852 /* FlexLayoutYoga in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -153,6 +171,7 @@
 				DB7F38F92879E99300E4CF39 /* Core */,
 				DB7F38EC2879E77800E4CF39 /* AppStart */,
 				DB7F38F02879E90300E4CF39 /* Root */,
+				DB833246287F0F9E001A2852 /* Splash */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -226,6 +245,35 @@
 			path = Root;
 			sourceTree = "<group>";
 		};
+		DB833246287F0F9E001A2852 /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+				DB83325E287F22C0001A2852 /* Components */,
+				DB833247287F0FCF001A2852 /* SplashRouter.swift */,
+				DB833248287F0FCF001A2852 /* SplashViewController.swift */,
+				DB833249287F0FCF001A2852 /* SplashBuilder.swift */,
+				DB83324A287F0FCF001A2852 /* SplashInteractor.swift */,
+				DB833256287F18EA001A2852 /* SplashModels.swift */,
+			);
+			path = Splash;
+			sourceTree = "<group>";
+		};
+		DB833253287F1472001A2852 /* BaseComponents */ = {
+			isa = PBXGroup;
+			children = (
+				DB833254287F1496001A2852 /* BaseView.swift */,
+			);
+			path = BaseComponents;
+			sourceTree = "<group>";
+		};
+		DB83325E287F22C0001A2852 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				DB833251287F1412001A2852 /* SplashView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		DB910476287ACC090066F4D7 /* Localization */ = {
 			isa = PBXGroup;
 			children = (
@@ -239,6 +287,7 @@
 		DB91049A287ACE370066F4D7 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				DB833253287F1472001A2852 /* BaseComponents */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -337,9 +386,11 @@
 			packageProductDependencies = (
 				DBD6367E279DC67900843B35 /* NeedleFoundation */,
 				DBD63683279DC6A900843B35 /* Then */,
-				DB0CA7042879CE0900D60913 /* FlexLayout */,
-				DB0CA7072879CE5F00D60913 /* PinLayout */,
 				DBB95009287AB57D0096BD09 /* RIBs */,
+				DB833260287F25A4001A2852 /* FlexLayout */,
+				DB833262287F25A4001A2852 /* FlexLayoutYoga */,
+				DB833264287F25A4001A2852 /* FlexLayoutYogaKit */,
+				DB833267287F25EA001A2852 /* PinLayout */,
 			);
 			productName = MiniSuperApp;
 			productReference = DBD63647279DC10D00843B35 /* MiniSuperApp.app */;
@@ -421,9 +472,9 @@
 			packageReferences = (
 				DBD6367D279DC67900843B35 /* XCRemoteSwiftPackageReference "needle" */,
 				DBD63682279DC6A900843B35 /* XCRemoteSwiftPackageReference "Then" */,
-				DB0CA7032879CE0900D60913 /* XCRemoteSwiftPackageReference "FlexLayout" */,
-				DB0CA7062879CE5F00D60913 /* XCRemoteSwiftPackageReference "PinLayout" */,
 				DBB95008287AB57D0096BD09 /* XCRemoteSwiftPackageReference "RIBs" */,
+				DB83325F287F25A4001A2852 /* XCRemoteSwiftPackageReference "FlexLayout" */,
+				DB833266287F25EA001A2852 /* XCRemoteSwiftPackageReference "PinLayout" */,
 			);
 			productRefGroup = DBD63648279DC10D00843B35 /* Products */;
 			projectDirPath = "";
@@ -494,7 +545,10 @@
 				DB7F38F72879E91B00E4CF39 /* RootBuilder.swift in Sources */,
 				DB9104AC287B384E0066F4D7 /* DelayedMutable.swift in Sources */,
 				DB7F38FD2879EA0100E4CF39 /* ComponentizedBuilderExtensions.swift in Sources */,
+				DB83324B287F0FCF001A2852 /* SplashRouter.swift in Sources */,
 				DB7F38F52879E91B00E4CF39 /* RootRouter.swift in Sources */,
+				DB83324E287F0FCF001A2852 /* SplashInteractor.swift in Sources */,
+				DB83324D287F0FCF001A2852 /* SplashBuilder.swift in Sources */,
 				DB7F38F62879E91B00E4CF39 /* RootTabBarController.swift in Sources */,
 				DB7F38EF2879E8DC00E4CF39 /* AppComponent.swift in Sources */,
 				DB9104B0287B3C830066F4D7 /* UserDefaultExtensions.swift in Sources */,
@@ -503,12 +557,16 @@
 				DBD6364D279DC10D00843B35 /* SceneDelegate.swift in Sources */,
 				DB9104AA287B35C40066F4D7 /* User.swift in Sources */,
 				DB9104A3287B289E0066F4D7 /* Assets.swift in Sources */,
+				DB833255287F1496001A2852 /* BaseView.swift in Sources */,
 				DB91049C287AD5AC0066F4D7 /* L10n.swift in Sources */,
 				DB9104AE287B39180066F4D7 /* AnyOptional.swift in Sources */,
+				DB833257287F18EA001A2852 /* SplashModels.swift in Sources */,
+				DB833252287F1412001A2852 /* SplashView.swift in Sources */,
 				DB91046E287AC4B80066F4D7 /* URLHandler.swift in Sources */,
 				DB910466287AC1230066F4D7 /* ViewControllableExtensions.swift in Sources */,
 				DB910470287AC4D80066F4D7 /* NeedleGenerated.swift in Sources */,
 				DB9104A7287B355B0066F4D7 /* LocalDataSupplier.swift in Sources */,
+				DB83324C287F0FCF001A2852 /* SplashViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -623,6 +681,7 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
+					"FLEXLAYOUT_SWIFT_PACKAGE=1",
 					"$(inherited)",
 				);
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -681,6 +740,7 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = "FLEXLAYOUT_SWIFT_PACKAGE=1";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -884,7 +944,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		DB0CA7032879CE0900D60913 /* XCRemoteSwiftPackageReference "FlexLayout" */ = {
+		DB83325F287F25A4001A2852 /* XCRemoteSwiftPackageReference "FlexLayout" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/layoutBox/FlexLayout.git";
 			requirement = {
@@ -892,12 +952,12 @@
 				minimumVersion = 1.3.0;
 			};
 		};
-		DB0CA7062879CE5F00D60913 /* XCRemoteSwiftPackageReference "PinLayout" */ = {
+		DB833266287F25EA001A2852 /* XCRemoteSwiftPackageReference "PinLayout" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/layoutBox/PinLayout.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 1.10.0;
+				minimumVersion = 1.0.0;
 			};
 		};
 		DBB95008287AB57D0096BD09 /* XCRemoteSwiftPackageReference "RIBs" */ = {
@@ -927,14 +987,24 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		DB0CA7042879CE0900D60913 /* FlexLayout */ = {
+		DB833260287F25A4001A2852 /* FlexLayout */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = DB0CA7032879CE0900D60913 /* XCRemoteSwiftPackageReference "FlexLayout" */;
+			package = DB83325F287F25A4001A2852 /* XCRemoteSwiftPackageReference "FlexLayout" */;
 			productName = FlexLayout;
 		};
-		DB0CA7072879CE5F00D60913 /* PinLayout */ = {
+		DB833262287F25A4001A2852 /* FlexLayoutYoga */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = DB0CA7062879CE5F00D60913 /* XCRemoteSwiftPackageReference "PinLayout" */;
+			package = DB83325F287F25A4001A2852 /* XCRemoteSwiftPackageReference "FlexLayout" */;
+			productName = FlexLayoutYoga;
+		};
+		DB833264287F25A4001A2852 /* FlexLayoutYogaKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DB83325F287F25A4001A2852 /* XCRemoteSwiftPackageReference "FlexLayout" */;
+			productName = FlexLayoutYogaKit;
+		};
+		DB833267287F25EA001A2852 /* PinLayout */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DB833266287F25EA001A2852 /* XCRemoteSwiftPackageReference "PinLayout" */;
 			productName = PinLayout;
 		};
 		DBB95009287AB57D0096BD09 /* RIBs */ = {

@@ -16,9 +16,16 @@ protocol RootDependency: NeedleFoundation.Dependency {}
 
 typealias RootComponentDependency = Void
 
-// MARK: - Component
+// MARK: - RootComponent
 
-final class RootComponent: NeedleFoundation.Component<RootDependency> {}
+final class RootComponent: NeedleFoundation.Component<RootDependency> {
+
+  fileprivate var splashBuilder: SplashBuildable {
+    SplashBuilder {
+      SplashComponent(parent: self)
+    }
+  }
+}
 
 // MARK: - DynamicBuildDependency
 
@@ -53,7 +60,8 @@ final class RootBuilder:
 
     let router = RootRouter(
       interactor: interactor,
-      viewController: viewController
+      viewController: viewController,
+      splashBuilder: component.splashBuilder
     )
 
     return (router, interactor)

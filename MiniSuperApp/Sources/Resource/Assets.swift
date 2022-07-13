@@ -22,6 +22,10 @@ public typealias AssetImageTypeAlias = ImageAsset.Image
 // swiftlint:disable identifier_name line_length nesting type_body_length type_name
 public enum Asset {
   public enum Color {
+    public enum Semantic {
+      public static var background: ColorAsset.Color { ColorAsset(name: "background").color }
+    }
+
     public enum Static {
       public static var white: ColorAsset.Color { ColorAsset(name: "white").color }
     }

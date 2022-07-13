@@ -10,7 +10,12 @@ import Foundation
 import RIBs
 import RxSwift
 
-protocol RootRouting: ViewableRouting {}
+// MARK: - RootRouting
+
+protocol RootRouting: ViewableRouting {
+  func attachSplashRIB()
+  func detachSplashRIB()
+}
 
 // MARK: - RootPresentable
 
@@ -26,7 +31,8 @@ final class RootInteractor:
   PresentableInteractor<RootPresentable>,
   RootInteractable,
   RootPresentableListener,
-  URLHandler
+  URLHandler,
+  SplashListener
 {
 
   weak var router: RootRouting?
@@ -39,10 +45,20 @@ final class RootInteractor:
 
   override func didBecomeActive() {
     super.didBecomeActive()
+    self.startLaunchSequence()
+  }
+
+  private func startLaunchSequence() {
+    self.router?.attachSplashRIB()
+  }
+
+  func initializationComplete() {
+    // TODO: - 로그인 유무 판단 <Elon> 2022-07-14 01:06:37
+    self.router?.detachSplashRIB()
   }
 }
 
-// MARK: URLHandler
+// MARK: - URLHandler
 
 extension RootInteractor {
   func handle(_ url: URL) {
