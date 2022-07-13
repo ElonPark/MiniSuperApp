@@ -27,8 +27,13 @@
 		DB91049C287AD5AC0066F4D7 /* L10n.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB91049B287AD5AC0066F4D7 /* L10n.swift */; };
 		DB91049F287B1CF50066F4D7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB91049E287B1CF50066F4D7 /* Assets.xcassets */; };
 		DB9104A3287B289E0066F4D7 /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9104A2287B289E0066F4D7 /* Assets.swift */; };
+		DB9104A7287B355B0066F4D7 /* LocalDataSupplier.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9104A6287B355B0066F4D7 /* LocalDataSupplier.swift */; };
 		DB9104AA287B35C40066F4D7 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9104A9287B35C40066F4D7 /* User.swift */; };
 		DB9104AC287B384E0066F4D7 /* DelayedMutable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9104AB287B384E0066F4D7 /* DelayedMutable.swift */; };
+		DB9104AE287B39180066F4D7 /* AnyOptional.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9104AD287B39180066F4D7 /* AnyOptional.swift */; };
+		DB9104B0287B3C830066F4D7 /* UserDefaultExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9104AF287B3C830066F4D7 /* UserDefaultExtensions.swift */; };
+		DB9104B5287B45080066F4D7 /* LocalDataSupplierTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9104B4287B45080066F4D7 /* LocalDataSupplierTests.swift */; };
+		DB9104B7287B463E0066F4D7 /* UserDefaultsStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9104B6287B463E0066F4D7 /* UserDefaultsStub.swift */; };
 		DBD6364B279DC10D00843B35 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD6364A279DC10D00843B35 /* AppDelegate.swift */; };
 		DBD6364D279DC10D00843B35 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD6364C279DC10D00843B35 /* SceneDelegate.swift */; };
 		DBD63654279DC10E00843B35 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DBD63653279DC10E00843B35 /* Assets.xcassets */; };
@@ -78,8 +83,13 @@
 		DB91049B287AD5AC0066F4D7 /* L10n.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = L10n.swift; sourceTree = "<group>"; };
 		DB91049E287B1CF50066F4D7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DB9104A2287B289E0066F4D7 /* Assets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
+		DB9104A6287B355B0066F4D7 /* LocalDataSupplier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalDataSupplier.swift; sourceTree = "<group>"; };
 		DB9104A9287B35C40066F4D7 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		DB9104AB287B384E0066F4D7 /* DelayedMutable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelayedMutable.swift; sourceTree = "<group>"; };
+		DB9104AD287B39180066F4D7 /* AnyOptional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyOptional.swift; sourceTree = "<group>"; };
+		DB9104AF287B3C830066F4D7 /* UserDefaultExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultExtensions.swift; sourceTree = "<group>"; };
+		DB9104B4287B45080066F4D7 /* LocalDataSupplierTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalDataSupplierTests.swift; sourceTree = "<group>"; };
+		DB9104B6287B463E0066F4D7 /* UserDefaultsStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsStub.swift; sourceTree = "<group>"; };
 		DBD63647279DC10D00843B35 /* MiniSuperApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MiniSuperApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBD6364A279DC10D00843B35 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DBD6364C279DC10D00843B35 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -174,6 +184,7 @@
 			children = (
 				DB7F39012879F4BA00E4CF39 /* Protocols */,
 				DB7F38FA2879E9C500E4CF39 /* Extensions */,
+				DB9104A6287B355B0066F4D7 /* LocalDataSupplier.swift */,
 				DB9104AB287B384E0066F4D7 /* DelayedMutable.swift */,
 			);
 			path = Core;
@@ -183,6 +194,7 @@
 			isa = PBXGroup;
 			children = (
 				DB7F38FB2879E9E900E4CF39 /* RIBsExtensions */,
+				DB9104AF287B3C830066F4D7 /* UserDefaultExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -200,6 +212,7 @@
 			isa = PBXGroup;
 			children = (
 				DB91046D287AC4B80066F4D7 /* URLHandler.swift */,
+				DB9104AD287B39180066F4D7 /* AnyOptional.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -247,6 +260,15 @@
 			path = Entity;
 			sourceTree = "<group>";
 		};
+		DB9104B1287B44DA0066F4D7 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				DB9104B4287B45080066F4D7 /* LocalDataSupplierTests.swift */,
+				DB9104B6287B463E0066F4D7 /* UserDefaultsStub.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
 		DBD6363E279DC10D00843B35 = {
 			isa = PBXGroup;
 			children = (
@@ -279,6 +301,7 @@
 		DBD63660279DC10E00843B35 /* MiniSuperAppTests */ = {
 			isa = PBXGroup;
 			children = (
+				DB9104B1287B44DA0066F4D7 /* Core */,
 				DB910471287AC7740066F4D7 /* RIBsMocks.swift */,
 				DB7F390D287A039100E4CF39 /* Root */,
 			);
@@ -474,15 +497,18 @@
 				DB7F38F52879E91B00E4CF39 /* RootRouter.swift in Sources */,
 				DB7F38F62879E91B00E4CF39 /* RootTabBarController.swift in Sources */,
 				DB7F38EF2879E8DC00E4CF39 /* AppComponent.swift in Sources */,
+				DB9104B0287B3C830066F4D7 /* UserDefaultExtensions.swift in Sources */,
 				DBD6364B279DC10D00843B35 /* AppDelegate.swift in Sources */,
 				DB7F38F82879E91B00E4CF39 /* RootInteractor.swift in Sources */,
 				DBD6364D279DC10D00843B35 /* SceneDelegate.swift in Sources */,
 				DB9104AA287B35C40066F4D7 /* User.swift in Sources */,
 				DB9104A3287B289E0066F4D7 /* Assets.swift in Sources */,
 				DB91049C287AD5AC0066F4D7 /* L10n.swift in Sources */,
+				DB9104AE287B39180066F4D7 /* AnyOptional.swift in Sources */,
 				DB91046E287AC4B80066F4D7 /* URLHandler.swift in Sources */,
 				DB910466287AC1230066F4D7 /* ViewControllableExtensions.swift in Sources */,
 				DB910470287AC4D80066F4D7 /* NeedleGenerated.swift in Sources */,
+				DB9104A7287B355B0066F4D7 /* LocalDataSupplier.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -491,8 +517,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				DB910472287AC7740066F4D7 /* RIBsMocks.swift in Sources */,
+				DB9104B7287B463E0066F4D7 /* UserDefaultsStub.swift in Sources */,
 				DB91046C287AC4A50066F4D7 /* RootRouterTests.swift in Sources */,
 				DB91046B287AC4A50066F4D7 /* RootInteractorTests.swift in Sources */,
+				DB9104B5287B45080066F4D7 /* LocalDataSupplierTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
