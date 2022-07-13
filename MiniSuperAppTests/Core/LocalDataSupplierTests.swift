@@ -50,8 +50,7 @@ extension LocalDataSupplierTests {
     // then
     XCTAssertEqual(result, inputValue)
 
-    let key = LocalDataKey.isFirstLaunch.rawValue
-    let savedValue = self.userDefaults.value(forKey: key) as? Bool
+    let savedValue = self.userDefaults.value(forKey: "isFirstLaunch") as? Bool
     XCTAssertEqual(savedValue, inputValue)
   }
 }
@@ -79,8 +78,7 @@ extension LocalDataSupplierTests {
     // then
     XCTAssertEqual(result, inputValue)
 
-    let key = LocalDataKey.user.rawValue
-    let savedValue: User? = self.userDefaults.codable(for: key)
+    let savedValue: User? = self.userDefaults.codable(for: "user")
     XCTAssertEqual(savedValue, inputValue)
   }
 
@@ -95,8 +93,7 @@ extension LocalDataSupplierTests {
     // then
     XCTAssertNil(result)
 
-    let key = LocalDataKey.user.rawValue
-    let savedValue: User? = self.userDefaults.codable(for: key)
+    let savedValue: User? = self.userDefaults.codable(for: "user")
     XCTAssertNil(savedValue)
   }
 }
