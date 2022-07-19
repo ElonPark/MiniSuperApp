@@ -46,7 +46,8 @@ let project = Project(
         .external(name: "NeedleFoundation"),
         .external(name: "FlexLayout"),
         .external(name: "PinLayout"),
-        .external(name: "Then")
+        .external(name: "Then"),
+        .external(name: "Entity")
       ],
       settings: .settings(
         base: [:],
