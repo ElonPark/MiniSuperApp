@@ -47,7 +47,8 @@ let project = Project(
         .external(name: "FlexLayout"),
         .external(name: "PinLayout"),
         .external(name: "Then"),
-        .external(name: "Entity")
+        .external(name: "Entity"),
+        .external(name: "Platform")
       ],
       settings: .settings(
         base: [:],
