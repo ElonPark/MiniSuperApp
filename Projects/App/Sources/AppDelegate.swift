@@ -1,5 +1,7 @@
 import UIKit
 
+import AppResource
+
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
   var window: UIWindow?
@@ -10,7 +12,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   ) -> Bool {
     self.window = UIWindow(frame: UIScreen.main.bounds)
     let viewController = UIViewController()
-    viewController.view.backgroundColor = .white
+    viewController.view.backgroundColor = Asset.Color.Static.red
     self.window?.rootViewController = viewController
     self.window?.makeKeyAndVisible()
 

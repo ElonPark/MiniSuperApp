@@ -48,7 +48,9 @@ let project = Project(
         .external(name: "PinLayout"),
         .external(name: "Then"),
         .external(name: "Entity"),
-        .external(name: "Platform")
+        .external(name: "Platform"),
+        .external(name: "AppFoundation"),
+        .external(name: "AppResource")
       ],
       settings: .settings(
         base: [:],

@@ -10,7 +10,8 @@ let dependencies = Dependencies(
     .remote(url: "https://github.com/ReactiveX/RxSwift.git", requirement: .upToNextMajor(from: "6.5.0")),
     .local(path: "Projects/Entity"),
     .local(path: "Projects/Platform"),
-    .local(path: "Projects/AppFoundation")
+    .local(path: "Projects/AppFoundation"),
+    .local(path: "Projects/AppResource")
   ],
   platforms: [.iOS]
 )
