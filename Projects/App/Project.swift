@@ -51,7 +51,8 @@ let project = Project(
         .external(name: "Platform"),
         .external(name: "AppFoundation"),
         .external(name: "AppResource"),
-        .external(name: "Localization")
+        .external(name: "Localization"),
+        .external(name: "Network")
       ],
       settings: .settings(
         base: [:],
