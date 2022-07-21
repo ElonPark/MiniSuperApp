@@ -1,16 +1,14 @@
 input_dir: Projects/
 output_dir: Projects/
-# strings:
-#   inputs: 
-#   - Localization/ko.lproj/Localizable.strings
-#   - Localization/ko.lproj/Localizable.stringsdict
-#   options:
-#     separator: "/"
-#   outputs:
-#     - templatePath: Scripts/templates/strings-structured-swift5.stencil
-#       output: Localization/L10n.swift
-#       params:
-#         publicAccess: public
+strings:
+  inputs: Localization/Sources/Localization/Resources/ko.lproj
+  options:
+    separator: "/"
+  outputs:
+    - templatePath: Scripts/templates/strings-structured-swift5.stencil
+      output: Localization/Sources/Localization/L10n.swift
+      params:
+        publicAccess: public
 xcassets:
   inputs: AppResource/Sources/AppResource/Resources/Assets.xcassets
   outputs:

@@ -50,7 +50,8 @@ let project = Project(
         .external(name: "Entity"),
         .external(name: "Platform"),
         .external(name: "AppFoundation"),
-        .external(name: "AppResource")
+        .external(name: "AppResource"),
+        .external(name: "Localization")
       ],
       settings: .settings(
         base: [:],

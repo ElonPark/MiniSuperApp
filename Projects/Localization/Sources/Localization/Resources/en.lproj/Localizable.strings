@@ -1,0 +1,10 @@
+/* 
+  Localizable.strings
+  MiniSuperApp
+
+  Created by Elon on 2022/07/10.
+  
+*/
+
+"LoggedOut/SignIn" = "Login";
+"LoggedOut/SignUp" = "Sign up";

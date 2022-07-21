@@ -11,7 +11,8 @@ let dependencies = Dependencies(
     .local(path: "Projects/Entity"),
     .local(path: "Projects/Platform"),
     .local(path: "Projects/AppFoundation"),
-    .local(path: "Projects/AppResource")
+    .local(path: "Projects/AppResource"),
+    .local(path: "Projects/Localization")
   ],
   platforms: [.iOS]
 )

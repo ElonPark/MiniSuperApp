@@ -3,7 +3,7 @@ setup:
 
 swiftgen:
 	swiftgen
-	swiftformat ./Projects/AppResource/Sources/AppResource # ./MiniSuperApp/Sources/Localization
+	swiftformat ./Projects/AppResource/Sources/AppResource ./Projects/Localization/Sources/Localization
 
 setup_swiftformat_hook:
 	mkdir -p .git/hooks
