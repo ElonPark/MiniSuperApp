@@ -4,6 +4,75 @@ import ProjectDescriptionHelpers
 // MARK: - Project
 
 // Creates our project using a helper function defined in ProjectDescriptionHelpers
+let defaultSettings: Settings = .settings(
+  base: [:],
+  configurations: [
+    .debug(name: .debug),
+    .release(name: .release)
+  ],
+  defaultSettings: .recommended
+)
+
+let appTarget = Target(
+  name: "MiniSuperApp",
+  platform: .iOS,
+  product: .app,
+  productName: "MiniSuperApp",
+  bundleId: "com.elonpark.MiniSuperApp",
+  deploymentTarget: .iOS(
+    targetVersion: "14.0",
+    devices: .iphone
+  ),
+  infoPlist: .file(path: "SupportingFiles/MiniSuperApp-Info.plist"),
+  sources: "Sources/**",
+  resources: "Resources/**",
+  scripts: [
+    .pre(
+      script: """
+      FILE_PATH="Sources/AppStart"
+      echp "$(SRCROOT)"
+      export PATH="$PATH:/opt/homebrew/bin"
+      export SOURCEKIT_LOGGING=0 && needle generate ${FILE_PATH}/NeedleGenerated.swift ../
+      swiftformat ${FILE_PATH}/NeedleGenerated.swift
+      """,
+      name: "Needle"
+    )
+  ],
+  dependencies: [
+    .external(name: "RIBs"),
+    .external(name: "NeedleFoundation"),
+    .external(name: "FlexLayout"),
+    .external(name: "PinLayout"),
+    .external(name: "Then"),
+    .external(name: "Entity"),
+    .external(name: "Platform"),
+    .external(name: "AppFoundation"),
+    .external(name: "AppResource"),
+    .external(name: "Localization"),
+    .external(name: "Network")
+  ],
+  settings: defaultSettings
+)
+
+let testTarget = Target(
+  name: "MiniSuperAppTests",
+  platform: .iOS,
+  product: .unitTests,
+  productName: "MiniSuperAppTests",
+  bundleId: "com.elonpark.MiniSuperAppTests",
+  deploymentTarget: .iOS(
+    targetVersion: "14.0",
+    devices: .iphone
+  ),
+  infoPlist: .default,
+  sources: "Tests/**",
+  dependencies: [
+    .xctest,
+    .target(name: "MiniSuperApp")
+  ],
+  settings: defaultSettings
+)
+
 let project = Project(
   name: "MiniSuperApp",
   organizationName: "elonpark",
@@ -18,51 +87,10 @@ let project = Project(
       wrapsLines: true
     )
   ),
-  settings: .settings(
-    base: [:],
-    configurations: [
-      .debug(name: .debug),
-      .release(name: .release)
-    ],
-    defaultSettings: .recommended
-  ),
+  settings: defaultSettings,
   targets: [
-    Target(
-      name: "MiniSuperApp",
-      platform: .iOS,
-      product: .app,
-      productName: "MiniSuperApp",
-      bundleId: "com.elonpark.MiniSuperApp",
-      deploymentTarget: .iOS(
-        targetVersion: "14.0",
-        devices: .iphone
-      ),
-      infoPlist: .file(path: "SupportingFiles/MiniSuperApp-Info.plist"),
-      sources: "Sources/**",
-      resources: "Resources/**",
-      scripts: [],
-      dependencies: [
-        .external(name: "RIBs"),
-        .external(name: "NeedleFoundation"),
-        .external(name: "FlexLayout"),
-        .external(name: "PinLayout"),
-        .external(name: "Then"),
-        .external(name: "Entity"),
-        .external(name: "Platform"),
-        .external(name: "AppFoundation"),
-        .external(name: "AppResource"),
-        .external(name: "Localization"),
-        .external(name: "Network")
-      ],
-      settings: .settings(
-        base: [:],
-        configurations: [
-          .debug(name: .debug),
-          .release(name: .release)
-        ],
-        defaultSettings: .recommended
-      )
-    )
+    appTarget,
+    testTarget
   ],
   schemes: [
     Scheme(
