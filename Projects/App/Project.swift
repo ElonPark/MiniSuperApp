@@ -29,10 +29,9 @@ let appTarget = Target(
   scripts: [
     .pre(
       script: """
-      FILE_PATH="Sources/AppStart"
-      echp "$(SRCROOT)"
+      FILE_PATH="$SRCROOT/Sources/AppStart"
       export PATH="$PATH:/opt/homebrew/bin"
-      export SOURCEKIT_LOGGING=0 && needle generate ${FILE_PATH}/NeedleGenerated.swift ../
+      export SOURCEKIT_LOGGING=0 && needle generate "${FILE_PATH}/NeedleGenerated.swift" "$SRCROOT/../"
       swiftformat ${FILE_PATH}/NeedleGenerated.swift
       """,
       name: "Needle"
