@@ -1,0 +1,19 @@
+input_dir: Projects/
+output_dir: Projects/
+strings:
+  inputs: Localization/Sources/Localization/Resources/ko.lproj
+  options:
+    separator: "/"
+  outputs:
+    - templatePath: Scripts/templates/strings-structured-swift5.stencil
+      output: Localization/Sources/Localization/L10n.swift
+      params:
+        publicAccess: public
+xcassets:
+  inputs: AppResource/Sources/AppResource/Resources/Assets.xcassets
+  outputs:
+    - templatePath: Scripts/templates/xcassets-swift5.stencil
+      output: AppResource/Sources/AppResource/Assets.swift
+      params:
+        forceProvidesNamespaces: true
+        publicAccess: public
