@@ -38,17 +38,17 @@ let appTarget = Target(
     )
   ],
   dependencies: [
-    .external(name: "RIBs"),
-    .external(name: "NeedleFoundation"),
-    .external(name: "FlexLayout"),
-    .external(name: "PinLayout"),
-    .external(name: "Then"),
-    .external(name: "Entity"),
-    .external(name: "Platform"),
-    .external(name: "AppFoundation"),
-    .external(name: "AppResource"),
-    .external(name: "Localization"),
-    .external(name: "Network")
+    .package(product: "RIBs"),
+    .package(product: "NeedleFoundation"),
+    .package(product: "FlexLayout"),
+    .package(product: "PinLayout"),
+    .package(product: "Then"),
+    .package(product: "Entity"),
+    .package(product: "Platform"),
+    .package(product: "AppFoundation"),
+    .package(product: "AppResource"),
+    .package(product: "Localization"),
+    .package(product: "Network")
   ],
   settings: defaultSettings
 )
@@ -86,6 +86,20 @@ let project = Project(
       wrapsLines: true
     )
   ),
+  packages: [
+    .remote(url: "https://github.com/uber/RIBs.git", requirement: .branch("main")),
+    .remote(url: "https://github.com/uber/needle.git", requirement: .upToNextMajor(from: "0.18.1")),
+    .remote(url: "https://github.com/layoutBox/FlexLayout.git", requirement: .upToNextMajor(from: "1.3.24")),
+    .remote(url: "https://github.com/layoutBox/PinLayout.git", requirement: .upToNextMajor(from: "1.10.3")),
+    .remote(url: "https://github.com/devxoul/Then", requirement: .upToNextMajor(from: "3.0.0")),
+    .remote(url: "https://github.com/ReactiveX/RxSwift.git", requirement: .upToNextMajor(from: "6.5.0")),
+    .local(path: "../Entity"),
+    .local(path: "../Platform"),
+    .local(path: "../AppFoundation"),
+    .local(path: "../AppResource"),
+    .local(path: "../Localization"),
+    .local(path: "../Network")
+  ],
   settings: defaultSettings,
   targets: [
     appTarget,
