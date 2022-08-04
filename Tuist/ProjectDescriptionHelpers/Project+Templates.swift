@@ -7,16 +7,23 @@ import ProjectDescription
 
 extension Project {
   /// Helper function to create the Project for this ExampleApp
-  public static func app(name: String, platform: Platform, additionalTargets: [String]) -> Project {
+  public static func app(
+    name: String,
+    platform: Platform,
+    additionalTargets: [String]
+  ) -> Project {
     var targets = self.makeAppTargets(
       name: name,
       platform: platform,
       dependencies: additionalTargets.map { TargetDependency.target(name: $0) }
     )
-    targets += additionalTargets.flatMap { makeFrameworkTargets(name: $0, platform: platform) }
+    targets += additionalTargets.flatMap {
+      self.makeFrameworkTargets(name: $0, platform: platform)
+    }
+
     return Project(
       name: name,
-      organizationName: "tuist.io",
+      organizationName: "com.elonpark",
       targets: targets
     )
   }
@@ -29,9 +36,9 @@ extension Project {
       name: name,
       platform: platform,
       product: .framework,
-      bundleId: "io.tuist.\(name)",
+      bundleId: "com.elonpark.\(name)",
       infoPlist: .default,
-      sources: ["Targets/\(name)/Sources/**"],
+      sources: ["Projects/Feature/\(name)/Sources/**"],
       resources: [],
       dependencies: []
     )
@@ -39,9 +46,9 @@ extension Project {
       name: "\(name)Tests",
       platform: platform,
       product: .unitTests,
-      bundleId: "io.tuist.\(name)Tests",
+      bundleId: "com.elonpark.\(name)Tests",
       infoPlist: .default,
-      sources: ["Targets/\(name)/Tests/**"],
+      sources: ["Projects/Feature/\(name)/Tests/**"],
       resources: [],
       dependencies: [.target(name: name)]
     )
@@ -51,7 +58,8 @@ extension Project {
   /// Helper function to create the application target and the unit test target.
   private static func makeAppTargets(
     name: String,
-    platform: Platform, dependencies: [TargetDependency]
+    platform: Platform,
+    dependencies: [TargetDependency]
   ) -> [Target] {
     let platform: Platform = platform
     let infoPlist: [String: InfoPlist.Value] = [
@@ -65,10 +73,10 @@ extension Project {
       name: name,
       platform: platform,
       product: .app,
-      bundleId: "io.tuist.\(name)",
+      bundleId: "com.elonpark.\(name)",
       infoPlist: .extendingDefault(with: infoPlist),
-      sources: ["Targets/\(name)/Sources/**"],
-      resources: ["Targets/\(name)/Resources/**"],
+      sources: ["Projects/Feature/\(name)/Sources/**"],
+      resources: ["Projects/Feature/\(name)/Resources/**"],
       dependencies: dependencies
     )
 
@@ -76,7 +84,7 @@ extension Project {
       name: "\(name)Tests",
       platform: platform,
       product: .unitTests,
-      bundleId: "io.tuist.\(name)Tests",
+      bundleId: "com.elonpark.\(name)Tests",
       infoPlist: .default,
       sources: ["Targets/\(name)/Tests/**"],
       dependencies: [
