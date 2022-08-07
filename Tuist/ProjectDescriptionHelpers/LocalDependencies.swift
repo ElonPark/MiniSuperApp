@@ -11,10 +11,11 @@ public enum LocalDependencies {}
 
 extension LocalDependencies {
   public enum Core: String, CaseIterable, Packageable {
+    case appCore
     case appFoundation
     case platform
-    case entity
     case network
+    case entity
 
     public var packageSource: Package { .local(path: "../Core/\(self.packageName)") }
   }
