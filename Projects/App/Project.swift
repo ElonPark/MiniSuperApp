@@ -1,16 +1,7 @@
 import ProjectDescription
 import ProjectDescriptionHelpers
 
-// MARK: - Project
-
-let defaultSettings: Settings = .settings(
-  base: [:],
-  configurations: [
-    .debug(name: .debug),
-    .release(name: .release)
-  ],
-  defaultSettings: .recommended
-)
+// MARK: - AppTarget
 
 let appTarget = Target(
   name: "MiniSuperApp",
@@ -42,8 +33,10 @@ let appTarget = Target(
     LocalDependencies.Core.allPackages,
     LocalDependencies.Feature.allPackages
   ].flatMap { $0 },
-  settings: defaultSettings
+  settings: Project.defaultSettings()
 )
+
+// MARK: - TestTarget
 
 let testTarget = Target(
   name: "MiniSuperAppTests",
@@ -61,8 +54,10 @@ let testTarget = Target(
     .xctest,
     .target(name: "MiniSuperApp")
   ],
-  settings: defaultSettings
+  settings: Project.defaultSettings()
 )
+
+// MARK: - Project
 
 let project = Project(
   name: "MiniSuperApp",
@@ -84,7 +79,7 @@ let project = Project(
     LocalDependencies.Core.allPackageSource,
     LocalDependencies.Feature.allPackageSource
   ].flatMap { $0 },
-  settings: defaultSettings,
+  settings: Project.defaultSettings(),
   targets: [
     appTarget,
     testTarget

@@ -6,6 +6,18 @@ import ProjectDescription
 /// See https://docs.tuist.io/guides/helpers/
 
 extension Project {
+
+  public static func defaultSettings() -> Settings {
+    .settings(
+      base: [:],
+      configurations: [
+        .debug(name: .debug),
+        .release(name: .release)
+      ],
+      defaultSettings: .recommended
+    )
+  }
+
   /// Helper function to create the Project for this ExampleApp
   public static func app(
     name: String,
