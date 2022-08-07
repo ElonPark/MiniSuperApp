@@ -24,6 +24,11 @@ public enum L10n {
     /// LoggedOut/SignUp: `회원가입`
     public static let signUp = L10n.tr("Localizable", "LoggedOut/SignUp")
   }
+
+  public enum Splash {
+    /// Splash/Greeting: `안녕하세요`
+    public static let greeting = L10n.tr("Localizable", "Splash/Greeting")
+  }
 }
 
 // swiftlint:enable explicit_type_interface function_parameter_count identifier_name line_length

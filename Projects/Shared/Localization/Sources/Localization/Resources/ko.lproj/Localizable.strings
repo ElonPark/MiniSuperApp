@@ -8,3 +8,5 @@
 
 "LoggedOut/SignIn" = "로그인";
 "LoggedOut/SignUp" = "회원가입";
+
+"Splash/Greeting" = "안녕하세요";

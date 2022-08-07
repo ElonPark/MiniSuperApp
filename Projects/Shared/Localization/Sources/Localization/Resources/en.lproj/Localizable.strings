@@ -8,3 +8,5 @@
 
 "LoggedOut/SignIn" = "Login";
 "LoggedOut/SignUp" = "Sign up";
+
+"Splash/Greeting" = "Hello";
