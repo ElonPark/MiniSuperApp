@@ -1,5 +1,5 @@
-input_dir: Projects/
-output_dir: Projects/
+input_dir: Projects/Shared/
+output_dir: Projects/Shared/
 strings:
   inputs: Localization/Sources/Localization/Resources/ko.lproj
   options:
