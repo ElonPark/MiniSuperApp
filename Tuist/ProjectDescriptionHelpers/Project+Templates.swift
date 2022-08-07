@@ -87,6 +87,7 @@ extension Project {
   private static func makeAppTargets(
     name: String,
     platform: Platform,
+    deploymentTarget: DeploymentTarget = .iOS(targetVersion: "14.0", devices: .iphone),
     scripts: [TargetScript] = [],
     dependencies: [TargetDependency]
   ) -> [Target] {
@@ -103,6 +104,7 @@ extension Project {
       platform: platform,
       product: .app,
       bundleId: "com.elonpark.\(name)",
+      deploymentTarget: deploymentTarget,
       infoPlist: .extendingDefault(with: infoPlist),
       sources: ["Sources/**"],
       resources: ["Resources/**"],
@@ -116,6 +118,7 @@ extension Project {
       platform: platform,
       product: .unitTests,
       bundleId: "com.elonpark.\(name)Tests",
+      deploymentTarget: deploymentTarget,
       infoPlist: .default,
       sources: ["Tests/**"],
       dependencies: [
