@@ -3,7 +3,6 @@ import ProjectDescriptionHelpers
 
 // MARK: - Project
 
-// Creates our project using a helper function defined in ProjectDescriptionHelpers
 let defaultSettings: Settings = .settings(
   base: [:],
   configurations: [
@@ -40,7 +39,8 @@ let appTarget = Target(
   dependencies: [
     RemoteDependencies.allPackages,
     LocalDependencies.Shared.allPackages,
-    LocalDependencies.Core.allPackages
+    LocalDependencies.Core.allPackages,
+    LocalDependencies.Feature.allPackages
   ].flatMap { $0 },
   settings: defaultSettings
 )
@@ -81,7 +81,8 @@ let project = Project(
   packages: [
     RemoteDependencies.allPackageSource,
     LocalDependencies.Shared.allPackageSource,
-    LocalDependencies.Core.allPackageSource
+    LocalDependencies.Core.allPackageSource,
+    LocalDependencies.Feature.allPackageSource
   ].flatMap { $0 },
   settings: defaultSettings,
   targets: [

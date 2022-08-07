@@ -10,6 +10,14 @@ import ProjectDescription
 public enum LocalDependencies {}
 
 extension LocalDependencies {
+  public enum Feature: String, CaseIterable, Packageable {
+    case splash
+
+    public var packageSource: Package { .local(path: "../Feature/\(self.packageName)") }
+  }
+}
+
+extension LocalDependencies {
   public enum Core: String, CaseIterable, Packageable {
     case appCore
     case appFoundation

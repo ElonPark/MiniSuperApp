@@ -17,7 +17,7 @@ let package = Package(
   dependencies: [
     .package(path: "../AppFoundation"),
     .package(path: "../Platform"),
-    .package(path: "../network"),
+    .package(path: "../Network"),
     .package(path: "../Entity")
   ],
   targets: [
@@ -26,7 +26,7 @@ let package = Package(
       dependencies: [
         .product(name: "AppFoundation", package: "AppFoundation"),
         .product(name: "Platform", package: "Platform"),
-        .product(name: "network", package: "network"),
+        .product(name: "Network", package: "Network"),
         .product(name: "Entity", package: "Entity")
       ]
     ),
