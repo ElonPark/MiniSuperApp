@@ -17,15 +17,7 @@ let appTarget = Target(
   sources: "Sources/**",
   resources: "Resources/**",
   scripts: [
-    .pre(
-      script: """
-      FILE_PATH="$SRCROOT/Sources/AppStart"
-      export PATH="$PATH:/opt/homebrew/bin"
-      export SOURCEKIT_LOGGING=0 && needle generate "${FILE_PATH}/NeedleGenerated.swift" "$SRCROOT/../"
-      swiftformat ${FILE_PATH}/NeedleGenerated.swift
-      """,
-      name: "Needle"
-    )
+    Project.needleGenerateScript()
   ],
   dependencies: [
     RemoteDependencies.allPackages,

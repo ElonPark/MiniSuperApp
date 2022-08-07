@@ -18,6 +18,18 @@ extension Project {
     )
   }
 
+  public static func needleGenerateScript() -> TargetScript {
+    return .pre(
+      script: """
+      FILE_PATH="$SRCROOT/Sources/AppStart"
+      export PATH="$PATH:/opt/homebrew/bin"
+      export SOURCEKIT_LOGGING=0 && needle generate "${FILE_PATH}/NeedleGenerated.swift" "$SRCROOT/../"
+      swiftformat ${FILE_PATH}/NeedleGenerated.swift
+      """,
+      name: "Needle"
+    )
+  }
+
   /// Helper function to create the Project for this ExampleApp
   public static func app(
     name: String,
