@@ -36,6 +36,7 @@ extension LocalDependencies {
     case designSystem
     case localization
 
-    public var packageSource: Package { .local(path: "../Shared/\(self.packageName)") }
+    public var packageSource: Package { .local(path: "../Shared") }
+    public static var allPackageSource: [Package] { [.local(path: "../Shared")] }
   }
 }

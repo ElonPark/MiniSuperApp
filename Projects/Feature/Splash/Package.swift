@@ -18,8 +18,7 @@ let package = Package(
     .package(url: "https://github.com/uber/RIBs.git", branch: "main"),
     .package(url: "https://github.com/uber/needle.git", .upToNextMajor(from: "0.18.1")),
     .package(path: "../Core/AppCore"),
-    .package(path: "../Shared/DesignSystem"),
-    .package(path: "../Shared/Localization")
+    .package(path: "../Shared")
   ],
   targets: [
     .target(
@@ -34,8 +33,8 @@ let package = Package(
       dependencies: [
         "SplashInterface",
         "AppCore",
-        "DesignSystem",
-        "Localization"
+        .product(name: "DesignSystem", package: "Shared"),
+        .product(name: "Localization", package: "Shared")
       ],
       cSettings: [
         .define("FLEXLAYOUT_SWIFT_PACKAGE")

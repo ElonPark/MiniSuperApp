@@ -4,23 +4,36 @@
 import PackageDescription
 
 let package = Package(
-  name: "DesignSystem",
-  platforms: [
-    .iOS(.v14)
-  ],
+  name: "Shared",
+  defaultLocalization: "en",
+  platforms: [.iOS(.v14)],
   products: [
+    .library(
+      name: "AppResource",
+      targets: ["AppResource"]
+    ),
     .library(
       name: "DesignSystem",
       targets: ["DesignSystem"]
+    ),
+    .library(
+      name: "Localization",
+      targets: ["Localization"]
     )
   ],
   dependencies: [
-    .package(path: "../AppResource"),
     .package(url: "https://github.com/layoutBox/FlexLayout.git", .upToNextMajor(from: "1.3.24")),
     .package(url: "https://github.com/layoutBox/PinLayout.git", .upToNextMajor(from: "1.10.3")),
     .package(url: "https://github.com/devxoul/Then", .upToNextMajor(from: "3.0.0"))
   ],
   targets: [
+    .target(
+      name: "AppResource",
+      dependencies: [],
+      resources: [
+        .process("Resources")
+      ]
+    ),
     .target(
       name: "DesignSystem",
       dependencies: [
@@ -30,9 +43,12 @@ let package = Package(
         "AppResource"
       ]
     ),
-    .testTarget(
-      name: "DesignSystemTests",
-      dependencies: ["DesignSystem"]
+    .target(
+      name: "Localization",
+      dependencies: [],
+      resources: [
+        .process("Resources")
+      ]
     )
   ]
 )

@@ -1,19 +1,19 @@
-input_dir: Projects/Shared/
-output_dir: Projects/Shared/
+input_dir: Projects/Shared/Sources/
+output_dir: Projects/Shared/Sources/
 strings:
-  inputs: Localization/Sources/Localization/Resources/ko.lproj
+  inputs: Localization/Resources/ko.lproj
   options:
     separator: "/"
   outputs:
     - templatePath: Scripts/templates/strings-structured-swift5.stencil
-      output: Localization/Sources/Localization/L10n.swift
+      output: Localization/L10n.swift
       params:
         publicAccess: public
 xcassets:
-  inputs: AppResource/Sources/AppResource/Resources/Assets.xcassets
+  inputs: AppResource/Resources/Assets.xcassets
   outputs:
     - templatePath: Scripts/templates/xcassets-swift5.stencil
-      output: AppResource/Sources/AppResource/Assets.swift
+      output: AppResource/Assets.swift
       params:
         forceProvidesNamespaces: true
         publicAccess: public
