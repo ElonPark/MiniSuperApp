@@ -9,9 +9,12 @@ extension Project {
 
   public static func defaultSettings() -> Settings {
     .settings(
-      base: [:],
+      base: ["GCC_PREPROCESSOR_DEFINITIONS": "FLEXLAYOUT_SWIFT_PACKAGE=1"],
       configurations: [
-        .debug(name: .debug),
+        .debug(
+          name: .debug,
+          settings: ["GCC_PREPROCESSOR_DEFINITIONS": .array(["DEBUG=1", "$(inherited)"])]
+        ),
         .release(name: .release)
       ],
       defaultSettings: .recommended
@@ -104,7 +107,8 @@ extension Project {
       sources: ["Sources/**"],
       resources: ["Resources/**"],
       scripts: scripts,
-      dependencies: dependencies
+      dependencies: dependencies,
+      settings: Self.defaultSettings()
     )
 
     let testTarget = Target(
@@ -116,7 +120,8 @@ extension Project {
       sources: ["Tests/**"],
       dependencies: [
         .target(name: "\(name)")
-      ]
+      ],
+      settings: Self.defaultSettings()
     )
     return [mainTarget, testTarget]
   }
