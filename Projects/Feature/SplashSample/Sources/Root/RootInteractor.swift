@@ -15,7 +15,10 @@ import AppFoundation
 
 // MARK: - RootRouting
 
-protocol RootRouting: ViewableRouting {}
+protocol RootRouting: ViewableRouting {
+  func attachSplashRIB()
+  func detachSplashRIB()
+}
 
 // MARK: - RootPresentable
 
@@ -45,12 +48,18 @@ final class RootInteractor:
   override func didBecomeActive() {
     super.didBecomeActive()
   }
+
+  func startLaunchSequence() {
+    self.router?.attachSplashRIB()
+  }
+
+  func initializationComplete() {
+    self.router?.detachSplashRIB()
+  }
 }
 
 // MARK: - URLHandler
 
 extension RootInteractor {
-  func handle(_ url: URL) {
-    // TODO: - handle DeepLink <Elon> 2022-07-10 02:59:50
-  }
+  func handle(_ url: URL) {}
 }

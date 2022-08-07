@@ -10,10 +10,19 @@ import Foundation
 
 import NeedleFoundation
 
+import Splash
+import SplashInterface
+
 final class AppComponent: BootstrapComponent {
   var rootBuilder: RootBuildable {
     RootBuilder {
       RootComponent(parent: self)
+    }
+  }
+
+  var splashBuilder: SplashBuildable {
+    SplashBuilder {
+      SplashComponent(parent: self)
     }
   }
 }

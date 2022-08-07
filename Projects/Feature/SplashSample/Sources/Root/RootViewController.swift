@@ -14,7 +14,11 @@ import RxSwift
 import AppResource
 import DesignSystem
 
-protocol RootPresentableListener: AnyObject {}
+// MARK: - RootPresentableListener
+
+protocol RootPresentableListener: AnyObject {
+  func startLaunchSequence()
+}
 
 // MARK: - RootViewController
 
@@ -24,10 +28,46 @@ final class RootViewController:
   RootViewControllable
 {
 
+  private let rootFlexContainer = UIView()
+  private let button = UIButton().then {
+    $0.setTitle("Show Splash", for: .normal)
+  }
+
   weak var listener: RootPresentableListener?
 
   override func viewDidLoad() {
     super.viewDidLoad()
     self.view.backgroundColor = Asset.Color.Static.blue
+    self.defineLayout()
+    self.addTarget()
+  }
+
+  override func viewDidLayoutSubviews() {
+    super.viewDidLayoutSubviews()
+    self.rootFlexContainer.pin.all()
+    self.rootFlexContainer.flex.layout()
+  }
+
+  private func defineLayout() {
+    self.view.addSubview(self.rootFlexContainer)
+    self.rootFlexContainer.flex
+      .justifyContent(.center)
+      .alignItems(.center)
+      .define {
+        $0.addItem(self.button)
+      }
+  }
+
+  private func addTarget() {
+    self.button.addTarget(
+      self,
+      action: #selector(self.buttonAction),
+      for: .touchUpInside
+    )
+  }
+
+  @objc
+  private func buttonAction() {
+    self.listener?.startLaunchSequence()
   }
 }

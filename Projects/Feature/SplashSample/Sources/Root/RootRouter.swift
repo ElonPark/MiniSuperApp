@@ -8,9 +8,11 @@
 
 import RIBs
 
+import SplashInterface
+
 // MARK: - RootInteractable
 
-protocol RootInteractable: Interactable {
+protocol RootInteractable: Interactable, SplashListener {
   var router: RootRouting? { get set }
   var listener: RootListener? { get set }
 }
@@ -24,11 +26,35 @@ final class RootRouter:
   RootRouting
 {
 
-  override init(
+  private let splashBuilder: SplashBuildable
+  private var splashRouter: SplashRouting?
+
+  init(
     interactor: RootInteractable,
-    viewController: RootViewControllable
+    viewController: RootViewControllable,
+    splashBuilder: SplashBuildable
   ) {
+    self.splashBuilder = splashBuilder
     super.init(interactor: interactor, viewController: viewController)
     interactor.router = self
+  }
+
+  func attachSplashRIB() {
+    guard self.splashRouter == nil else { return }
+    let router = self.splashBuilder.build(with: .init(listener: self.interactor))
+    router.viewControllable.uiviewController.do {
+      $0.modalPresentationStyle = .overCurrentContext
+      $0.modalTransitionStyle = .crossDissolve
+    }
+    self.splashRouter = router
+    self.attachChild(router)
+    self.viewController.present(router.viewControllable, animated: false)
+  }
+
+  func detachSplashRIB() {
+    guard let router = splashRouter else { return }
+    self.splashRouter = nil
+    self.detachChild(router)
+    self.viewController.dismiss(animated: true)
   }
 }

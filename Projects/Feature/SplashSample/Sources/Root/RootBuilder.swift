@@ -10,10 +10,13 @@ import NeedleFoundation
 import RIBs
 
 import AppFoundation
+import SplashInterface
 
-// MARK: - Dependency
+// MARK: - RootDependency
 
-protocol RootDependency: NeedleFoundation.Dependency {}
+protocol RootDependency: NeedleFoundation.Dependency {
+  var splashBuilder: SplashBuildable { get }
+}
 
 // MARK: - DynamicComponentDependency
 
@@ -56,7 +59,8 @@ final class RootBuilder:
 
     let router = RootRouter(
       interactor: interactor,
-      viewController: viewController
+      viewController: viewController,
+      splashBuilder: component.splashBuilder
     )
 
     return (router, interactor)
