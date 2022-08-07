@@ -23,6 +23,7 @@ extension LocalDependencies {
 extension LocalDependencies {
   public enum Shared: String, CaseIterable, Packageable {
     case appResource
+    case designSystem
     case localization
 
     public var packageSource: Package { .local(path: "../Shared/\(self.packageName)") }
