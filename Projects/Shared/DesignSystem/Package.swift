@@ -15,13 +15,19 @@ let package = Package(
     )
   ],
   dependencies: [
-    .package(path: "../AppResource")
+    .package(path: "../AppResource"),
+    .package(url: "https://github.com/layoutBox/FlexLayout.git", .upToNextMajor(from: "1.3.24")),
+    .package(url: "https://github.com/layoutBox/PinLayout.git", .upToNextMajor(from: "1.10.3")),
+    .package(url: "https://github.com/devxoul/Then", .upToNextMajor(from: "3.0.0"))
   ],
   targets: [
     .target(
       name: "DesignSystem",
       dependencies: [
-        .product(name: "AppResource", package: "AppResource")
+        "FlexLayout",
+        "PinLayout",
+        "Then",
+        "AppResource"
       ]
     ),
     .testTarget(
