@@ -7,15 +7,24 @@
 
 import ProjectDescription
 
-public enum LocalDependencies {
-  public enum Shared: String, CaseIterable, Packageable {
-    case appFoundation
-    case appResource
-    case entity
-    case localization
-    case network
-    case platform
+public enum LocalDependencies {}
 
-    public var packageSource: Package { .local(path: "../\(self.packageName)") }
+extension LocalDependencies {
+  public enum Core: String, CaseIterable, Packageable {
+    case appFoundation
+    case platform
+    case entity
+    case network
+
+    public var packageSource: Package { .local(path: "../Core/\(self.packageName)") }
+  }
+}
+
+extension LocalDependencies {
+  public enum Shared: String, CaseIterable, Packageable {
+    case appResource
+    case localization
+
+    public var packageSource: Package { .local(path: "../Shared/\(self.packageName)") }
   }
 }

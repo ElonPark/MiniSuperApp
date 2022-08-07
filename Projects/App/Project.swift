@@ -39,7 +39,8 @@ let appTarget = Target(
   ],
   dependencies: [
     RemoteDependencies.allPackages,
-    LocalDependencies.Shared.allPackages
+    LocalDependencies.Shared.allPackages,
+    LocalDependencies.Core.allPackages
   ].flatMap { $0 },
   settings: defaultSettings
 )
@@ -79,7 +80,8 @@ let project = Project(
   ),
   packages: [
     RemoteDependencies.allPackageSource,
-    LocalDependencies.Shared.allPackageSource
+    LocalDependencies.Shared.allPackageSource,
+    LocalDependencies.Core.allPackageSource
   ].flatMap { $0 },
   settings: defaultSettings,
   targets: [
