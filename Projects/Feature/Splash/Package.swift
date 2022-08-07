@@ -17,7 +17,7 @@ let package = Package(
   dependencies: [
     .package(url: "https://github.com/uber/RIBs.git", branch: "main"),
     .package(url: "https://github.com/uber/needle.git", .upToNextMajor(from: "0.18.1")),
-    .package(path: "../Core/AppCore"),
+    .package(path: "../Core"),
     .package(path: "../Shared")
   ],
   targets: [
@@ -31,10 +31,12 @@ let package = Package(
     .target(
       name: "Splash",
       dependencies: [
-        "SplashInterface",
-        "AppCore",
+        .product(name: "AppFoundation", package: "Core"),
+        .product(name: "Platform", package: "Core"),
+        .product(name: "Network", package: "Core"),
         .product(name: "DesignSystem", package: "Shared"),
-        .product(name: "Localization", package: "Shared")
+        .product(name: "Localization", package: "Shared"),
+        "SplashInterface"
       ],
       cSettings: [
         .define("FLEXLAYOUT_SWIFT_PACKAGE")

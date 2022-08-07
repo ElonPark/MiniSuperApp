@@ -20,13 +20,13 @@ extension LocalDependencies {
 
 extension LocalDependencies {
   public enum Core: String, CaseIterable, Packageable {
-    case appCore
     case appFoundation
     case platform
     case network
     case entity
 
-    public var packageSource: Package { .local(path: "../Core/\(self.packageName)") }
+    public var packageSource: Package { .local(path: "../Core") }
+    public static var allPackageSource: [Package] { [.local(path: "../Core")] }
   }
 }
 
