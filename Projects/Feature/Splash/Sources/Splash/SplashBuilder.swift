@@ -10,11 +10,14 @@ import NeedleFoundation
 import RIBs
 
 import AppFoundation
+import Network
 import SplashInterface
 
-// MARK: - Dependency
+// MARK: - SplashDependency
 
-public protocol SplashDependency: NeedleFoundation.Dependency {}
+public protocol SplashDependency: NeedleFoundation.Dependency {
+  var network: Networking { get }
+}
 
 // MARK: - DynamicComponentDependency
 
@@ -22,7 +25,12 @@ public typealias SplashComponentDependency = Void
 
 // MARK: - SplashComponent
 
-public final class SplashComponent: NeedleFoundation.Component<SplashDependency> {}
+public final class SplashComponent: NeedleFoundation.Component<SplashDependency> {
+
+  fileprivate var bootstrapRepository: BootstrapRepository {
+    BootstrapRepositoryImpl(network: self.network)
+  }
+}
 
 // MARK: - SplashBuilder
 
@@ -42,7 +50,8 @@ public final class SplashBuilder:
   ) -> SplashRouting {
     let viewController = SplashViewController()
     let interactor = SplashInteractor(
-      presenter: viewController
+      presenter: viewController,
+      bootstrapRepository: component.bootstrapRepository
     )
     interactor.listener = payload.listener
 

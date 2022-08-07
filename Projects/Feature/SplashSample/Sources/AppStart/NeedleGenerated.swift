@@ -3,6 +3,7 @@
 import AppFoundation
 import Foundation
 import NeedleFoundation
+import Network
 import RIBs
 import Splash
 import SplashInterface
@@ -29,8 +30,14 @@ public func registerProviderFactories() {
 // MARK: - SplashDependencye0cb7136f2ec3edfd60aBaseProvider
 
 private class SplashDependencye0cb7136f2ec3edfd60aBaseProvider: SplashDependency {
+  var network: Networking {
+    return self.appComponent.network
+  }
 
-  init() {}
+  private let appComponent: AppComponent
+  init(appComponent: AppComponent) {
+    self.appComponent = appComponent
+  }
 }
 
 // MARK: - SplashDependencye0cb7136f2ec3edfd60aProvider
@@ -38,7 +45,7 @@ private class SplashDependencye0cb7136f2ec3edfd60aBaseProvider: SplashDependency
 /// ^->AppComponent->SplashComponent
 private class SplashDependencye0cb7136f2ec3edfd60aProvider: SplashDependencye0cb7136f2ec3edfd60aBaseProvider {
   init(component: NeedleFoundation.Scope) {
-    super.init()
+    super.init(appComponent: component.parent as! AppComponent)
   }
 }
 

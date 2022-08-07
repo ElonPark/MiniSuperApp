@@ -12,6 +12,7 @@ import RIBs
 import RxSwift
 
 import DesignSystem
+import Localization
 
 protocol SplashPresentableListener: AnyObject {}
 
@@ -39,5 +40,19 @@ final class SplashViewController:
     } else {
       self.contentsView.stopAnimating()
     }
+  }
+
+  func displayBootstrap(viewModel: SplashModels.Bootstrap.ViewModel) {
+    let alert = UIAlertController(
+      title: nil,
+      message: viewModel.errorMessage,
+      preferredStyle: .alert
+    )
+    let okAction = UIAlertAction(title: L10n.Common.ok, style: .cancel) { _ in
+      exit(0)
+    }
+    alert.addAction(okAction)
+
+    present(alert, animated: true)
   }
 }

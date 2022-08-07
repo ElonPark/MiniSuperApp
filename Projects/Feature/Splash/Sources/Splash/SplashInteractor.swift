@@ -18,6 +18,7 @@ import SplashInterface
 protocol SplashPresentable: Presentable {
   var listener: SplashPresentableListener? { get set }
   func displaySplash(viewModel: SplashModels.Splash.ViewModel)
+  func displayBootstrap(viewModel: SplashModels.Bootstrap.ViewModel)
 }
 
 // MARK: - SplashInteractor
@@ -28,10 +29,16 @@ final class SplashInteractor:
   SplashPresentableListener
 {
 
+  private let bootstrapRepository: BootstrapRepository
+
   weak var router: SplashRouting?
   weak var listener: SplashListener?
 
-  override init(presenter: SplashPresentable) {
+  init(
+    presenter: SplashPresentable,
+    bootstrapRepository: BootstrapRepository
+  ) {
+    self.bootstrapRepository = bootstrapRepository
     super.init(presenter: presenter)
     presenter.listener = self
   }
@@ -43,12 +50,25 @@ final class SplashInteractor:
 
   private func startInitialization() {
     self.presenter.displaySplash(viewModel: .init(isLoading: true))
+    self.bootstrapRepository.requestBootstrapping()
+      .subscribe(with: self) { `self`, _ in
+        self.listener?.initializationComplete()
 
-    // TODO: 초기화 API 실행
-    DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2)) {
-      // TODO: - 초기화 완료 <Elon> 2022-07-13 23:38:35
-      self.presenter.displaySplash(viewModel: .init(isLoading: false))
-      self.listener?.initializationComplete()
-    }
+      } onFailure: { `self`, error in
+        print(error.localizedDescription)
+        self.presentErrorAlert(with: error)
+
+      } onDisposed: { `self` in
+        self.presenter.displaySplash(viewModel: .init(isLoading: false))
+      }
+      .disposeOnDeactivate(interactor: self)
+  }
+
+  private func presentErrorAlert(with error: Error) {
+    self.presenter.displayBootstrap(
+      viewModel: SplashModels.Bootstrap.ViewModel(
+        errorMessage: error.localizedDescription
+      )
+    )
   }
 }

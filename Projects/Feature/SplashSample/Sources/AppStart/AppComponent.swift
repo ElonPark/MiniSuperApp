@@ -10,6 +10,7 @@ import Foundation
 
 import NeedleFoundation
 
+import Network
 import Splash
 import SplashInterface
 
@@ -24,5 +25,13 @@ final class AppComponent: BootstrapComponent {
     SplashBuilder {
       SplashComponent(parent: self)
     }
+  }
+
+  var network: Networking {
+    Network(
+      plugins: [
+        NetworkLoggerPlugin()
+      ]
+    )
   }
 }

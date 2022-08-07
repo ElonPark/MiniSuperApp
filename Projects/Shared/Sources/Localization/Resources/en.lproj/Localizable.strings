@@ -6,6 +6,9 @@
   
 */
 
+"Common/Ok" = "OK";
+"Common/Cancel" = "Cancel";
+
 "LoggedOut/SignIn" = "Login";
 "LoggedOut/SignUp" = "Sign up";
 

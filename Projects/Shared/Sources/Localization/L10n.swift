@@ -12,10 +12,15 @@ import Foundation
 public enum L10n {
 
   public enum Common {
+    /// Common/Cancel: `취소`
+    public static let cancel = L10n.tr("Localizable", "Common/Cancel")
     /// Common/Hour: `Plural format key: "%#@format@"`
     public static func hour(_ p1: Int) -> String {
       return L10n.tr("Localizable", "Common/Hour", p1)
     }
+
+    /// Common/Ok: `확인`
+    public static let ok = L10n.tr("Localizable", "Common/Ok")
   }
 
   public enum LoggedOut {

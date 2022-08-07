@@ -6,6 +6,9 @@
   
 */
 
+"Common/Ok" = "확인";
+"Common/Cancel" = "취소";
+
 "LoggedOut/SignIn" = "로그인";
 "LoggedOut/SignUp" = "회원가입";
 

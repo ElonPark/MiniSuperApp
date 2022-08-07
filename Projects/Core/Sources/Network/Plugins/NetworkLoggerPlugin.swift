@@ -17,6 +17,8 @@ public final class NetworkLoggerPlugin: PluginType {
     return formatter
   }()
 
+  public init() {}
+
   public func willSend(_ request: RequestType, target: TargetType) {
     let url = URL(string: target.path, relativeTo: target.baseURL)
     let requestString = "\(target.method.rawValue) \(url?.absoluteString ?? target.path)"

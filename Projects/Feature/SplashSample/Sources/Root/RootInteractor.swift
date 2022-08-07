@@ -47,6 +47,7 @@ final class RootInteractor:
 
   override func didBecomeActive() {
     super.didBecomeActive()
+    self.startLaunchSequence()
   }
 
   func startLaunchSequence() {

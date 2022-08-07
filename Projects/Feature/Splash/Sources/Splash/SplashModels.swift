@@ -13,4 +13,10 @@ enum SplashModels {
       let isLoading: Bool
     }
   }
+
+  enum Bootstrap {
+    struct ViewModel {
+      let errorMessage: String
+    }
+  }
 }
