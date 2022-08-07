@@ -13,6 +13,7 @@ extension LocalDependencies {
   public enum Feature: String, CaseIterable, Packageable {
     case splash
 
+    public var packageSourceForSample: Package { .local(path: "../\(self.packageName)") }
     public var packageSource: Package { .local(path: "../Feature/\(self.packageName)") }
   }
 }
