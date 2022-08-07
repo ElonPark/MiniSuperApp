@@ -51,7 +51,7 @@ extension ComponentizedBuilder where DynamicComponentDependency == Void {
 // MARK: - DynamicComponentizedBuilder
 
 extension ComponentizedBuilder where DynamicBuildDependency == Void {
-  final func build(
+  public final func build(
     with dynamicComponentDependency: DynamicComponentDependency
   ) -> Router {
     return self.build(
