@@ -1,5 +1,5 @@
 //
-//  RootTabBarController.swift
+//  RootViewController.swift
 //  MiniSuperApp
 //
 //  Created by Elon on 2022/07/21.
@@ -16,9 +16,9 @@ import DesignSystem
 
 protocol RootPresentableListener: AnyObject {}
 
-// MARK: - RootTabBarController
+// MARK: - RootViewController
 
-final class RootTabBarController:
+final class RootViewController:
   BaseViewController,
   RootPresentable,
   RootViewControllable

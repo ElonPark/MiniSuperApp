@@ -49,7 +49,7 @@ final class RootBuilder:
     with component: RootComponent,
     _ payload: RootBuildDependency
   ) -> (launchRouter: LaunchRouting, urlHandler: URLHandler) {
-    let viewController = RootTabBarController()
+    let viewController = RootViewController()
     let interactor = RootInteractor(
       presenter: viewController
     )
