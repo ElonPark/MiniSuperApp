@@ -1,17 +1,7 @@
 import ProjectDescription
 import ProjectDescriptionHelpers
 
-// MARK: - Project
-
-// Creates our project using a helper function defined in ProjectDescriptionHelpers
-let defaultSettings: Settings = .settings(
-  base: [:],
-  configurations: [
-    .debug(name: .debug),
-    .release(name: .release)
-  ],
-  defaultSettings: .recommended
-)
+// MARK: - AppTarget
 
 let appTarget = Target(
   name: "MiniSuperApp",
@@ -27,23 +17,18 @@ let appTarget = Target(
   sources: "Sources/**",
   resources: "Resources/**",
   scripts: [
-    .pre(
-      script: """
-      FILE_PATH="$SRCROOT/Sources/AppStart"
-      export PATH="$PATH:/opt/homebrew/bin"
-      export SOURCEKIT_LOGGING=0 && needle generate "${FILE_PATH}/NeedleGenerated.swift" "$SRCROOT/../"
-      swiftformat ${FILE_PATH}/NeedleGenerated.swift
-      """,
-      name: "Needle"
-    )
+    Project.needleGenerateScript()
   ],
   dependencies: [
     RemoteDependencies.allPackages,
     LocalDependencies.Shared.allPackages,
-    LocalDependencies.Core.allPackages
+    LocalDependencies.Core.allPackages,
+    LocalDependencies.Feature.allPackages
   ].flatMap { $0 },
-  settings: defaultSettings
+  settings: Project.defaultSettings()
 )
+
+// MARK: - TestTarget
 
 let testTarget = Target(
   name: "MiniSuperAppTests",
@@ -61,8 +46,10 @@ let testTarget = Target(
     .xctest,
     .target(name: "MiniSuperApp")
   ],
-  settings: defaultSettings
+  settings: Project.defaultSettings()
 )
+
+// MARK: - Project
 
 let project = Project(
   name: "MiniSuperApp",
@@ -81,9 +68,10 @@ let project = Project(
   packages: [
     RemoteDependencies.allPackageSource,
     LocalDependencies.Shared.allPackageSource,
-    LocalDependencies.Core.allPackageSource
+    LocalDependencies.Core.allPackageSource,
+    LocalDependencies.Feature.allPackageSource
   ].flatMap { $0 },
-  settings: defaultSettings,
+  settings: Project.defaultSettings(),
   targets: [
     appTarget,
     testTarget

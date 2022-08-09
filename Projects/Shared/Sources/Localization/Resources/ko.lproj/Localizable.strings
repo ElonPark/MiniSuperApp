@@ -1,0 +1,15 @@
+/* 
+  Localizable.strings
+  MiniSuperApp
+
+  Created by Elon on 2022/07/10.
+  
+*/
+
+"Common/Ok" = "확인";
+"Common/Cancel" = "취소";
+
+"LoggedOut/SignIn" = "로그인";
+"LoggedOut/SignUp" = "회원가입";
+
+"Splash/Greeting" = "안녕하세요";

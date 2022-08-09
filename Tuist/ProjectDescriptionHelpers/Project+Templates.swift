@@ -6,24 +6,52 @@ import ProjectDescription
 /// See https://docs.tuist.io/guides/helpers/
 
 extension Project {
+
+  public static func defaultSettings() -> Settings {
+    .settings(
+      base: ["GCC_PREPROCESSOR_DEFINITIONS": "FLEXLAYOUT_SWIFT_PACKAGE=1"],
+      configurations: [
+        .debug(
+          name: .debug,
+          settings: ["GCC_PREPROCESSOR_DEFINITIONS": .array(["DEBUG=1", "$(inherited)"])]
+        ),
+        .release(name: .release)
+      ],
+      defaultSettings: .recommended
+    )
+  }
+
+  public static func needleGenerateScript() -> TargetScript {
+    return .pre(
+      script: """
+      FILE_PATH="$SRCROOT/Sources/AppStart"
+      export PATH="$PATH:/opt/homebrew/bin"
+      export SOURCEKIT_LOGGING=0 && needle generate "${FILE_PATH}/NeedleGenerated.swift" "$SRCROOT/../"
+      swiftformat ${FILE_PATH}/NeedleGenerated.swift
+      """,
+      name: "Needle"
+    )
+  }
+
   /// Helper function to create the Project for this ExampleApp
   public static func app(
     name: String,
     platform: Platform,
-    additionalTargets: [String]
+    scripts: [TargetScript] = [],
+    additionalTargetDependency: [TargetDependency],
+    additionalPackages: [Package]
   ) -> Project {
-    var targets = self.makeAppTargets(
+    let targets = self.makeAppTargets(
       name: name,
       platform: platform,
-      dependencies: additionalTargets.map { TargetDependency.target(name: $0) }
+      scripts: scripts,
+      dependencies: additionalTargetDependency
     )
-    targets += additionalTargets.flatMap {
-      self.makeFrameworkTargets(name: $0, platform: platform)
-    }
 
     return Project(
       name: name,
       organizationName: "com.elonpark",
+      packages: additionalPackages,
       targets: targets
     )
   }
@@ -38,7 +66,7 @@ extension Project {
       product: .framework,
       bundleId: "com.elonpark.\(name)",
       infoPlist: .default,
-      sources: ["Projects/Feature/\(name)/Sources/**"],
+      sources: ["Sources/**"],
       resources: [],
       dependencies: []
     )
@@ -48,7 +76,7 @@ extension Project {
       product: .unitTests,
       bundleId: "com.elonpark.\(name)Tests",
       infoPlist: .default,
-      sources: ["Projects/Feature/\(name)/Tests/**"],
+      sources: ["Tests/**"],
       resources: [],
       dependencies: [.target(name: name)]
     )
@@ -59,6 +87,8 @@ extension Project {
   private static func makeAppTargets(
     name: String,
     platform: Platform,
+    deploymentTarget: DeploymentTarget = .iOS(targetVersion: "14.0", devices: .iphone),
+    scripts: [TargetScript] = [],
     dependencies: [TargetDependency]
   ) -> [Target] {
     let platform: Platform = platform
@@ -74,10 +104,13 @@ extension Project {
       platform: platform,
       product: .app,
       bundleId: "com.elonpark.\(name)",
+      deploymentTarget: deploymentTarget,
       infoPlist: .extendingDefault(with: infoPlist),
-      sources: ["Projects/Feature/\(name)/Sources/**"],
-      resources: ["Projects/Feature/\(name)/Resources/**"],
-      dependencies: dependencies
+      sources: ["Sources/**"],
+      resources: ["Resources/**"],
+      scripts: scripts,
+      dependencies: dependencies,
+      settings: Self.defaultSettings()
     )
 
     let testTarget = Target(
@@ -85,11 +118,13 @@ extension Project {
       platform: platform,
       product: .unitTests,
       bundleId: "com.elonpark.\(name)Tests",
+      deploymentTarget: deploymentTarget,
       infoPlist: .default,
-      sources: ["Targets/\(name)/Tests/**"],
+      sources: ["Tests/**"],
       dependencies: [
         .target(name: "\(name)")
-      ]
+      ],
+      settings: Self.defaultSettings()
     )
     return [mainTarget, testTarget]
   }

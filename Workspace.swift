@@ -4,7 +4,8 @@ import ProjectDescriptionHelpers
 let workspace = Workspace(
   name: "MiniSuperApp",
   projects: [
-    "Projects/App"
+    "Projects/App",
+    "Projects/Feature/SplashSample"
   ],
   generationOptions: .options(
     enableAutomaticXcodeSchemes: true,
