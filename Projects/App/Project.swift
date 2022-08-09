@@ -38,18 +38,10 @@ let appTarget = Target(
     )
   ],
   dependencies: [
-    .external(name: "RIBs"),
-    .external(name: "NeedleFoundation"),
-    .external(name: "FlexLayout"),
-    .external(name: "PinLayout"),
-    .external(name: "Then"),
-    .external(name: "Entity"),
-    .external(name: "Platform"),
-    .external(name: "AppFoundation"),
-    .external(name: "AppResource"),
-    .external(name: "Localization"),
-    .external(name: "Network")
-  ],
+    RemoteDependencies.allPackages,
+    LocalDependencies.Shared.allPackages,
+    LocalDependencies.Core.allPackages
+  ].flatMap { $0 },
   settings: defaultSettings
 )
 
@@ -86,6 +78,11 @@ let project = Project(
       wrapsLines: true
     )
   ),
+  packages: [
+    RemoteDependencies.allPackageSource,
+    LocalDependencies.Shared.allPackageSource,
+    LocalDependencies.Core.allPackageSource
+  ].flatMap { $0 },
   settings: defaultSettings,
   targets: [
     appTarget,
