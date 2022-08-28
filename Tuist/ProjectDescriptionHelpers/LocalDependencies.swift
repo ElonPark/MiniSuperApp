@@ -13,8 +13,14 @@ extension LocalDependencies {
   public enum Feature: String, CaseIterable, Packageable {
     case splash
 
-    public var packageSourceForSample: Package { .local(path: "../../\(self.packageName)") }
-    public var packageSource: Package { .local(path: "../Feature/\(self.packageName)") }
+    public var packageSourceForSample: Package {
+      .package(path: .relativeToRoot("Projects/Core"))
+    }
+    public var packageSource: Package {
+      .package(path: .relativeToRoot("Projects/Feature/\(self.packageName)"))
+    }
+  }
+}
   }
 }
 
@@ -25,8 +31,12 @@ extension LocalDependencies {
     case network
     case entity
 
-    public var packageSource: Package { .local(path: "../Core") }
-    public static var allPackageSource: [Package] { [.local(path: "../Core")] }
+    public var packageSource: Package {
+      .package(path: .relativeToRoot("Projects/Core"))
+    }
+    public static var allPackageSource: [Package] {
+      [.package(path: .relativeToRoot("Projects/Core"))]
+    }
   }
 }
 
@@ -36,7 +46,11 @@ extension LocalDependencies {
     case designSystem
     case localization
 
-    public var packageSource: Package { .local(path: "../Shared") }
-    public static var allPackageSource: [Package] { [.local(path: "../Shared")] }
+    public var packageSource: Package {
+      .package(path: .relativeToRoot("Projects/Shared"))
+    }
+    public static var allPackageSource: [Package] {
+      [.package(path: .relativeToRoot("Projects/Shared"))]
+    }
   }
 }
