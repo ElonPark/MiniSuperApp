@@ -49,7 +49,7 @@ final class SplashInteractor:
   }
 
   private func startInitialization() {
-    self.presenter.displaySplash(viewModel: .init(isLoading: true))
+    self.displayLoading(true)
     self.bootstrapRepository.requestBootstrapping()
       .subscribe(with: self) { `self`, _ in
         self.listener?.initializationComplete()
@@ -59,9 +59,17 @@ final class SplashInteractor:
         self.presentErrorAlert(with: error)
 
       } onDisposed: { `self` in
-        self.presenter.displaySplash(viewModel: .init(isLoading: false))
+        self.displayLoading(false)
       }
       .disposeOnDeactivate(interactor: self)
+  }
+
+  private func displayLoading(_ isLoading: Bool) {
+    self.presenter.displaySplash(
+      viewModel: SplashModels.Splash.ViewModel(
+        isLoading: isLoading
+      )
+    )
   }
 
   private func presentErrorAlert(with error: Error) {
