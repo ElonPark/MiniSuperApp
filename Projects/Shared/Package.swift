@@ -41,6 +41,15 @@ let package = Package(
         "PinLayout",
         "Then",
         "AppResource"
+      ],
+      cSettings: [
+        .define("FLEXLAYOUT_SWIFT_PACKAGE")
+      ],
+      cxxSettings: [
+        .define("FLEXLAYOUT_SWIFT_PACKAGE")
+      ],
+      swiftSettings: [
+        .define("FLEXLAYOUT_SWIFT_PACKAGE")
       ]
     ),
     .target(

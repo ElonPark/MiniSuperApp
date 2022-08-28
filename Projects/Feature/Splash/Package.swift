@@ -33,6 +33,13 @@ let package = Package(
       ]
     ),
     .target(
+      name: "SplashTestSupport",
+      dependencies: [
+        "RIBs",
+        .product(name: "NeedleFoundation", package: "needle")
+      ]
+    ),
+    .target(
       name: "Splash",
       dependencies: [
         .product(name: "AppFoundation", package: "Core"),
@@ -48,7 +55,10 @@ let package = Package(
     ),
     .testTarget(
       name: "SplashTests",
-      dependencies: ["Splash"]
+      dependencies: ["Splash"],
+      cSettings: [
+        .define("FLEXLAYOUT_SWIFT_PACKAGE")
+      ]
     )
   ]
 )

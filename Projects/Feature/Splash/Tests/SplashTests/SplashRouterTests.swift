@@ -8,7 +8,7 @@
 
 import XCTest
 
-@testable import SplashSample
+@testable import Splash
 
 final class SplashRouterTests: XCTestCase {
 

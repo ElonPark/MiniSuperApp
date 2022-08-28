@@ -12,6 +12,7 @@ import RIBs
 
 // MARK: - SplashListener
 
+/// @mockable
 public protocol SplashListener: AnyObject {
   func initializationComplete()
 }

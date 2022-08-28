@@ -15,6 +15,7 @@ import SplashInterface
 
 // MARK: - SplashPresentable
 
+/// @mockable
 protocol SplashPresentable: Presentable {
   var listener: SplashPresentableListener? { get set }
   func displaySplash(viewModel: SplashModels.Splash.ViewModel)

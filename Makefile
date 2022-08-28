@@ -10,17 +10,17 @@ setup_swiftformat_hook:
 	cp ./Scripts/pre-commit .git/hooks/pre-commit
 	chmod 755 .git/hooks/pre-commit
 
-mock:
-	mockolo -s ./Projects \
-	 --mockfiles ./Projects/App/Tests/RIBsMocks.swift \
-	 -d ./Projects/App/Tests/OutputMocks.swift \
+mock_app:
+	mockolo -s Projects \
+	 --mockfiles Projects/App/Tests/RIBsMocks.swift \
+	 -d Projects/App/Tests/AppMocks.swift \
 	 -i MiniSuperApp \
 	 -x Tests Resources Resource Localization \
 	 --use-mock-observable \
 	 --mock-final \
 	 --exclude-imports NeedleFoundation
 
-	swiftformat ./Projects/App/Tests/OutputMocks.swift
+	swiftformat ./Projects/App/Tests/AppMocks.swift
 
 # make feature=Splash mock_interface 
 mock_interface:
@@ -32,3 +32,16 @@ mock_interface:
 	 --exclude-imports NeedleFoundation
 
 	swiftformat Projects/Feature/$(feature)/Sources/$(feature)TestSupport/$(feature)InterfaceMocks.swift
+
+# make feature=Splash mock 
+mock:
+	mockolo -s Projects/Feature \
+	 --mockfiles Projects/App/Tests/RIBsMocks.swift \
+	 -d Projects/Feature/$(feature)/Tests/$(feature)Tests/$(feature)Mocks.swift \
+	 -i $(feature) \
+	 -x Tests Resources Resource Localization \
+	 --use-mock-observable \
+	 --mock-final \
+	 --exclude-imports NeedleFoundation AppFoundation AppResource DesignSystem Localization Network UIKit\
+
+	swiftformat Projects/Feature/$(feature)/Tests/$(feature)Tests/$(feature)Mocks.swift
