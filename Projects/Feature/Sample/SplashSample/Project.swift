@@ -7,7 +7,7 @@ let project = Project.app(
   name: "SplashSample",
   platform: .iOS,
   scripts: [
-    Project.needleGenerateScript()
+    Project.needleGenerateScriptForFeature()
   ],
   additionalTargetDependency: [
     LocalDependencies.Feature.splash.package,

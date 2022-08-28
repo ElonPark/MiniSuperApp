@@ -3,7 +3,9 @@
 import AppFoundation
 import Foundation
 import NeedleFoundation
+import Network
 import RIBs
+import SplashInterface
 
 // swiftlint:disable unused_declaration
 private let needleDependenciesHash: String? = nil
