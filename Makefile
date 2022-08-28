@@ -11,14 +11,14 @@ setup_swiftformat_hook:
 	chmod 755 .git/hooks/pre-commit
 
 mock_app:
-	mockolo -s Projects \
+	mockolo -s Projects/App \
 	 --mockfiles Projects/App/Tests/RIBsMocks.swift \
 	 -d Projects/App/Tests/AppMocks.swift \
 	 -i MiniSuperApp \
-	 -x Tests Resources Resource Localization \
+	 -x Feature Tests Resources Resource Localization \
 	 --use-mock-observable \
 	 --mock-final \
-	 --exclude-imports NeedleFoundation
+	 --exclude-imports NeedleFoundation AppFoundation AppResource DesignSystem Localization Network UIKit\
 
 	swiftformat ./Projects/App/Tests/AppMocks.swift
 
@@ -29,13 +29,13 @@ mock_interface:
 	 -d Projects/Feature/$(feature)/Sources/$(feature)TestSupport/$(feature)InterfaceMocks.swift \
 	 --use-mock-observable \
 	 --mock-final \
-	 --exclude-imports NeedleFoundation
+	 --exclude-imports NeedleFoundation AppFoundation AppResource DesignSystem Localization Network UIKit\
 
 	swiftformat Projects/Feature/$(feature)/Sources/$(feature)TestSupport/$(feature)InterfaceMocks.swift
 
 # make feature=Splash mock 
 mock:
-	mockolo -s Projects/Feature \
+	mockolo -s Projects/Feature/$(feature)/Sources \
 	 --mockfiles Projects/App/Tests/RIBsMocks.swift \
 	 -d Projects/Feature/$(feature)/Tests/$(feature)Tests/$(feature)Mocks.swift \
 	 -i $(feature) \
