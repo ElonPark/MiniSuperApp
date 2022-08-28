@@ -27,7 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 extension AppDelegate {
   private func configureAppLaunch() {
-    let appComponent = AppComponent()
+    let appComponent = SplashSampleAppComponent()
     let rootBuilder = appComponent.rootBuilder
     (self.launchRouter, self.urlHandler) = rootBuilder.build()
 

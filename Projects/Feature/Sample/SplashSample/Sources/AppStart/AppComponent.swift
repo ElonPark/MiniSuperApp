@@ -1,5 +1,5 @@
 //
-//  AppComponent.swift
+//  SplashSampleAppComponent.swift
 //  MiniSuperApp
 //
 //  Created by Elon on 2022/07/21.
@@ -14,7 +14,7 @@ import Network
 import Splash
 import SplashInterface
 
-final class AppComponent: BootstrapComponent {
+final class SplashSampleAppComponent: BootstrapComponent {
   var rootBuilder: RootBuildable {
     RootBuilder {
       RootComponent(parent: self)
