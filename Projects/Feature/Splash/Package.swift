@@ -12,6 +12,10 @@ let package = Package(
     .library(
       name: "Splash",
       targets: ["Splash"]
+    ),
+    .library(
+      name: "SplashTestSupport",
+      targets: ["SplashTestSupport"]
     )
   ],
   dependencies: [

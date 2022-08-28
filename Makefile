@@ -21,3 +21,14 @@ mock:
 	 --exclude-imports NeedleFoundation
 
 	swiftformat ./Projects/App/Tests/OutputMocks.swift
+
+# make feature=Splash mock_interface 
+mock_interface:
+	mockolo -s Projects/Feature/$(feature)/Sources/$(feature)Interface \
+	 --mockfiles Projects/App/Tests/RIBsMocks.swift \
+	 -d Projects/Feature/$(feature)/Sources/$(feature)TestSupport/$(feature)InterfaceMocks.swift \
+	 --use-mock-observable \
+	 --mock-final \
+	 --exclude-imports NeedleFoundation
+
+	swiftformat Projects/Feature/$(feature)/Sources/$(feature)TestSupport/$(feature)InterfaceMocks.swift
