@@ -14,10 +14,14 @@ extension ViewControllable {
     uiviewController as? UINavigationController ?? uiviewController.navigationController
   }
 
+  public func present(_ viewControllable: ViewControllable, animated: Bool) {
+    self.present(viewControllable, animated: animated, completion: nil)
+  }
+
   public func present(
     _ viewControllable: ViewControllable,
     animated: Bool,
-    completion: (() -> Void)? = nil
+    completion: (() -> Void)?
   ) {
     self.uiviewController.present(
       viewControllable.uiviewController,
@@ -26,11 +30,16 @@ extension ViewControllable {
     )
   }
 
+  public func dismiss(_ viewController: ViewControllable, animated: Bool) {
+    self.dismiss(viewController, animated: animated, completion: nil)
+  }
+
   public func dismiss(
+    _ viewController: ViewControllable,
     animated: Bool,
-    completion: (() -> Void)? = nil
+    completion: (() -> Void)?
   ) {
-    self.uiviewController.dismiss(
+    viewController.uiviewController.dismiss(
       animated: animated,
       completion: completion
     )
