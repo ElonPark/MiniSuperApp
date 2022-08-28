@@ -5,7 +5,7 @@ let workspace = Workspace(
   name: "MiniSuperApp",
   projects: [
     "Projects/App",
-    "Projects/Feature/SplashSample"
+    "Projects/Feature/Sample/SplashSample"
   ],
   generationOptions: .options(
     enableAutomaticXcodeSchemes: true,
