@@ -7,7 +7,6 @@
 
 import Foundation
 
-import NeedleFoundation
 import RIBs
 
 // MARK: - SplashListener

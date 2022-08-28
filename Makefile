@@ -12,12 +12,13 @@ setup_swiftformat_hook:
 
 mock_app:
 	mockolo -s Projects/App \
-	 --mockfiles Projects/App/Tests/RIBsMocks.swift \
+	 --mockfiles Projects/Core/Sources/AppTestSupport/RIBsMocks.swift \
 	 -d Projects/App/Tests/AppMocks.swift \
 	 -i MiniSuperApp \
 	 -x Feature Tests Resources Resource Localization \
 	 --use-mock-observable \
 	 --mock-final \
+	 --custom-imports AppTestSupport \
 	 --exclude-imports NeedleFoundation AppFoundation AppResource DesignSystem Localization Network UIKit\
 
 	swiftformat ./Projects/App/Tests/AppMocks.swift
@@ -25,10 +26,11 @@ mock_app:
 # make feature=Splash mock_interface 
 mock_interface:
 	mockolo -s Projects/Feature/$(feature)/Sources/$(feature)Interface \
-	 --mockfiles Projects/App/Tests/RIBsMocks.swift \
+	 --mockfiles Projects/Core/Sources/AppTestSupport/RIBsMocks.swift \
 	 -d Projects/Feature/$(feature)/Sources/$(feature)TestSupport/$(feature)InterfaceMocks.swift \
 	 --use-mock-observable \
 	 --mock-final \
+	 --custom-imports AppTestSupport $(feature)Interface\
 	 --exclude-imports NeedleFoundation AppFoundation AppResource DesignSystem Localization Network UIKit\
 
 	swiftformat Projects/Feature/$(feature)/Sources/$(feature)TestSupport/$(feature)InterfaceMocks.swift
@@ -36,12 +38,13 @@ mock_interface:
 # make feature=Splash mock 
 mock:
 	mockolo -s Projects/Feature/$(feature)/Sources \
-	 --mockfiles Projects/App/Tests/RIBsMocks.swift \
+	 --mockfiles Projects/Core/Sources/AppTestSupport/RIBsMocks.swift \
 	 -d Projects/Feature/$(feature)/Tests/$(feature)Tests/$(feature)Mocks.swift \
 	 -i $(feature) \
 	 -x Tests Resources Resource Localization \
 	 --use-mock-observable \
 	 --mock-final \
+	 --custom-imports AppTestSupport \
 	 --exclude-imports NeedleFoundation AppFoundation AppResource DesignSystem Localization Network UIKit\
 
 	swiftformat Projects/Feature/$(feature)/Tests/$(feature)Tests/$(feature)Mocks.swift
