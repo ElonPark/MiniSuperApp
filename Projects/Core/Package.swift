@@ -59,6 +59,13 @@ let package = Package(
     .testTarget(
       name: "NetworkTests",
       dependencies: ["Network"]
+    ),
+    .testTarget(
+      name: "UserStreamTests",
+      dependencies: [
+        "UserStream",
+        .product(name: "AppTestSupport", package: "Shared")
+      ]
     )
   ]
 )
