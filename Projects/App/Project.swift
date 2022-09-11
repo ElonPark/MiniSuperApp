@@ -72,7 +72,8 @@ let project = Project(
     RemoteDependencies.allPackageSource,
     LocalDependencies.Shared.allPackageSource,
     LocalDependencies.Core.allPackageSource,
-    LocalDependencies.Feature.allPackageSource
+    LocalDependencies.Feature.allPackageSource,
+    LocalDependencies.TestSupport.allPackageSource
   ].flatMap { $0 },
   settings: Project.defaultSettings(),
   targets: [

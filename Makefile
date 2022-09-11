@@ -10,16 +10,20 @@ setup_swiftformat_hook:
 	cp ./Scripts/pre-commit .git/hooks/pre-commit
 	chmod 755 .git/hooks/pre-commit
 
+project:
+	tuist generate
+
 mock_app:
 	mockolo -s Projects/App \
 	 --mockfiles Projects/Core/Sources/AppTestSupport/RIBsMocks.swift \
+	 Projects/Feature/*/Sources/*TestSupport/*InterfaceMocks.swift \
 	 -d Projects/App/Tests/AppMocks.swift \
 	 -i MiniSuperApp \
 	 -x Feature Tests Resources Resource Localization \
 	 --use-mock-observable \
 	 --mock-final \
 	 --custom-imports AppTestSupport \
-	 --exclude-imports NeedleFoundation AppFoundation AppResource DesignSystem Localization Network UIKit\
+	 --exclude-imports NeedleFoundation AppFoundation AppResource DesignSystem Localization Network\
 
 	swiftformat ./Projects/App/Tests/AppMocks.swift
 
