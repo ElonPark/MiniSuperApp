@@ -9,7 +9,7 @@ import Foundation
 
 import RxSwift
 
-import Network
+import NetworkInterface
 
 // MARK: - BootstrapRepository
 

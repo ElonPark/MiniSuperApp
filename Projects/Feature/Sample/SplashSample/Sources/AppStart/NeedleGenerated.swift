@@ -4,6 +4,7 @@ import AppFoundation
 import Foundation
 import NeedleFoundation
 import Network
+import NetworkInterface
 import RIBs
 import Splash
 import SplashInterface

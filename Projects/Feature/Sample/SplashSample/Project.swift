@@ -11,10 +11,12 @@ let project = Project.app(
   ],
   additionalTargetDependency: [
     LocalDependencies.Feature.splash.package,
+    LocalDependencies.Core.network.package,
     RemoteDependencies.needleFoundation.package
   ],
   additionalPackages: [
     LocalDependencies.Feature.splash.packageSource,
+    LocalDependencies.Core.network.packageSource,
     RemoteDependencies.needleFoundation.packageSource
   ]
 )

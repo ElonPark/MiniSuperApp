@@ -8,6 +8,10 @@ let package = Package(
   platforms: [.iOS(.v14)],
   products: [
     .library(
+      name: "NetworkInterface",
+      targets: ["NetworkInterface"]
+    ),
+    .library(
       name: "Network",
       targets: ["Network"]
     )
@@ -18,9 +22,16 @@ let package = Package(
   ],
   targets: [
     .target(
+      name: "NetworkInterface",
+      dependencies: [
+        .product(name: "RxSwift", package: "RxSwift"),
+        .product(name: "RxMoya", package: "Moya")
+      ]
+    ),
+    .target(
       name: "Network",
       dependencies: [
-        .product(name: "RxMoya", package: "Moya")
+        "NetworkInterface"
       ]
     ),
     .testTarget(

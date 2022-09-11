@@ -10,7 +10,7 @@ import NeedleFoundation
 import RIBs
 
 import AppFoundation
-import Network
+import NetworkInterface
 import SplashInterface
 
 // MARK: - SplashDependency

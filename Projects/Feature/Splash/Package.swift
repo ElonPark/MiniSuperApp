@@ -23,6 +23,7 @@ let package = Package(
     )
   ],
   dependencies: [
+    .package(url: "https://github.com/ReactiveX/RxSwift", from: "6.5.0"),
     .package(url: "https://github.com/uber/RIBs.git", branch: "main"),
     .package(url: "https://github.com/uber/needle.git", .upToNextMajor(from: "0.18.1")),
     .package(path: "../Core"),
@@ -32,15 +33,16 @@ let package = Package(
     .target(
       name: "SplashInterface",
       dependencies: [
-        "RIBs",
+        .product(name: "RIBs", package: "RIBs"),
+        .product(name: "RxSwift", package: "RxSwift"),
         .product(name: "NeedleFoundation", package: "needle")
       ]
     ),
     .target(
       name: "SplashTestSupport",
       dependencies: [
-        "RIBs",
         "SplashInterface",
+        .product(name: "RIBs", package: "RIBs"),
         .product(name: "AppTestSupport", package: "Shared")
       ]
     ),
@@ -52,7 +54,7 @@ let package = Package(
         .product(name: "Platform", package: "Shared"),
         .product(name: "DesignSystem", package: "Shared"),
         .product(name: "Localization", package: "Shared"),
-        .product(name: "Network", package: "Core")
+        .product(name: "NetworkInterface", package: "Core")
       ],
       cSettings: [
         .define("FLEXLAYOUT_SWIFT_PACKAGE")
