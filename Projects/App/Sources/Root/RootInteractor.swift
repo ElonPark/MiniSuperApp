@@ -15,10 +15,15 @@ import AppFoundation
 
 // MARK: - RootRouting
 
-protocol RootRouting: ViewableRouting {}
+/// @mockable
+protocol RootRouting: ViewableRouting {
+  func attachSplashRIB()
+  func detachSplashRIB()
+}
 
 // MARK: - RootPresentable
 
+/// @mockable
 protocol RootPresentable: Presentable {
   var listener: RootPresentableListener? { get set }
 }
@@ -44,6 +49,15 @@ final class RootInteractor:
 
   override func didBecomeActive() {
     super.didBecomeActive()
+    self.startLaunchSequence()
+  }
+
+  func startLaunchSequence() {
+    self.router?.attachSplashRIB()
+  }
+
+  func initializationComplete() {
+    self.router?.detachSplashRIB()
   }
 }
 

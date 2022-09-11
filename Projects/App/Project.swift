@@ -43,9 +43,12 @@ let testTarget = Target(
   infoPlist: .default,
   sources: "Tests/**",
   dependencies: [
-    .xctest,
-    .target(name: "MiniSuperApp")
-  ],
+    [
+      .xctest,
+      .target(name: "MiniSuperApp")
+    ],
+    LocalDependencies.TestSupport.allPackages
+  ].flatMap { $0 },
   settings: Project.defaultSettings()
 )
 
@@ -69,7 +72,8 @@ let project = Project(
     RemoteDependencies.allPackageSource,
     LocalDependencies.Shared.allPackageSource,
     LocalDependencies.Core.allPackageSource,
-    LocalDependencies.Feature.allPackageSource
+    LocalDependencies.Feature.allPackageSource,
+    LocalDependencies.TestSupport.allPackageSource
   ].flatMap { $0 },
   settings: Project.defaultSettings(),
   targets: [

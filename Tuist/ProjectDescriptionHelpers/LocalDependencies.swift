@@ -12,9 +12,33 @@ public enum LocalDependencies {}
 extension LocalDependencies {
   public enum Feature: String, CaseIterable, Packageable {
     case splash
+    case splashInterface
 
-    public var packageSourceForSample: Package { .local(path: "../../\(self.packageName)") }
-    public var packageSource: Package { .local(path: "../Feature/\(self.packageName)") }
+    public var packageSource: Package { .package(path: self.path) }
+    private var path: Path {
+      if self.packageName.hasSuffix("Interface") {
+        let packageName = String(self.packageName.dropLast("Interface".count))
+        return .relativeToRoot("Projects/Feature/\(packageName)")
+      }
+      return .relativeToRoot("Projects/Feature/\(self.packageName)")
+    }
+  }
+}
+
+extension LocalDependencies {
+  public enum TestSupport: String, CaseIterable, Packageable {
+    case appTestSupport
+    case splashTestSupport
+
+    public var packageSource: Package {
+      switch self {
+      case .appTestSupport:
+        return .package(path: .relativeToRoot("Projects/Core"))
+      case .splashTestSupport:
+        let path = self.packageName.replacingOccurrences(of: "TestSupport", with: "")
+        return .package(path: .relativeToRoot("Projects/Feature/\(path)"))
+      }
+    }
   }
 }
 
@@ -25,8 +49,13 @@ extension LocalDependencies {
     case network
     case entity
 
-    public var packageSource: Package { .local(path: "../Core") }
-    public static var allPackageSource: [Package] { [.local(path: "../Core")] }
+    public var packageSource: Package {
+      .package(path: .relativeToRoot("Projects/Core"))
+    }
+
+    public static var allPackageSource: [Package] {
+      [.package(path: .relativeToRoot("Projects/Core"))]
+    }
   }
 }
 
@@ -36,7 +65,12 @@ extension LocalDependencies {
     case designSystem
     case localization
 
-    public var packageSource: Package { .local(path: "../Shared") }
-    public static var allPackageSource: [Package] { [.local(path: "../Shared")] }
+    public var packageSource: Package {
+      .package(path: .relativeToRoot("Projects/Shared"))
+    }
+
+    public static var allPackageSource: [Package] {
+      [.package(path: .relativeToRoot("Projects/Shared"))]
+    }
   }
 }

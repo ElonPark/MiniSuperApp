@@ -14,7 +14,7 @@ let project = Project.app(
     RemoteDependencies.needleFoundation.package
   ],
   additionalPackages: [
-    LocalDependencies.Feature.splash.packageSourceForSample,
+    LocalDependencies.Feature.splash.packageSource,
     RemoteDependencies.needleFoundation.packageSource
   ]
 )

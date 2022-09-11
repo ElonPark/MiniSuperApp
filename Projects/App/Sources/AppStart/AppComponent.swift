@@ -10,10 +10,34 @@ import Foundation
 
 import NeedleFoundation
 
+import Network
+import Splash
+import SplashInterface
+
+// MARK: - AppComponent
+
 final class AppComponent: BootstrapComponent {
   var rootBuilder: RootBuildable {
     RootBuilder {
       RootComponent(parent: self)
+    }
+  }
+
+  var network: Networking {
+    Network(
+      plugins: [
+        NetworkLoggerPlugin()
+      ]
+    )
+  }
+}
+
+// MARK: - Splash
+
+extension AppComponent {
+  var splashBuilder: SplashBuildable {
+    SplashBuilder {
+      SplashComponent(parent: self)
     }
   }
 }

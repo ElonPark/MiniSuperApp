@@ -7,26 +7,49 @@
 //
 
 import Foundation
+import XCTest
 
 @testable import MiniSuperApp
-import XCTest
+import SplashTestSupport
 
 final class RootRouterTests: XCTestCase {
 
+  private var interactor: RootInteractableMock!
+  private var viewController: RootViewControllableMock!
+  private var splashBuilder: SplashBuildableMock!
   private var router: RootRouter!
-
-  // TODO: declare other objects and mocks you need as private vars
 
   override func setUpWithError() throws {
     try super.setUpWithError()
+    self.interactor = .init()
+    self.viewController = .init()
+    self.splashBuilder = .init()
 
-    // TODO: instantiate objects and mocks
+    self.router = RootRouter(
+      interactor: self.interactor,
+      viewController: self.viewController,
+      splashBuilder: self.splashBuilder
+    )
   }
 
   // MARK: - Tests
 
-  func test_routeToExample_invokesToExampleResult() {
-    // This is an example of a router test case.
-    // Test your router functions invokes the corresponding builder, attachesChild, presents VC, etc.
+  func test_attachSplashRIB() {
+    // when
+    self.router.attachSplashRIB()
+
+    // then
+    XCTAssertNotNil(self.router.splashRouter)
+    XCTAssertEqual(self.splashBuilder.buildCallCount, 1)
+    XCTAssertEqual(self.viewController.presentCallCount, 1)
+  }
+
+  func test_detachSplashRIB() {
+    // when
+    self.router.detachSplashRIB()
+
+    // then
+    XCTAssertNil(self.router.splashRouter)
+    XCTAssertEqual(self.viewController.presentCallCount, 1)
   }
 }

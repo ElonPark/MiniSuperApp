@@ -15,58 +15,59 @@ private let needleDependenciesHash: String? = nil
 
 public func registerProviderFactories() {
   __DependencyProviderRegistry.instance
-    .registerDependencyProviderFactory(for: "^->AppComponent->SplashComponent") { component in
-      return SplashDependencye0cb7136f2ec3edfd60aProvider(component: component)
+    .registerDependencyProviderFactory(for: "^->SplashSampleAppComponent->SplashComponent") { component in
+      return SplashDependencyf7dba9fd3ca54c8769deProvider(component: component)
     }
-  __DependencyProviderRegistry.instance.registerDependencyProviderFactory(for: "^->AppComponent") { component in
-    return EmptyDependencyProvider(component: component)
-  }
   __DependencyProviderRegistry.instance
-    .registerDependencyProviderFactory(for: "^->AppComponent->RootComponent") { component in
-      return RootDependency3944cc797a4a88956fb5Provider(component: component)
+    .registerDependencyProviderFactory(for: "^->SplashSampleAppComponent") { component in
+      return EmptyDependencyProvider(component: component)
+    }
+  __DependencyProviderRegistry.instance
+    .registerDependencyProviderFactory(for: "^->SplashSampleAppComponent->RootComponent") { component in
+      return RootDependency2dd76bccd0c17471e840Provider(component: component)
     }
 }
 
-// MARK: - SplashDependencye0cb7136f2ec3edfd60aBaseProvider
+// MARK: - SplashDependencyf7dba9fd3ca54c8769deBaseProvider
 
-private class SplashDependencye0cb7136f2ec3edfd60aBaseProvider: SplashDependency {
+private class SplashDependencyf7dba9fd3ca54c8769deBaseProvider: SplashDependency {
   var network: Networking {
-    return self.appComponent.network
+    return self.splashSampleAppComponent.network
   }
 
-  private let appComponent: AppComponent
-  init(appComponent: AppComponent) {
-    self.appComponent = appComponent
+  private let splashSampleAppComponent: SplashSampleAppComponent
+  init(splashSampleAppComponent: SplashSampleAppComponent) {
+    self.splashSampleAppComponent = splashSampleAppComponent
   }
 }
 
-// MARK: - SplashDependencye0cb7136f2ec3edfd60aProvider
+// MARK: - SplashDependencyf7dba9fd3ca54c8769deProvider
 
-/// ^->AppComponent->SplashComponent
-private class SplashDependencye0cb7136f2ec3edfd60aProvider: SplashDependencye0cb7136f2ec3edfd60aBaseProvider {
+/// ^->SplashSampleAppComponent->SplashComponent
+private class SplashDependencyf7dba9fd3ca54c8769deProvider: SplashDependencyf7dba9fd3ca54c8769deBaseProvider {
   init(component: NeedleFoundation.Scope) {
-    super.init(appComponent: component.parent as! AppComponent)
+    super.init(splashSampleAppComponent: component.parent as! SplashSampleAppComponent)
   }
 }
 
-// MARK: - RootDependency3944cc797a4a88956fb5BaseProvider
+// MARK: - RootDependency2dd76bccd0c17471e840BaseProvider
 
-private class RootDependency3944cc797a4a88956fb5BaseProvider: RootDependency {
+private class RootDependency2dd76bccd0c17471e840BaseProvider: RootDependency {
   var splashBuilder: SplashBuildable {
-    return self.appComponent.splashBuilder
+    return self.splashSampleAppComponent.splashBuilder
   }
 
-  private let appComponent: AppComponent
-  init(appComponent: AppComponent) {
-    self.appComponent = appComponent
+  private let splashSampleAppComponent: SplashSampleAppComponent
+  init(splashSampleAppComponent: SplashSampleAppComponent) {
+    self.splashSampleAppComponent = splashSampleAppComponent
   }
 }
 
-// MARK: - RootDependency3944cc797a4a88956fb5Provider
+// MARK: - RootDependency2dd76bccd0c17471e840Provider
 
-/// ^->AppComponent->RootComponent
-private class RootDependency3944cc797a4a88956fb5Provider: RootDependency3944cc797a4a88956fb5BaseProvider {
+/// ^->SplashSampleAppComponent->RootComponent
+private class RootDependency2dd76bccd0c17471e840Provider: RootDependency2dd76bccd0c17471e840BaseProvider {
   init(component: NeedleFoundation.Scope) {
-    super.init(appComponent: component.parent as! AppComponent)
+    super.init(splashSampleAppComponent: component.parent as! SplashSampleAppComponent)
   }
 }

@@ -12,6 +12,10 @@ let package = Package(
       targets: ["AppFoundation"]
     ),
     .library(
+      name: "AppTestSupport",
+      targets: ["AppTestSupport"]
+    ),
+    .library(
       name: "Platform",
       targets: ["Platform"]
     ),
@@ -32,9 +36,11 @@ let package = Package(
   targets: [
     .target(
       name: "AppFoundation",
-      dependencies: [
-        "RIBs"
-      ]
+      dependencies: ["RIBs"]
+    ),
+    .target(
+      name: "AppTestSupport",
+      dependencies: ["RIBs"]
     ),
     .target(
       name: "Platform",

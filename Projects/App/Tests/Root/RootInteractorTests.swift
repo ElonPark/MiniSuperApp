@@ -7,26 +7,43 @@
 //
 
 import Foundation
+import XCTest
 
 @testable import MiniSuperApp
-import XCTest
 
 final class RootInteractorTests: XCTestCase {
 
+  private var router: RootRoutingMock!
+  private var presenter: RootPresentableMock!
   private var interactor: RootInteractor!
-
-  // TODO: declare other objects and mocks you need as private vars
 
   override func setUpWithError() throws {
     try super.setUpWithError()
-
-    // TODO: instantiate objects and mocks
+    self.router = .init()
+    self.presenter = .init()
+    self.interactor = RootInteractor(
+      presenter: self.presenter
+    )
+    self.interactor.router = self.router
   }
 
   // MARK: - Tests
 
-  func test_exampleObservable_callsRouterOrListener_exampleProtocol() {
-    // This is an example of an interactor test case.
-    // Test your interactor binds observables and sends messages to router or listener.
+  func test_didBecomeActive가_호출되면_router에_attachSplashRIB를_요청해요() {
+    // when
+    self.interactor.didBecomeActive()
+
+    // then
+    XCTAssertEqual(self.router.attachChildCallCount, 1)
+    XCTAssertEqual(self.router.attachSplashRIBCallCount, 1)
+  }
+
+  func test_initializationComplete가_호출되면_router에_attachSplashRIB를_요청해요() {
+    // when
+    self.interactor.initializationComplete()
+
+    // then
+    XCTAssertEqual(self.router.detachChildCallCount, 1)
+    XCTAssertEqual(self.router.detachSplashRIBCallCount, 1)
   }
 }

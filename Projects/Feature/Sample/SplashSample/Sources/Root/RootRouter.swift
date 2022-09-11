@@ -55,6 +55,6 @@ final class RootRouter:
     guard let router = splashRouter else { return }
     self.splashRouter = nil
     self.detachChild(router)
-    self.viewController.dismiss(animated: true)
+    self.viewController.dismiss(router.viewControllable, animated: true)
   }
 }
