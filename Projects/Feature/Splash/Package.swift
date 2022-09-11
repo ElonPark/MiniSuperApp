@@ -14,6 +14,10 @@ let package = Package(
       targets: ["Splash"]
     ),
     .library(
+      name: "SplashInterface",
+      targets: ["SplashInterface"]
+    ),
+    .library(
       name: "SplashTestSupport",
       targets: ["SplashTestSupport"]
     )
@@ -36,19 +40,19 @@ let package = Package(
       name: "SplashTestSupport",
       dependencies: [
         "RIBs",
-        .product(name: "AppTestSupport", package: "Core"),
-        "SplashInterface"
+        "SplashInterface",
+        .product(name: "AppTestSupport", package: "Core")
       ]
     ),
     .target(
       name: "Splash",
       dependencies: [
+        "SplashInterface",
         .product(name: "AppFoundation", package: "Core"),
         .product(name: "Platform", package: "Core"),
         .product(name: "Network", package: "Core"),
         .product(name: "DesignSystem", package: "Shared"),
-        .product(name: "Localization", package: "Shared"),
-        "SplashInterface"
+        .product(name: "Localization", package: "Shared")
       ],
       cSettings: [
         .define("FLEXLAYOUT_SWIFT_PACKAGE")

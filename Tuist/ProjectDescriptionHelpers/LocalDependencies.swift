@@ -12,9 +12,16 @@ public enum LocalDependencies {}
 extension LocalDependencies {
   public enum Feature: String, CaseIterable, Packageable {
     case splash
+    case splashInterface
 
     public var packageSource: Package { .package(path: self.path) }
-    private var path: Path { .relativeToRoot("Projects/Feature/\(self.packageName)") }
+    private var path: Path {
+      if self.packageName.hasSuffix("Interface") {
+        let packageName = String(self.packageName.dropLast("Interface".count))
+        return .relativeToRoot("Projects/Feature/\(packageName)")
+      }
+      return .relativeToRoot("Projects/Feature/\(self.packageName)")
+    }
   }
 }
 
