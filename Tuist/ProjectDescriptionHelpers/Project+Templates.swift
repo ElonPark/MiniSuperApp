@@ -26,7 +26,25 @@ extension Project {
       script: """
       FILE_PATH="$SRCROOT/Sources/AppStart"
       export PATH="$PATH:/opt/homebrew/bin"
-      export SOURCEKIT_LOGGING=0 && needle generate "${FILE_PATH}/NeedleGenerated.swift" "$SRCROOT/../"
+      export SOURCEKIT_LOGGING=0 && needle generate "${FILE_PATH}/NeedleGenerated.swift" \
+      "$SRCROOT/../" \
+      --exclude-suffixes Tests Mocks \
+      --exclude-paths /Sample /Tests /Resources
+      swiftformat ${FILE_PATH}/NeedleGenerated.swift
+      """,
+      name: "Needle"
+    )
+  }
+
+  public static func needleGenerateScriptForFeature() -> TargetScript {
+    return .pre(
+      script: """
+      FILE_PATH="$SRCROOT/Sources/AppStart"
+      export PATH="$PATH:/opt/homebrew/bin"
+      export SOURCEKIT_LOGGING=0 && needle generate "${FILE_PATH}/NeedleGenerated.swift" \
+      "$SRCROOT/../../" \
+      --exclude-suffixes Tests Mocks \
+      --exclude-paths /Tests /Resources
       swiftformat ${FILE_PATH}/NeedleGenerated.swift
       """,
       name: "Needle"
