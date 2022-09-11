@@ -13,6 +13,7 @@ import Network
 
 // MARK: - BootstrapRepository
 
+/// @mockable
 protocol BootstrapRepository {
   func requestBootstrapping() -> Single<Void>
 }

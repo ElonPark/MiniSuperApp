@@ -12,6 +12,7 @@ import RIBs
 
 // MARK: - SplashListener
 
+/// @mockable
 public protocol SplashListener: AnyObject {
   func initializationComplete()
 }
@@ -28,10 +29,12 @@ public struct SplashBuildDependency {
 
 // MARK: - SplashRouting
 
+/// @mockable
 public protocol SplashRouting: ViewableRouting {}
 
 // MARK: - SplashBuildable
 
+/// @mockable
 public protocol SplashBuildable: Buildable {
   func build(with dynamicBuildDependency: SplashBuildDependency) -> SplashRouting
 }
