@@ -45,11 +45,14 @@ final class RootRouterTests: XCTestCase {
   }
 
   func test_detachSplashRIB() {
+    // given
+    self.router.attachSplashRIB()
+
     // when
     self.router.detachSplashRIB()
 
     // then
     XCTAssertNil(self.router.splashRouter)
-    XCTAssertEqual(self.viewController.presentCallCount, 1)
+    XCTAssertEqual(self.viewController.dismissCallCount, 1)
   }
 }

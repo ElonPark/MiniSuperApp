@@ -12,16 +12,9 @@ public enum LocalDependencies {}
 extension LocalDependencies {
   public enum Feature: String, CaseIterable, Packageable {
     case splash
-    case splashInterface
 
     public var packageSource: Package { .package(path: self.path) }
-    private var path: Path {
-      if self.packageName.hasSuffix("Interface") {
-        let packageName = String(self.packageName.dropLast("Interface".count))
-        return .relativeToRoot("Projects/Feature/\(packageName)")
-      }
-      return .relativeToRoot("Projects/Feature/\(self.packageName)")
-    }
+    private var path: Path { .relativeToRoot("Projects/Feature/\(self.packageName)") }
   }
 }
 
@@ -30,13 +23,14 @@ extension LocalDependencies {
     case appTestSupport
     case splashTestSupport
 
-    public var packageSource: Package {
+    public var packageSource: Package { .package(path: self.path) }
+    private var path: Path {
       switch self {
       case .appTestSupport:
-        return .package(path: .relativeToRoot("Projects/Core"))
-      case .splashTestSupport:
-        let path = self.packageName.replacingOccurrences(of: "TestSupport", with: "")
-        return .package(path: .relativeToRoot("Projects/Feature/\(path)"))
+        return .relativeToRoot("Projects/Core")
+      default:
+        let path = String(self.packageName.dropLast("TestSupport".count))
+        return .relativeToRoot("Projects/Feature/\(path)")
       }
     }
   }
@@ -44,10 +38,7 @@ extension LocalDependencies {
 
 extension LocalDependencies {
   public enum Core: String, CaseIterable, Packageable {
-    case appFoundation
-    case platform
     case network
-    case entity
 
     public var packageSource: Package {
       .package(path: .relativeToRoot("Projects/Core"))
@@ -61,6 +52,9 @@ extension LocalDependencies {
 
 extension LocalDependencies {
   public enum Shared: String, CaseIterable, Packageable {
+    case appFoundation
+    case platform
+    case entity
     case appResource
     case designSystem
     case localization

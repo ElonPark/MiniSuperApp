@@ -9,6 +9,22 @@ let package = Package(
   platforms: [.iOS(.v14)],
   products: [
     .library(
+      name: "AppFoundation",
+      targets: ["AppFoundation"]
+    ),
+    .library(
+      name: "AppTestSupport",
+      targets: ["AppTestSupport"]
+    ),
+    .library(
+      name: "Platform",
+      targets: ["Platform"]
+    ),
+    .library(
+      name: "Entity",
+      targets: ["Entity"]
+    ),
+    .library(
       name: "AppResource",
       targets: ["AppResource"]
     ),
@@ -22,11 +38,33 @@ let package = Package(
     )
   ],
   dependencies: [
+    .package(url: "https://github.com/ReactiveX/RxSwift", from: "6.5.0"),
+    .package(url: "https://github.com/uber/RIBs.git", branch: "main"),
     .package(url: "https://github.com/layoutBox/FlexLayout.git", .upToNextMajor(from: "1.3.24")),
     .package(url: "https://github.com/layoutBox/PinLayout.git", .upToNextMajor(from: "1.10.3")),
     .package(url: "https://github.com/devxoul/Then", .upToNextMajor(from: "3.0.0"))
   ],
   targets: [
+    .target(
+      name: "AppFoundation",
+      dependencies: ["RIBs"]
+    ),
+    .target(
+      name: "AppTestSupport",
+      dependencies: ["RIBs"]
+    ),
+    .target(
+      name: "Platform",
+      dependencies: [
+        .product(name: "RxSwift", package: "RxSwift"),
+        .product(name: "RxRelay", package: "RxSwift"),
+        "Entity"
+      ]
+    ),
+    .target(
+      name: "Entity",
+      dependencies: []
+    ),
     .target(
       name: "AppResource",
       dependencies: [],
@@ -58,6 +96,10 @@ let package = Package(
       resources: [
         .process("Resources")
       ]
+    ),
+    .testTarget(
+      name: "PlatformTests",
+      dependencies: ["Platform"]
     )
   ]
 )

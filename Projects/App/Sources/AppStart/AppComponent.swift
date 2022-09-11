@@ -11,6 +11,7 @@ import Foundation
 import NeedleFoundation
 
 import Network
+import NetworkInterface
 import Splash
 import SplashInterface
 

@@ -9,11 +9,7 @@ import Moya
 import RxMoya
 import RxSwift
 
-// MARK: - Networking
-
-public protocol Networking {
-  func request(_ target: TargetType) -> Single<Response>
-}
+import NetworkInterface
 
 // MARK: - Network
 
