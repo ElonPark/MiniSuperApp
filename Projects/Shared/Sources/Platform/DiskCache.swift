@@ -1,5 +1,5 @@
 //
-//  DiskCacheContainer.swift
+//  DiskCache.swift
 //
 //
 //  Created by Elon on 2022/08/28.
@@ -10,56 +10,45 @@ import Foundation
 import RxRelay
 import RxSwift
 
-// MARK: - DiskCacheContainerLogic
-
-public protocol DiskCacheContainerLogic {
-  var container: UserDefaults { get }
-  func setContainer(_ container: UserDefaults)
-}
-
 // MARK: - DiskCacheContainer
 
-public final class DiskCacheContainer: DiskCacheContainerLogic {
+public protocol DiskCacheContainer {
+  var container: UserDefaults { get }
+}
 
-  public static let shared = DiskCacheContainer()
+// MARK: - DiskCache
 
-  @DelayedMutable
-  public private(set) var container: UserDefaults
+public final class DiskCache: DiskCacheContainer {
+
+  public let container: UserDefaults
 
   // MARK: Initializing
 
-  convenience init(container: UserDefaults) {
-    self.init()
-    self.container = container
-  }
-
-  private init() {}
-
-  public func setContainer(_ container: UserDefaults) {
+  public init(container: UserDefaults) {
     self.container = container
   }
 }
 
 // MARK: - DiskCacheContainer.Property
 
-extension DiskCacheContainer {
+extension DiskCache {
   @propertyWrapper
   public class Property<Value> {
     let key: String
     let defaultValue: Value
-    let diskCache: DiskCacheContainerLogic
+    let diskCache: () -> UserDefaults
 
     lazy var relay = BehaviorRelay(value: self.defaultValue)
 
     public var wrappedValue: Value {
       get {
-        self.diskCache.container.object(forKey: self.key) as? Value ?? self.defaultValue
+        self.diskCache().object(forKey: self.key) as? Value ?? self.defaultValue
       }
       set {
         if let optional = newValue as? AnyOptional, optional.isNil {
-          self.diskCache.container.removeObject(forKey: self.key)
+          self.diskCache().removeObject(forKey: self.key)
         } else {
-          self.diskCache.container.set(newValue, forKey: self.key)
+          self.diskCache().set(newValue, forKey: self.key)
         }
         self.relay.accept(newValue)
       }
@@ -70,7 +59,7 @@ extension DiskCacheContainer {
     public init(
       key: String,
       defaultValue: Value,
-      diskCache: DiskCacheContainerLogic = DiskCacheContainer.shared
+      diskCache: @autoclosure @escaping () -> UserDefaults
     ) {
       self.key = key
       self.defaultValue = defaultValue
@@ -81,20 +70,20 @@ extension DiskCacheContainer {
 
 // MARK: - DiskCacheContainer.CodableProperty
 
-extension DiskCacheContainer {
+extension DiskCache {
 
   @propertyWrapper
   public final class CodableProperty<Value: Codable>: Property<Value> {
 
     override public var wrappedValue: Value {
       get {
-        self.diskCache.container.codable(for: self.key) ?? self.defaultValue
+        self.diskCache().codable(for: self.key) ?? self.defaultValue
       }
       set {
         if let optionalValue = newValue as? AnyOptional, optionalValue.isNil {
-          self.diskCache.container.removeObject(forKey: self.key)
+          self.diskCache().removeObject(forKey: self.key)
         } else {
-          self.diskCache.container.setCodable(value: newValue, for: self.key)
+          self.diskCache().setCodable(value: newValue, for: self.key)
         }
       }
     }

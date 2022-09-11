@@ -9,9 +9,9 @@ import Foundation
 
 import Platform
 
-final class UserDefaultsStub: UserDefaults {
+public final class UserDefaultsStub: UserDefaults {
 
-  override init?(suiteName: String?) {
+  override public init?(suiteName: String?) {
     super.init(suiteName: "com.elonpark.MiniSuperApp.UserDefaultsStub")
   }
 
