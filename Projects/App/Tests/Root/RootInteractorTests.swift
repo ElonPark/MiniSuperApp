@@ -34,7 +34,6 @@ final class RootInteractorTests: XCTestCase {
     self.interactor.didBecomeActive()
 
     // then
-    XCTAssertEqual(self.router.attachChildCallCount, 1)
     XCTAssertEqual(self.router.attachSplashRIBCallCount, 1)
   }
 
@@ -43,7 +42,6 @@ final class RootInteractorTests: XCTestCase {
     self.interactor.initializationComplete()
 
     // then
-    XCTAssertEqual(self.router.detachChildCallCount, 1)
     XCTAssertEqual(self.router.detachSplashRIBCallCount, 1)
   }
 }

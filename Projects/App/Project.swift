@@ -45,7 +45,8 @@ let testTarget = Target(
   dependencies: [
     [
       .xctest,
-      .target(name: "MiniSuperApp")
+      .target(name: "MiniSuperApp"),
+      RemoteDependencies.ribs.package
     ],
     LocalDependencies.TestSupport.allPackages
   ].flatMap { $0 },
