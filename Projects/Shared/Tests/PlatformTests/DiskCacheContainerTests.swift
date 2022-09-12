@@ -8,6 +8,7 @@
 import Foundation
 import XCTest
 
+import AppTestSupport
 import Entity
 @testable import Platform
 
@@ -15,20 +16,20 @@ import Entity
 
 final class DiskCacheContainerTests: XCTestCase {
 
-  typealias Property = DiskCacheContainer.Property
-  typealias CodableProperty = DiskCacheContainer.CodableProperty
+  typealias Property = DiskCache.Property
+  typealias CodableProperty = DiskCache.CodableProperty
 
   private struct CodableDummy: Codable, Equatable {
     let string: String
   }
 
   var userDefaults: UserDefaultsStub!
-  var diskCache: DiskCacheContainer!
+  var diskCache: DiskCache!
 
   override func setUpWithError() throws {
     try super.setUpWithError()
     self.userDefaults = UserDefaultsStub()
-    self.diskCache = DiskCacheContainer(container: self.userDefaults)
+    self.diskCache = DiskCache(container: self.userDefaults)
   }
 
   override func tearDownWithError() throws {
@@ -44,7 +45,7 @@ extension DiskCacheContainerTests {
 
   func test_property_저장되어_있는_값이_없을때_호출하면_기본값으로_nil을_반환해요() {
     // when
-    @Property(key: "userName", defaultValue: nil, diskCache: self.diskCache)
+    @Property(key: "userName", defaultValue: nil, diskCache: self.diskCache.container)
     var value: String?
 
     // then
@@ -59,7 +60,7 @@ extension DiskCacheContainerTests {
     let inputValue = "test"
 
     // when
-    @Property(key: "userName", defaultValue: nil, diskCache: self.diskCache)
+    @Property(key: "userName", defaultValue: nil, diskCache: self.diskCache.container)
     var value: String?
     let result = value
 
@@ -75,7 +76,7 @@ extension DiskCacheContainerTests {
     let inputValue = "test"
 
     // when
-    @Property(key: "userName", defaultValue: "foo", diskCache: self.diskCache)
+    @Property(key: "userName", defaultValue: "foo", diskCache: self.diskCache.container)
     var value: String
     let result = value
 
@@ -95,7 +96,7 @@ extension DiskCacheContainerTests {
     let inputValue2: String? = nil
 
     // when
-    @Property(key: "userName", defaultValue: nil, diskCache: self.diskCache)
+    @Property(key: "userName", defaultValue: nil, diskCache: self.diskCache.container)
     var value: String?
 
     value = inputValue1
@@ -125,7 +126,7 @@ extension DiskCacheContainerTests {
     ]
 
     // when
-    @Property(key: "userName", defaultValue: nil, diskCache: self.diskCache)
+    @Property(key: "userName", defaultValue: nil, diskCache: self.diskCache.container)
     var value: String?
 
     var outputValues = [String]()
@@ -147,7 +148,7 @@ extension DiskCacheContainerTests {
 
   func test_codableProperty_저장되어_있는_값이_없을때_호출하면_기본값으로_nil을_반환해요() {
     // when
-    @CodableProperty(key: "dummy", defaultValue: nil, diskCache: self.diskCache)
+    @CodableProperty(key: "dummy", defaultValue: nil, diskCache: self.diskCache.container)
     var value: CodableDummy?
     let result = value
 
@@ -163,7 +164,7 @@ extension DiskCacheContainerTests {
     let inputValue = ["test": CodableDummy(string: "값")]
 
     // when
-    @CodableProperty(key: "dummy", defaultValue: [:], diskCache: self.diskCache)
+    @CodableProperty(key: "dummy", defaultValue: [:], diskCache: self.diskCache.container)
     var value: [String: CodableDummy]
     let result = value
 
@@ -181,7 +182,7 @@ extension DiskCacheContainerTests {
     let inputValue = CodableDummy(string: "test")
 
     // when
-    @CodableProperty(key: "dummy", defaultValue: nil, diskCache: self.diskCache)
+    @CodableProperty(key: "dummy", defaultValue: nil, diskCache: self.diskCache.container)
     var value: CodableDummy?
     let result = value
 
@@ -201,7 +202,7 @@ extension DiskCacheContainerTests {
     let inputValue2: CodableDummy? = nil
 
     // when
-    @CodableProperty(key: "dummy", defaultValue: nil, diskCache: self.diskCache)
+    @CodableProperty(key: "dummy", defaultValue: nil, diskCache: self.diskCache.container)
     var value: CodableDummy?
     value = inputValue1
     let result = value

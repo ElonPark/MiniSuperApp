@@ -14,11 +14,20 @@ let package = Package(
     .library(
       name: "Network",
       targets: ["Network"]
+    ),
+    .library(
+      name: "UserStreamInterface",
+      targets: ["UserStreamInterface"]
+    ),
+    .library(
+      name: "UserStream",
+      targets: ["UserStream"]
     )
   ],
   dependencies: [
     .package(url: "https://github.com/ReactiveX/RxSwift", from: "6.5.0"),
-    .package(url: "https://github.com/Moya/Moya.git", .upToNextMajor(from: "15.0.0"))
+    .package(url: "https://github.com/Moya/Moya.git", .upToNextMajor(from: "15.0.0")),
+    .package(path: "../Shared")
   ],
   targets: [
     .target(
@@ -34,9 +43,29 @@ let package = Package(
         "NetworkInterface"
       ]
     ),
+    .target(
+      name: "UserStreamInterface",
+      dependencies: [
+        .product(name: "RxSwift", package: "RxSwift")
+      ]
+    ),
+    .target(
+      name: "UserStream",
+      dependencies: [
+        "UserStreamInterface",
+        .product(name: "Platform", package: "Shared")
+      ]
+    ),
     .testTarget(
       name: "NetworkTests",
       dependencies: ["Network"]
+    ),
+    .testTarget(
+      name: "UserStreamTests",
+      dependencies: [
+        "UserStream",
+        .product(name: "AppTestSupport", package: "Shared")
+      ]
     )
   ]
 )

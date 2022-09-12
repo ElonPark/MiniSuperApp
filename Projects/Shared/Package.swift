@@ -99,7 +99,10 @@ let package = Package(
     ),
     .testTarget(
       name: "PlatformTests",
-      dependencies: ["Platform"]
+      dependencies: [
+        "Platform",
+        "AppTestSupport"
+      ]
     )
   ]
 )
