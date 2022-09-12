@@ -1,0 +1,45 @@
+name: CI
+
+on: [pull_request, workflow_dispatch]
+
+jobs:
+  build:
+    name: Run PR-CI
+    runs-on: macos-12
+
+    steps:
+      - name: Git Checkout
+        uses: actions/checkout@v2
+
+      - name: Tuist generate
+        uses: tuist/tuist-action@0.13.0
+        with: 
+          command: 'generate'
+          arguments: ''
+
+      - name: Run Build
+        run: |
+          xcodebuild \
+            -workspace MiniSuperApp.xcworkspace \
+            -scheme DevMiniSuperApp \
+            -sdk iphonesimulator \
+            -destination 'platform=iOS Simulator,name=iPhone 13' \
+            -quiet \
+            build
+
+      - name: Run Test
+        run: |
+          xcodebuild \
+            -workspace MiniSuperApp.xcworkspace \
+            -scheme MiniSuperApp-Workspace \
+            -sdk iphonesimulator \
+            -destination 'platform=iOS Simulator,name=iPhone 13' \
+            -resultBundlePath TestResults \
+            -quiet \
+            test
+      
+      - name: Test Results
+        uses: kishikawakatsumi/xcresulttool@v1
+        with:
+          path: TestResults.xcresult
+        if: success() || failure()
