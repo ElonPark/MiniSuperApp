@@ -15,7 +15,7 @@ project:
 
 mock_app:
 	mockolo -s Projects/App \
-	 --mockfiles Projects/Core/Sources/AppTestSupport/RIBsMocks.swift \
+	 --mockfiles Projects/Shared/Sources/AppTestSupport/RIBsMocks.swift \
 	 Projects/Feature/*/Sources/*TestSupport/*InterfaceMocks.swift \
 	 -d Projects/App/Tests/AppMocks.swift \
 	 -i MiniSuperApp \
@@ -30,7 +30,7 @@ mock_app:
 # make feature=Splash mock_interface 
 mock_interface:
 	mockolo -s Projects/Feature/$(feature)/Sources/$(feature)Interface \
-	 --mockfiles Projects/Core/Sources/AppTestSupport/RIBsMocks.swift \
+	 --mockfiles Projects/Shared/Sources/AppTestSupport/RIBsMocks.swift \
 	 -d Projects/Feature/$(feature)/Sources/$(feature)TestSupport/$(feature)InterfaceMocks.swift \
 	 --use-mock-observable \
 	 --mock-final \
@@ -42,7 +42,7 @@ mock_interface:
 # make feature=Splash mock 
 mock:
 	mockolo -s Projects/Feature/$(feature)/Sources \
-	 --mockfiles Projects/Core/Sources/AppTestSupport/RIBsMocks.swift \
+	 --mockfiles Projects/Shared/Sources/AppTestSupport/RIBsMocks.swift \
 	 -d Projects/Feature/$(feature)/Tests/$(feature)Tests/$(feature)Mocks.swift \
 	 -i $(feature) \
 	 -x Tests Resources Resource Localization \
