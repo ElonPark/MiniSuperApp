@@ -42,7 +42,7 @@ extension Project {
       FILE_PATH="$SRCROOT/Sources/AppStart"
       export PATH="$PATH:/opt/homebrew/bin"
       export SOURCEKIT_LOGGING=0 && needle generate "${FILE_PATH}/NeedleGenerated.swift" \
-      "$SRCROOT/../../" \
+      "$SRCROOT/../" \
       --exclude-suffixes Tests Mocks \
       --exclude-paths /Tests /Resources
       swiftformat ${FILE_PATH}/NeedleGenerated.swift

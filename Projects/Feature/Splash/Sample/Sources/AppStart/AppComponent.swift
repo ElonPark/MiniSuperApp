@@ -15,7 +15,7 @@ import NetworkInterface
 import Splash
 import SplashInterface
 
-final class SplashSampleAppComponent: BootstrapComponent {
+final class AppComponent: BootstrapComponent {
   var rootBuilder: RootBuildable {
     RootBuilder {
       RootComponent(parent: self)
