@@ -12,6 +12,7 @@ public enum LocalDependencies {}
 extension LocalDependencies {
   public enum Feature: String, CaseIterable, Packageable {
     case splash
+    case loggedOut
 
     public var packageSource: Package { .package(path: self.path) }
     private var path: Path { .relativeToRoot("Projects/Feature/\(self.packageName)") }
