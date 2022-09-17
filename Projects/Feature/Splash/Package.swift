@@ -26,8 +26,8 @@ let package = Package(
     .package(url: "https://github.com/ReactiveX/RxSwift", from: "6.5.0"),
     .package(url: "https://github.com/uber/RIBs.git", branch: "main"),
     .package(url: "https://github.com/uber/needle.git", .upToNextMajor(from: "0.18.1")),
-    .package(path: "../Core"),
-    .package(path: "../Shared")
+    .package(path: "../../Core"),
+    .package(path: "../../Shared")
   ],
   targets: [
     .target(

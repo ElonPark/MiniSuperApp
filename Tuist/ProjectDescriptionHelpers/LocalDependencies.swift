@@ -39,6 +39,7 @@ extension LocalDependencies {
 extension LocalDependencies {
   public enum Core: String, CaseIterable, Packageable {
     case network
+    case userStream
 
     public var packageSource: Package {
       .package(path: .relativeToRoot("Projects/Core"))

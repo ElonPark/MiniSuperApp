@@ -32,8 +32,17 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/Moya/Moya.git",
       "state" : {
-        "revision" : "9b906860e3c3c09032879465c471e6375829593f",
-        "version" : "15.0.0"
+        "revision" : "c263811c1f3dbf002be9bd83107f7cdc38992b26",
+        "version" : "15.0.3"
+      }
+    },
+    {
+      "identity" : "needle",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/uber/needle.git",
+      "state" : {
+        "revision" : "9d15211866bd307c7bfef789fe77ce1e97aeb978",
+        "version" : "0.19.0"
       }
     },
     {
@@ -60,7 +69,7 @@
       "location" : "https://github.com/uber/RIBs.git",
       "state" : {
         "branch" : "main",
-        "revision" : "32b084d281ac07b1cffeb62ebcc4ed7f94e9af58"
+        "revision" : "1023a96b84b307ddc2c34a0fcbd15ed465ca5b2e"
       }
     },
     {

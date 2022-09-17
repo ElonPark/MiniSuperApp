@@ -70,3 +70,5 @@ Derived/
 Tuist/Dependencies
 TestResults.xcresult
 TestResults
+.build
+.vscode

@@ -1,6 +1,15 @@
 {
   "pins" : [
     {
+      "identity" : "difference",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/krzysztofzablocki/Difference.git",
+      "state" : {
+        "branch" : "master",
+        "revision" : "a00856a2c2b2cea63db65405680a8b6a07fd5391"
+      }
+    },
+    {
       "identity" : "flexlayout",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/layoutBox/FlexLayout.git",
@@ -16,6 +25,24 @@
       "state" : {
         "revision" : "75c88c5c374c7bc78a154ffdf963cd362f38258a",
         "version" : "1.10.3"
+      }
+    },
+    {
+      "identity" : "ribs",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/uber/RIBs.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "1023a96b84b307ddc2c34a0fcbd15ed465ca5b2e"
+      }
+    },
+    {
+      "identity" : "rxswift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/ReactiveX/RxSwift",
+      "state" : {
+        "revision" : "b4307ba0b6425c0ba4178e138799946c3da594f8",
+        "version" : "6.5.0"
       }
     },
     {
