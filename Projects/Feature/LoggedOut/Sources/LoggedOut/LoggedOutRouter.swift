@@ -8,6 +8,8 @@
 
 import RIBs
 
+import LoggedOutInterface
+
 // MARK: - LoggedOutInteractable
 
 protocol LoggedOutInteractable: Interactable {

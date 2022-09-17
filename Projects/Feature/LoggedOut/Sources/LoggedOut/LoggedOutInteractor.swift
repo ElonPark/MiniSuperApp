@@ -9,6 +9,8 @@
 import RIBs
 import RxSwift
 
+import LoggedOutInterface
+
 // MARK: - LoggedOutPresentable
 
 protocol LoggedOutPresentable: Presentable {

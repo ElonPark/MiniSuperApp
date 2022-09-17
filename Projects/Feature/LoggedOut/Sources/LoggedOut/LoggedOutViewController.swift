@@ -28,9 +28,9 @@ final class LoggedOutViewController:
 {
   weak var listener: LoggedOutPresentableListener?
 
-  override func loadView() {}
-
   override func viewDidLoad() {
     super.viewDidLoad()
+    // FIXME: - 수정 필요 <Elon> 2022-09-18 02:52:42
+    self.view.backgroundColor = .brown
   }
 }

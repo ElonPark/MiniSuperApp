@@ -10,6 +10,8 @@ import Foundation
 
 import NeedleFoundation
 
+import LoggedOut
+import LoggedOutInterface
 import Network
 import NetworkInterface
 
@@ -17,6 +19,12 @@ final class AppComponent: BootstrapComponent {
   var rootBuilder: RootBuildable {
     RootBuilder {
       RootComponent(parent: self)
+    }
+  }
+
+  var loggedOutBuilder: LoggedOutBuildable {
+    LoggedOutBuilder {
+      LoggedOutComponent(parent: self)
     }
   }
 

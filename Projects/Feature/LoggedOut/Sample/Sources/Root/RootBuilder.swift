@@ -10,10 +10,13 @@ import NeedleFoundation
 import RIBs
 
 import AppFoundation
+import LoggedOutInterface
 
 // MARK: - RootDependency
 
-protocol RootDependency: NeedleFoundation.Dependency {}
+protocol RootDependency: NeedleFoundation.Dependency {
+  var loggedOutBuilder: LoggedOutBuildable { get }
+}
 
 // MARK: - DynamicComponentDependency
 
@@ -55,7 +58,8 @@ final class RootBuilder:
 
     let router = RootRouter(
       interactor: interactor,
-      viewController: viewController
+      viewController: viewController,
+      loggedOutBuilder: component.loggedOutBuilder
     )
 
     return (router, interactor)

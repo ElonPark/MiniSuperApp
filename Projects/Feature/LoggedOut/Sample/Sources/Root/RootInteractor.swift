@@ -15,7 +15,10 @@ import AppFoundation
 
 // MARK: - RootRouting
 
-protocol RootRouting: ViewableRouting {}
+protocol RootRouting: ViewableRouting {
+  func attachLoggedOutRIB()
+  func detachLoggedOutRIB()
+}
 
 // MARK: - RootPresentable
 
@@ -44,6 +47,11 @@ final class RootInteractor:
 
   override func didBecomeActive() {
     super.didBecomeActive()
+    self.router?.attachLoggedOutRIB()
+  }
+
+  func buttonTapAction() {
+    self.router?.attachLoggedOutRIB()
   }
 }
 

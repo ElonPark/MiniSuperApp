@@ -47,6 +47,7 @@ let package = Package(
     .target(
       name: "LoggedOut",
       dependencies: [
+        "LoggedOutInterface",
         .product(name: "AppFoundation", package: "Shared"),
         .product(name: "Platform", package: "Shared"),
         .product(name: "DesignSystem", package: "Shared"),

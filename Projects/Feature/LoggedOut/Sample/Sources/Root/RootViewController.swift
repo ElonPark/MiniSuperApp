@@ -18,7 +18,9 @@ import DesignSystem
 
 // MARK: - RootPresentableListener
 
-protocol RootPresentableListener: AnyObject {}
+protocol RootPresentableListener: AnyObject {
+  func buttonTapAction()
+}
 
 // MARK: - RootViewController
 
@@ -66,5 +68,7 @@ final class RootViewController:
   }
 
   @objc
-  private func buttonAction() {}
+  private func buttonAction() {
+    self.listener?.buttonTapAction()
+  }
 }

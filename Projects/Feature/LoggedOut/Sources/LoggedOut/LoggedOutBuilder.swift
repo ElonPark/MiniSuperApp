@@ -9,26 +9,29 @@
 import NeedleFoundation
 import RIBs
 
+import AppFoundation
+import LoggedOutInterface
+
 // MARK: - LoggedOutDependency
 
-protocol LoggedOutDependency: NeedleFoundation.Dependency {
+public protocol LoggedOutDependency: NeedleFoundation.Dependency {
   // TODO: Declare the set of dependencies required by this RIB, but cannot be
   // created by this RIB.
 }
 
 // MARK: - DynamicComponentDependency
 
-typealias LoggedOutComponentDependency = Void
+public typealias LoggedOutComponentDependency = Void
 
 // MARK: - LoggedOutComponent
 
-final class LoggedOutComponent: NeedleFoundation.Component<LoggedOutDependency> {
+public final class LoggedOutComponent: NeedleFoundation.Component<LoggedOutDependency> {
   // TODO: Declare 'fileprivate' dependencies that are only used by this RIB.
 }
 
 // MARK: - LoggedOutBuilder
 
-final class LoggedOutBuilder:
+public final class LoggedOutBuilder:
   ComponentizedBuilder<
     LoggedOutComponent,
     LoggedOutRouting,
@@ -37,7 +40,7 @@ final class LoggedOutBuilder:
   >,
   LoggedOutBuildable
 {
-  override func build(
+  override public func build(
     with component: LoggedOutComponent,
     _ payload: LoggedOutBuildDependency
   ) -> LoggedOutRouting {

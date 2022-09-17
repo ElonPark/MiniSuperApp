@@ -8,9 +8,11 @@
 
 import RIBs
 
+import LoggedOutInterface
+
 // MARK: - RootInteractable
 
-protocol RootInteractable: Interactable {
+protocol RootInteractable: Interactable, LoggedOutListener {
   var router: RootRouting? { get set }
   var listener: RootListener? { get set }
 }
@@ -23,11 +25,36 @@ final class RootRouter:
   LaunchRouter<RootInteractable, RootViewControllable>,
   RootRouting
 {
-  override init(
+
+  private let loggedOutBuilder: LoggedOutBuildable
+  private var loggedOutRouter: LoggedOutRouting?
+
+  init(
     interactor: RootInteractable,
-    viewController: RootViewControllable
+    viewController: RootViewControllable,
+    loggedOutBuilder: LoggedOutBuildable
   ) {
+    self.loggedOutBuilder = loggedOutBuilder
     super.init(interactor: interactor, viewController: viewController)
     interactor.router = self
+  }
+
+  func attachLoggedOutRIB() {
+    guard self.loggedOutRouter == nil else { return }
+    let router = self.loggedOutBuilder.build(with: .init(listener: self.interactor))
+    router.viewControllable.uiviewController.do {
+      $0.modalPresentationStyle = .overCurrentContext
+      $0.modalTransitionStyle = .crossDissolve
+    }
+    self.loggedOutRouter = router
+    self.attachChild(router)
+    self.viewController.present(router.viewControllable, animated: false)
+  }
+
+  func detachLoggedOutRIB() {
+    guard let router = loggedOutRouter else { return }
+    self.loggedOutRouter = nil
+    self.detachChild(router)
+    self.viewController.dismiss(router.viewControllable, animated: true)
   }
 }
