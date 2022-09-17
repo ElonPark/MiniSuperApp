@@ -16,6 +16,11 @@ public protocol SplashListener: AnyObject {
   func initializationComplete()
 }
 
+// MARK: - SplashRouting
+
+/// @mockable
+public protocol SplashRouting: ViewableRouting {}
+
 // MARK: - SplashBuildDependency
 
 public struct SplashBuildDependency {
@@ -25,11 +30,6 @@ public struct SplashBuildDependency {
     self.listener = listener
   }
 }
-
-// MARK: - SplashRouting
-
-/// @mockable
-public protocol SplashRouting: ViewableRouting {}
 
 // MARK: - SplashBuildable
 
