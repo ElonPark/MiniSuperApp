@@ -70,7 +70,18 @@ extension Project {
       name: name,
       organizationName: "com.elonpark",
       packages: additionalPackages,
-      targets: targets
+      targets: targets,
+      schemes: [
+        Scheme(
+          name: name,
+          shared: true,
+          buildAction: .buildAction(
+            targets: [.init(stringLiteral: name)]
+          ),
+          testAction: .targets(["\(name)Tests"]),
+          runAction: .runAction(configuration: .debug)
+        )
+      ]
     )
   }
 
