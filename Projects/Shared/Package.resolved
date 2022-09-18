@@ -1,15 +1,6 @@
 {
   "pins" : [
     {
-      "identity" : "difference",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/krzysztofzablocki/Difference.git",
-      "state" : {
-        "branch" : "master",
-        "revision" : "a00856a2c2b2cea63db65405680a8b6a07fd5391"
-      }
-    },
-    {
       "identity" : "flexlayout",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/layoutBox/FlexLayout.git",
