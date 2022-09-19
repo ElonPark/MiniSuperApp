@@ -17,7 +17,7 @@ struct FeatureMockGenerator: CommandPlugin {
         mockfile = "\(projectsPath)/Feature/\(feature)/Sources/\(feature)TestSupport/\(target.name)Mocks.swift"
         arguments = [
           "-s", target.directory.string,
-          "-d", "\(projectsPath)/Feature/\(feature)/Sources/\(feature)TestSupport/\(target.name)Mocks.swift",
+          "-d", mockfile,
           "-x", "Tests", "Resources", "Resource", "Localization",
           "--mockfiles", "\(projectsPath)/Shared/Sources/AppTestSupport/RIBsMocks.swift",
           "--use-mock-observable",
