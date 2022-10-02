@@ -31,6 +31,8 @@ final class LoggedOutViewController:
 
   weak var listener: LoggedOutPresentableListener?
 
+  private lazy var contentsView = LoggedOutView()
+
   override init() {
     super.init()
     self.modalPresentationStyle = .fullScreen
@@ -41,9 +43,7 @@ final class LoggedOutViewController:
     fatalError("init(coder:) has not been implemented")
   }
 
-  override func viewDidLoad() {
-    super.viewDidLoad()
-    // FIXME: - 수정 필요 <Elon> 2022-09-18 02:52:42
-    self.view.backgroundColor = .brown
+  override func loadView() {
+    self.view = self.contentsView
   }
 }
