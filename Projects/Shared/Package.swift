@@ -8,6 +8,10 @@ let package = Package(
   defaultLocalization: "en",
   platforms: [.iOS(.v14)],
   products: [
+    .plugin(
+      name: "FeatureMockGenerator",
+      targets: ["FeatureMockGenerator"]
+    ),
     .library(
       name: "AppFoundation",
       targets: ["AppFoundation"]
@@ -45,6 +49,18 @@ let package = Package(
     .package(url: "https://github.com/devxoul/Then", .upToNextMajor(from: "3.0.0"))
   ],
   targets: [
+    .plugin(
+      name: "FeatureMockGenerator",
+      capability: .command(
+        intent: .custom(
+          verb: "mockolo",
+          description: "Generate mock files from Swift protocols"
+        ),
+        permissions: [
+          .writeToPackageDirectory(reason: "Generate mock files info package")
+        ]
+      )
+    ),
     .target(
       name: "AppFoundation",
       dependencies: ["RIBs"]

@@ -4,6 +4,7 @@
 
 import AppTestSupport
 import Foundation
+import NetworkInterface
 import RIBs
 import RxRelay
 import RxSwift
