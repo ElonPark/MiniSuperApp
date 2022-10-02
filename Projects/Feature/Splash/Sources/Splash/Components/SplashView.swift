@@ -25,11 +25,6 @@ final class SplashView: BaseView {
 
   private let loadingIndicator = UIActivityIndicatorView(style: .large)
 
-  override init() {
-    super.init()
-    self.backgroundColor = Asset.Color.Semantic.background
-  }
-
   override func defineLayout() {
     super.defineLayout()
     self.rootFlexContainer.flex

@@ -9,6 +9,8 @@ import UIKit
 
 import Then
 
+import AppResource
+
 open class BaseView: UIView {
 
   // MARK: UI
@@ -22,6 +24,7 @@ open class BaseView: UIView {
   public init() {
     super.init(frame: .zero)
     self.accessibilityIdentifier = "\(type(of: self))"
+    self.backgroundColor = Asset.Color.Semantic.background
     self.defineLayout()
   }
 
