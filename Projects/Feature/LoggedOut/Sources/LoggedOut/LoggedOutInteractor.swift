@@ -25,23 +25,21 @@ final class LoggedOutInteractor:
   LoggedOutInteractable,
   LoggedOutPresentableListener
 {
+
   weak var router: LoggedOutRouting?
   weak var listener: LoggedOutListener?
 
-  // TODO: Add additional dependencies to constructor. Do not perform any logic
-  // in constructor.
   override init(presenter: LoggedOutPresentable) {
     super.init(presenter: presenter)
     presenter.listener = self
   }
 
-  override func didBecomeActive() {
-    super.didBecomeActive()
-    // TODO: Implement business logic here.
+
+  func sendSignUpAction(_ action: LoggedOutModels.SignUp.Action) {
+
   }
 
-  override func willResignActive() {
-    super.willResignActive()
-    // TODO: Pause any business logic.
+  func sendSignInAction(_ action: LoggedOutModels.SignIn.Action) {
+    
   }
 }
