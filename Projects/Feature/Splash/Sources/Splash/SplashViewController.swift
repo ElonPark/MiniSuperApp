@@ -28,6 +28,12 @@ final class SplashViewController:
 
   private lazy var contentsView = SplashView()
 
+  override init() {
+    super.init()
+    self.modalPresentationStyle = .fullScreen
+    self.modalTransitionStyle = .crossDissolve
+  }
+
   override func loadView() {
     self.view = self.contentsView
   }

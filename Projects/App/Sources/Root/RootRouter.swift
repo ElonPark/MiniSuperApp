@@ -49,10 +49,6 @@ final class RootRouter:
   func attachSplashRIB() {
     guard self.splashRouter == nil else { return }
     let router = self.splashBuilder.build(with: .init(listener: self.interactor))
-    router.viewControllable.uiviewController.do {
-      $0.modalPresentationStyle = .overCurrentContext
-      $0.modalTransitionStyle = .crossDissolve
-    }
     self.splashRouter = router
     self.attachChild(router)
     self.viewController.present(router.viewControllable, animated: false)
