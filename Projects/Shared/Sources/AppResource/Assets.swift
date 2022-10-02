@@ -23,6 +23,10 @@ public typealias AssetImageTypeAlias = ImageAsset.Image
 public enum Asset {
   public enum Color {
     public enum Semantic {
+      public static var gray: ColorAsset.Color { ColorAsset(name: "Gray").color }
+      public static var label: ColorAsset.Color { ColorAsset(name: "Label").color }
+      public static var primary: ColorAsset.Color { ColorAsset(name: "Primary").color }
+      public static var secondaryBackground: ColorAsset.Color { ColorAsset(name: "SecondaryBackground").color }
       public static var background: ColorAsset.Color { ColorAsset(name: "background").color }
     }
 
