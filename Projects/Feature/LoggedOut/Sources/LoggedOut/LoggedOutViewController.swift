@@ -11,6 +11,8 @@ import UIKit
 import RIBs
 import RxSwift
 
+import DesignSystem
+
 // MARK: - LoggedOutPresentableListener
 
 protocol LoggedOutPresentableListener: AnyObject {
@@ -22,11 +24,22 @@ protocol LoggedOutPresentableListener: AnyObject {
 // MARK: - LoggedOutViewController
 
 final class LoggedOutViewController:
-  UIViewController,
+  BaseViewController,
   LoggedOutPresentable,
   LoggedOutViewControllable
 {
+
   weak var listener: LoggedOutPresentableListener?
+
+  override init() {
+    super.init()
+    self.modalPresentationStyle = .fullScreen
+    self.modalTransitionStyle = .crossDissolve
+  }
+
+  required init?(coder: NSCoder) {
+    fatalError("init(coder:) has not been implemented")
+  }
 
   override func viewDidLoad() {
     super.viewDidLoad()

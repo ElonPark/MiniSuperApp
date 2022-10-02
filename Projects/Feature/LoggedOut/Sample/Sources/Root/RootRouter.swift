@@ -42,10 +42,6 @@ final class RootRouter:
   func attachLoggedOutRIB() {
     guard self.loggedOutRouter == nil else { return }
     let router = self.loggedOutBuilder.build(with: .init(listener: self.interactor))
-    router.viewControllable.uiviewController.do {
-      $0.modalPresentationStyle = .overCurrentContext
-      $0.modalTransitionStyle = .crossDissolve
-    }
     self.loggedOutRouter = router
     self.attachChild(router)
     self.viewController.present(router.viewControllable, animated: false)
