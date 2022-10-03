@@ -9,8 +9,6 @@ import Foundation
 
 import RxSwift
 
-import Entity
-
 // MARK: - UserStream
 
 public protocol UserStream: AnyObject {
