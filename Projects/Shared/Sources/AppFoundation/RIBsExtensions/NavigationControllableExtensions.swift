@@ -1,6 +1,6 @@
 //
 //  NavigationControllable.swift
-//  
+//
 //
 //  Created by elon on 2022/10/02.
 //

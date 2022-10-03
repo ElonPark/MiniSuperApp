@@ -1,6 +1,6 @@
 //
 //  LoggedOutView.swift
-//  
+//
 //
 //  Created by elon on 2022/10/02.
 //
@@ -41,14 +41,14 @@ final class LoggedOutView: BaseView {
           .justifyContent(.spaceBetween)
           .paddingHorizontal(32.0)
           .define {
-          $0.addItem(self.signUpButton).define {
-            $0.height(50.0)
+            $0.addItem(self.signUpButton).define {
+              $0.height(50.0)
+            }
+            .marginBottom(10.0)
+            $0.addItem(self.signInButton).define {
+              $0.height(50.0)
+            }
           }
-          .marginBottom(10.0)
-          $0.addItem(self.signInButton).define {
-            $0.height(50.0)
-          }
-        }
       }
   }
 

@@ -1,10 +1,9 @@
 //
 //  CornerRoundedButton.swift
-//  
+//
 //
 //  Created by elon on 2022/10/02.
 //
-
 
 import UIKit
 
@@ -56,11 +55,11 @@ open class CornerRoundedButton: UIButton {
   }
 
   @available(*, unavailable)
-  required public init?(coder: NSCoder) {
+  public required init?(coder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
   }
 
-  open override func layoutSubviews() {
+  override open func layoutSubviews() {
     super.layoutSubviews()
     self.traitCollection.performAsCurrent {
       self.layer.borderColor = self.borderColor.cgColor
