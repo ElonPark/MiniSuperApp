@@ -2,6 +2,7 @@
 
 import AppFoundation
 import Foundation
+import LoggedOutInterface
 import NeedleFoundation
 import Network
 import NetworkInterface
