@@ -29,12 +29,20 @@ final class LoggedOutRouter:
   ViewableRouter<LoggedOutInteractable, LoggedOutViewControllable>,
   LoggedOutRouting
 {
-  // TODO: Constructor inject child builder protocols to allow building children.
+
   override init(
     interactor: LoggedOutInteractable,
     viewController: LoggedOutViewControllable
   ) {
     super.init(interactor: interactor, viewController: viewController)
     interactor.router = self
+  }
+
+  func attachSignUpFlowRIB() {
+    // TODO: - 구현 <Elon> 2022-10-03 23:15:50
+  }
+
+  func attachSignInFlowRIB() {
+    // TODO: - 구현 <Elon> 2022-10-03 23:15:50
   }
 }

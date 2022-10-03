@@ -12,19 +12,45 @@ import XCTest
 
 final class LoggedOutInteractorTests: XCTestCase {
 
+  private var presenter: LoggedOutPresentableMock!
+  private var router: LoggedOutRoutingMock!
+  private var listener: LoggedOutListenerMock!
   private var interactor: LoggedOutInteractor!
-
-  // TODO: declare other objects and mocks you need as private vars
 
   override func setUpWithError() throws {
     try super.setUpWithError()
-    // TODO: instantiate objects and mocks
+    self.presenter = .init()
+    self.router = .init()
+    self.listener = .init()
+    self.interactor = LoggedOutInteractor(
+      presenter: self.presenter
+    )
+
+    self.interactor.router = self.router
+    self.interactor.listener = self.listener
   }
 
   // MARK: - Tests
 
-  func test_exampleObservable_callsRouterOrListener_exampleProtocol() {
-    // This is an example of an interactor test case.
-    // Test your interactor binds observables and sends messages to router or listener.
+  func test_sendSignUpAction이_호출되면_라우터에_attachSignUpFlowRIB을_호출해요() {
+    // given
+    let action = LoggedOutModels.SignUp.Action.buttonClicked
+
+    // when
+    self.interactor.sendSignUpAction(action)
+
+    // then
+    XCTAssertEqual(self.router.attachSignUpFlowRIBCallCount, 1)
+  }
+
+  func test_sendSignInAction이_호출되면_라우터에_attachSignInFlowRIB을_호출해요() {
+    // given
+    let action = LoggedOutModels.SignIn.Action.buttonClicked
+
+    // when
+    self.interactor.sendSignInAction(action)
+
+    // then
+    XCTAssertEqual(self.router.attachSignInFlowRIBCallCount, 1)
   }
 }

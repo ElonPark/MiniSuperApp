@@ -4,6 +4,7 @@
 
 import AppTestSupport
 import Foundation
+@testable import LoggedOut
 import LoggedOutInterface
 import RIBs
 import RxRelay
@@ -13,6 +14,18 @@ import RxSwift
 
 public final class LoggedOutListenerMock: LoggedOutListener {
   public init() {}
+}
+
+// MARK: - LoggedOutPresentableMock
+
+final class LoggedOutPresentableMock: LoggedOutPresentable {
+  init() {}
+  init(listener: LoggedOutPresentableListener? = nil) {
+    self.listener = listener
+  }
+
+  private(set) var listenerSetCallCount = 0
+  var listener: LoggedOutPresentableListener? { didSet { self.listenerSetCallCount += 1 } }
 }
 
 // MARK: - LoggedOutRoutingMock

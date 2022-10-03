@@ -13,9 +13,9 @@ import LoggedOutInterface
 
 // MARK: - LoggedOutPresentable
 
+/// @mockable
 protocol LoggedOutPresentable: Presentable {
   var listener: LoggedOutPresentableListener? { get set }
-  // TODO: Declare methods the interactor can invoke the presenter to present data.
 }
 
 // MARK: - LoggedOutInteractor
@@ -34,12 +34,11 @@ final class LoggedOutInteractor:
     presenter.listener = self
   }
 
-
   func sendSignUpAction(_ action: LoggedOutModels.SignUp.Action) {
-
+    self.router?.attachSignUpFlowRIB()
   }
 
   func sendSignInAction(_ action: LoggedOutModels.SignIn.Action) {
-    
+    self.router?.attachSignInFlowRIB()
   }
 }
