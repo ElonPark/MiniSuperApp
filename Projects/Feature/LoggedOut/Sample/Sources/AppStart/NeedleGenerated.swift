@@ -2,13 +2,12 @@
 
 import AppFoundation
 import Foundation
+import LoggedOut
 import LoggedOutInterface
 import NeedleFoundation
 import Network
 import NetworkInterface
 import RIBs
-import Splash
-import SplashInterface
 
 // swiftlint:disable unused_declaration
 private let needleDependenciesHash: String? = nil
@@ -24,8 +23,8 @@ private func parent1(_ component: NeedleFoundation.Scope) -> NeedleFoundation.Sc
 #if !NEEDLE_DYNAMIC
 
   private class RootDependency3944cc797a4a88956fb5Provider: RootDependency {
-    var splashBuilder: SplashBuildable {
-      return self.appComponent.splashBuilder
+    var loggedOutBuilder: LoggedOutBuildable {
+      return self.appComponent.loggedOutBuilder
     }
 
     private let appComponent: AppComponent
@@ -39,20 +38,14 @@ private func parent1(_ component: NeedleFoundation.Scope) -> NeedleFoundation.Sc
     return RootDependency3944cc797a4a88956fb5Provider(appComponent: parent1(component) as! AppComponent)
   }
 
-  private class SplashDependencye0cb7136f2ec3edfd60aProvider: SplashDependency {
-    var network: Networking {
-      return self.appComponent.network
-    }
+  private class LoggedOutDependency2bcab0d3625f6f252479Provider: LoggedOutDependency {
 
-    private let appComponent: AppComponent
-    init(appComponent: AppComponent) {
-      self.appComponent = appComponent
-    }
+    init() {}
   }
 
-  /// ^->AppComponent->SplashComponent
-  private func factoryace9f05f51d68f4c0677f47b58f8f304c97af4d5(_ component: NeedleFoundation.Scope) -> AnyObject {
-    return SplashDependencye0cb7136f2ec3edfd60aProvider(appComponent: parent1(component) as! AppComponent)
+  /// ^->AppComponent->LoggedOutComponent
+  private func factory686d1be2403fe94ce10ee3b0c44298fc1c149afb(_ component: NeedleFoundation.Scope) -> AnyObject {
+    return LoggedOutDependency2bcab0d3625f6f252479Provider()
   }
 
 #else
@@ -62,14 +55,12 @@ private func parent1(_ component: NeedleFoundation.Scope) -> NeedleFoundation.Sc
 
   extension RootComponent: Registration {
     public func registerItems() {
-      keyPathToName[\RootDependency.splashBuilder] = "splashBuilder-SplashBuildable"
+      keyPathToName[\RootDependency.loggedOutBuilder] = "loggedOutBuilder-LoggedOutBuildable"
     }
   }
 
-  extension SplashComponent: Registration {
-    public func registerItems() {
-      keyPathToName[\SplashDependency.network] = "network-Networking"
-    }
+  extension LoggedOutComponent: Registration {
+    public func registerItems() {}
   }
 
 #endif
@@ -92,7 +83,7 @@ private func registerProviderFactory(
   private func register1() {
     registerProviderFactory("^->AppComponent", factoryEmptyDependencyProvider)
     registerProviderFactory("^->AppComponent->RootComponent", factory264bfc4d4cb6b0629b40f47b58f8f304c97af4d5)
-    registerProviderFactory("^->AppComponent->SplashComponent", factoryace9f05f51d68f4c0677f47b58f8f304c97af4d5)
+    registerProviderFactory("^->AppComponent->LoggedOutComponent", factory686d1be2403fe94ce10ee3b0c44298fc1c149afb)
   }
 #endif
 

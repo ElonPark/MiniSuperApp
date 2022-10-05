@@ -14,6 +14,7 @@ final class SplashInteractorTests: XCTestCase {
 
   private var presenter: SplashPresentableMock!
   private var repository: BootstrapRepositoryMock!
+  private var router: SplashRoutingMock!
   private var listener: SplashListenerMock!
   private var interactor: SplashInteractor!
 
@@ -21,11 +22,14 @@ final class SplashInteractorTests: XCTestCase {
     try super.setUpWithError()
     self.presenter = .init()
     self.repository = .init()
+    self.router = .init()
     self.listener = .init()
     self.interactor = SplashInteractor(
       presenter: self.presenter,
       bootstrapRepository: self.repository
     )
+
+    self.interactor.router = self.router
     self.interactor.listener = self.listener
   }
 

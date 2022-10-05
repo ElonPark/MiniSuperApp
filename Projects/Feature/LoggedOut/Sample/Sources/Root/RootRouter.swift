@@ -8,11 +8,11 @@
 
 import RIBs
 
-import SplashInterface
+import LoggedOutInterface
 
 // MARK: - RootInteractable
 
-protocol RootInteractable: Interactable, SplashListener {
+protocol RootInteractable: Interactable, LoggedOutListener {
   var router: RootRouting? { get set }
   var listener: RootListener? { get set }
 }
@@ -26,30 +26,30 @@ final class RootRouter:
   RootRouting
 {
 
-  private let splashBuilder: SplashBuildable
-  private var splashRouter: SplashRouting?
+  private let loggedOutBuilder: LoggedOutBuildable
+  private var loggedOutRouter: LoggedOutRouting?
 
   init(
     interactor: RootInteractable,
     viewController: RootViewControllable,
-    splashBuilder: SplashBuildable
+    loggedOutBuilder: LoggedOutBuildable
   ) {
-    self.splashBuilder = splashBuilder
+    self.loggedOutBuilder = loggedOutBuilder
     super.init(interactor: interactor, viewController: viewController)
     interactor.router = self
   }
 
-  func attachSplashRIB() {
-    guard self.splashRouter == nil else { return }
-    let router = self.splashBuilder.build(with: .init(listener: self.interactor))
-    self.splashRouter = router
+  func attachLoggedOutRIB() {
+    guard self.loggedOutRouter == nil else { return }
+    let router = self.loggedOutBuilder.build(with: .init(listener: self.interactor))
+    self.loggedOutRouter = router
     self.attachChild(router)
     self.viewController.present(router.viewControllable, animated: false)
   }
 
-  func detachSplashRIB() {
-    guard let router = splashRouter else { return }
-    self.splashRouter = nil
+  func detachLoggedOutRIB() {
+    guard let router = loggedOutRouter else { return }
+    self.loggedOutRouter = nil
     self.detachChild(router)
     self.viewController.dismiss(router.viewControllable, animated: true)
   }
