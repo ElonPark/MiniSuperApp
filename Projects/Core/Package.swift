@@ -44,7 +44,7 @@ let package = Package(
     .target(
       name: "NetworkTestSupport",
       dependencies: [
-        "NetworkInterface"
+        "NetworkInterface",
       ]
     ),
     .target(

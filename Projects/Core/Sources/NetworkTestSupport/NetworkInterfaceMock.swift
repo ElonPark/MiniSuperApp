@@ -20,8 +20,8 @@ public final class NetworkingMock: Networking {
   public private(set) var requestCallCount = 0
   public var requestHandler: ((TargetType) -> (Single<Response>))?
   public func request(_ target: TargetType) -> Single<Response> {
-    self.requestCallCount += 1
-    if let requestHandler = requestHandler {
+    requestCallCount += 1
+    if let requestHandler {
       return requestHandler(target)
     }
     fatalError("requestHandler returns can't have a default value thus its handler must be set")
