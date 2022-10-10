@@ -10,15 +10,6 @@
       }
     },
     {
-      "identity" : "difference",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/krzysztofzablocki/Difference.git",
-      "state" : {
-        "branch" : "master",
-        "revision" : "a00856a2c2b2cea63db65405680a8b6a07fd5391"
-      }
-    },
-    {
       "identity" : "flexlayout",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/layoutBox/FlexLayout.git",
@@ -32,8 +23,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/Moya/Moya.git",
       "state" : {
-        "revision" : "9b906860e3c3c09032879465c471e6375829593f",
-        "version" : "15.0.0"
+        "revision" : "c263811c1f3dbf002be9bd83107f7cdc38992b26",
+        "version" : "15.0.3"
       }
     },
     {
@@ -60,7 +51,7 @@
       "location" : "https://github.com/uber/RIBs.git",
       "state" : {
         "branch" : "main",
-        "revision" : "32b084d281ac07b1cffeb62ebcc4ed7f94e9af58"
+        "revision" : "d30ffb7b5bc8012b8dcf7a0e79b875a699b525af"
       }
     },
     {
