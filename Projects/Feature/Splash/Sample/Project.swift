@@ -10,13 +10,13 @@ let project = Project.app(
     Project.needleGenerateScriptForFeature(),
   ],
   additionalTargetDependency: [
-    LocalDependencies.Feature.splash.package,
-    LocalDependencies.Core.network.package,
     RemoteDependencies.needleFoundation.package,
+    CoreDependencies.network.package,
+    FeatureDependencies.splash.package,
   ],
   additionalPackages: [
-    LocalDependencies.Feature.splash.packageSource,
-    LocalDependencies.Core.network.packageSource,
     RemoteDependencies.needleFoundation.packageSource,
+    CoreDependencies.network.packageSource,
+    FeatureDependencies.splash.packageSource,
   ]
 )

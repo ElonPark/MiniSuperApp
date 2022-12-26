@@ -15,7 +15,7 @@ struct MockGenerator: CommandPlugin {
       let destination: String
       let arguments: [String]
 
-      switch self.targetType(target.name) {
+      switch targetType(target.name) {
       case .feature:
         (destination, arguments) = factory.makeFeatureArguments(
           target: target,
@@ -38,8 +38,8 @@ struct MockGenerator: CommandPlugin {
         )
       }
 
-      try self.executeMockolo(withArguments: arguments)
-      try self.executeSwiftFormat(forFile: destination)
+      try executeMockolo(withArguments: arguments)
+      try executeSwiftFormat(forFile: destination)
     }
   }
 
@@ -57,12 +57,12 @@ struct MockGenerator: CommandPlugin {
 
   private func executeMockolo(withArguments arguments: [String]) throws {
     let url = URL(fileURLWithPath: "/opt/homebrew/bin/mockolo")
-    try self.executeProcess(name: "Mockolo", url: url, arguments: arguments)
+    try executeProcess(name: "Mockolo", url: url, arguments: arguments)
   }
 
   private func executeSwiftFormat(forFile file: String) throws {
     let url = URL(fileURLWithPath: "/opt/homebrew/bin/swiftformat")
-    try self.executeProcess(name: "SwiftFormat", url: url, arguments: [file])
+    try executeProcess(name: "SwiftFormat", url: url, arguments: [file])
   }
 
   private func executeProcess(name: String, url: URL, arguments: [String]? = nil) throws {

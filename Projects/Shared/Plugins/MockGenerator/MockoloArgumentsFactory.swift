@@ -14,7 +14,7 @@ struct MockoloArgumentsFactory {
     target: SourceModuleTarget,
     projectsPath: String
   ) -> (destination: String, arguments: [String]) {
-    let destination = self.destination(
+    let destination = destination(
       for: .feature,
       projectsPath: projectsPath,
       withName: target.name
@@ -25,7 +25,7 @@ struct MockoloArgumentsFactory {
       "-d", destination,
       "-i", target.name,
       "-x", "Tests", "Resources", "Resource", "Localization",
-      "--mockfiles", self.ribsMocks(projectsPath),
+      "--mockfiles", ribsMocks(projectsPath),
       "--use-mock-observable",
       "--mock-final",
       "--custom-imports", "AppTestSupport",
@@ -37,7 +37,7 @@ struct MockoloArgumentsFactory {
       "DesignSystem",
       "Localization",
       "Network",
-      "UIKit"
+      "UIKit",
     ]
 
     return (destination, arguments)
@@ -47,7 +47,7 @@ struct MockoloArgumentsFactory {
     target: SourceModuleTarget,
     projectsPath: String
   ) -> (destination: String, arguments: [String]) {
-    let destination = self.destination(
+    let destination = destination(
       for: .featureInterface,
       projectsPath: projectsPath,
       withName: target.name
@@ -57,7 +57,7 @@ struct MockoloArgumentsFactory {
       "-s", target.directory.string,
       "-d", destination,
       "-x", "Tests", "Resources", "Resource", "Localization",
-      "--mockfiles", self.ribsMocks(projectsPath),
+      "--mockfiles", ribsMocks(projectsPath),
       "--use-mock-observable",
       "--mock-final",
       "--custom-imports", "AppTestSupport", target.name,
@@ -68,7 +68,7 @@ struct MockoloArgumentsFactory {
       "DesignSystem",
       "Localization",
       "Network",
-      "UIKit"
+      "UIKit",
     ]
 
     return (destination, arguments)
@@ -82,7 +82,7 @@ struct MockoloArgumentsFactory {
     target: SourceModuleTarget,
     projectsPath: String
   ) -> (destination: String, arguments: [String]) {
-    let destination = self.destination(
+    let destination = destination(
       for: .domain,
       projectsPath: projectsPath,
       withName: target.name
@@ -101,7 +101,7 @@ struct MockoloArgumentsFactory {
       "DesignSystem",
       "Localization",
       "Network",
-      "UIKit"
+      "UIKit",
     ]
 
     return (destination, arguments)
@@ -111,7 +111,7 @@ struct MockoloArgumentsFactory {
     target: SourceModuleTarget,
     projectsPath: String
   ) -> (destination: String, arguments: [String]) {
-    let destination = self.destination(
+    let destination = destination(
       for: .data,
       projectsPath: projectsPath,
       withName: target.name
@@ -130,7 +130,7 @@ struct MockoloArgumentsFactory {
       "DesignSystem",
       "Localization",
       "Network",
-      "UIKit"
+      "UIKit",
     ]
 
     return (destination, arguments)

@@ -10,13 +10,13 @@ let project = Project.app(
     Project.needleGenerateScriptForFeature(),
   ],
   additionalTargetDependency: [
-    LocalDependencies.Feature.loggedOut.package,
-    LocalDependencies.Core.network.package,
     RemoteDependencies.needleFoundation.package,
+    CoreDependencies.network.package,
+    FeatureDependencies.loggedOut.package,
   ],
   additionalPackages: [
-    LocalDependencies.Feature.loggedOut.packageSource,
-    LocalDependencies.Core.network.packageSource,
     RemoteDependencies.needleFoundation.packageSource,
+    CoreDependencies.network.packageSource,
+    FeatureDependencies.loggedOut.packageSource,
   ]
 )
