@@ -12,6 +12,10 @@ let package = Package(
       targets: ["NetworkInterface"]
     ),
     .library(
+      name: "NetworkTestSupport",
+      targets: ["NetworkTestSupport"]
+    ),
+    .library(
       name: "Network",
       targets: ["Network"]
     ),
@@ -35,6 +39,12 @@ let package = Package(
       dependencies: [
         .product(name: "RxSwift", package: "RxSwift"),
         .product(name: "RxMoya", package: "Moya"),
+      ]
+    ),
+    .target(
+      name: "NetworkTestSupport",
+      dependencies: [
+        "NetworkInterface",
       ]
     ),
     .target(

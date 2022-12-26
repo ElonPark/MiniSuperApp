@@ -10,6 +10,8 @@ import Foundation
 
 import NeedleFoundation
 
+import BootstrapData
+import BootstrapDomain
 import Network
 import NetworkInterface
 import Splash
@@ -40,5 +42,9 @@ extension AppComponent {
     SplashBuilder {
       SplashComponent(parent: self)
     }
+  }
+
+  var bootstrapRepository: BootstrapRepository {
+    BootstrapRepositoryImpl(network: network)
   }
 }

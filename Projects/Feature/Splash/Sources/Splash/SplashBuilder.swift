@@ -10,13 +10,13 @@ import NeedleFoundation
 import RIBs
 
 import AppFoundation
-import NetworkInterface
+import BootstrapDomain
 import SplashInterface
 
 // MARK: - SplashDependency
 
 public protocol SplashDependency: NeedleFoundation.Dependency {
-  var network: Networking { get }
+  var bootstrapRepository: BootstrapRepository { get }
 }
 
 // MARK: - DynamicComponentDependency
@@ -25,12 +25,7 @@ public typealias SplashComponentDependency = Void
 
 // MARK: - SplashComponent
 
-public final class SplashComponent: NeedleFoundation.Component<SplashDependency> {
-
-  fileprivate var bootstrapRepository: BootstrapRepository {
-    BootstrapRepositoryImpl(network: self.network)
-  }
-}
+public final class SplashComponent: NeedleFoundation.Component<SplashDependency> {}
 
 // MARK: - SplashBuilder
 

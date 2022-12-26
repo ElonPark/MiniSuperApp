@@ -11,6 +11,7 @@ import Foundation
 import RIBs
 import RxSwift
 
+import BootstrapDomain
 import SplashInterface
 
 // MARK: - SplashPresentable

@@ -21,9 +21,10 @@ let appTarget = Target(
   ],
   dependencies: [
     RemoteDependencies.allPackages,
-    LocalDependencies.Shared.allPackages,
-    LocalDependencies.Core.allPackages,
-    LocalDependencies.Feature.allPackages,
+    SharedDependencies.allPackages,
+    CoreDependencies.allPackages,
+    DataDependencies.allPackages,
+    FeatureDependencies.allPackages,
   ].flatMap { $0 },
   settings: Project.defaultSettings()
 )
@@ -47,7 +48,9 @@ let testTarget = Target(
       .xctest,
       .target(name: "MiniSuperApp"),
     ],
-    LocalDependencies.TestSupport.allPackages,
+    CoreDependencies.TestSupport.allPackages,
+    DataDependencies.TestSupport.allPackages,
+    FeatureDependencies.TestSupport.allPackages,
   ].flatMap { $0 },
   settings: Project.defaultSettings()
 )
@@ -70,9 +73,10 @@ let project = Project(
   ),
   packages: [
     RemoteDependencies.allPackageSource,
-    LocalDependencies.Shared.allPackageSource,
-    LocalDependencies.Core.allPackageSource,
-    LocalDependencies.Feature.allPackageSource,
+    SharedDependencies.allPackageSource,
+    CoreDependencies.allPackageSource,
+    DataDependencies.allPackageSource,
+    FeatureDependencies.allPackageSource,
   ].flatMap { $0 },
   settings: Project.defaultSettings(),
   targets: [
