@@ -17,13 +17,13 @@ let appTarget = Target(
   sources: "Sources/**",
   resources: "Resources/**",
   scripts: [
-    Project.needleGenerateScript()
+    Project.needleGenerateScript(),
   ],
   dependencies: [
     RemoteDependencies.allPackages,
     LocalDependencies.Shared.allPackages,
     LocalDependencies.Core.allPackages,
-    LocalDependencies.Feature.allPackages
+    LocalDependencies.Feature.allPackages,
   ].flatMap { $0 },
   settings: Project.defaultSettings()
 )
@@ -45,9 +45,9 @@ let testTarget = Target(
   dependencies: [
     [
       .xctest,
-      .target(name: "MiniSuperApp")
+      .target(name: "MiniSuperApp"),
     ],
-    LocalDependencies.TestSupport.allPackages
+    LocalDependencies.TestSupport.allPackages,
   ].flatMap { $0 },
   settings: Project.defaultSettings()
 )
@@ -72,12 +72,12 @@ let project = Project(
     RemoteDependencies.allPackageSource,
     LocalDependencies.Shared.allPackageSource,
     LocalDependencies.Core.allPackageSource,
-    LocalDependencies.Feature.allPackageSource
+    LocalDependencies.Feature.allPackageSource,
   ].flatMap { $0 },
   settings: Project.defaultSettings(),
   targets: [
     appTarget,
-    testTarget
+    testTarget,
   ],
   schemes: [
     Scheme(
@@ -100,6 +100,6 @@ let project = Project(
         options: .options(coverage: true)
       ),
       runAction: .runAction(configuration: .debug)
-    )
+    ),
   ]
 )

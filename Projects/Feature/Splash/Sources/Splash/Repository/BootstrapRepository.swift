@@ -29,7 +29,7 @@ final class BootstrapRepositoryImpl: BootstrapRepository {
   }
 
   func requestBootstrapping() -> Single<Void> {
-    return self.network.request(BootstrapAPI.bootstrapping)
+    return network.request(BootstrapAPI.bootstrapping)
       .map { _ in Void() }
       .catchAndReturn(Void())
       .delaySubscription(.seconds(1), scheduler: MainScheduler.instance)

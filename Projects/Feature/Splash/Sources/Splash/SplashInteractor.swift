@@ -46,12 +46,12 @@ final class SplashInteractor:
 
   override func didBecomeActive() {
     super.didBecomeActive()
-    self.startInitialization()
+    startInitialization()
   }
 
   private func startInitialization() {
-    self.displayLoading(true)
-    self.bootstrapRepository.requestBootstrapping()
+    displayLoading(true)
+    bootstrapRepository.requestBootstrapping()
       .subscribe(with: self) { `self`, _ in
         self.listener?.initializationComplete()
 
@@ -66,7 +66,7 @@ final class SplashInteractor:
   }
 
   private func displayLoading(_ isLoading: Bool) {
-    self.presenter.displaySplash(
+    presenter.displaySplash(
       viewModel: SplashModels.Splash.ViewModel(
         isLoading: isLoading
       )
@@ -74,7 +74,7 @@ final class SplashInteractor:
   }
 
   private func presentErrorAlert(with error: Error) {
-    self.presenter.displayBootstrap(
+    presenter.displayBootstrap(
       viewModel: SplashModels.Bootstrap.ViewModel(
         errorMessage: error.localizedDescription
       )

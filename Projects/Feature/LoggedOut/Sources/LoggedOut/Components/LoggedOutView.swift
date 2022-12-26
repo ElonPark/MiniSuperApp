@@ -33,7 +33,7 @@ final class LoggedOutView: BaseView {
 
   override func defineLayout() {
     super.defineLayout()
-    self.rootFlexContainer.flex
+    rootFlexContainer.flex
       .justifyContent(.center)
       .alignItems(.stretch)
       .define {
@@ -54,7 +54,7 @@ final class LoggedOutView: BaseView {
 
   override func layoutSubviews() {
     super.layoutSubviews()
-    self.rootFlexContainer.pin.all()
-    self.rootFlexContainer.flex.layout()
+    rootFlexContainer.pin.all()
+    rootFlexContainer.flex.layout()
   }
 }

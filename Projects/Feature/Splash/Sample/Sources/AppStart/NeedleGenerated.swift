@@ -24,7 +24,7 @@ private func parent1(_ component: NeedleFoundation.Scope) -> NeedleFoundation.Sc
 
   private class RootDependency3944cc797a4a88956fb5Provider: RootDependency {
     var splashBuilder: SplashBuildable {
-      return self.appComponent.splashBuilder
+      return appComponent.splashBuilder
     }
 
     private let appComponent: AppComponent
@@ -40,7 +40,7 @@ private func parent1(_ component: NeedleFoundation.Scope) -> NeedleFoundation.Sc
 
   private class SplashDependencye0cb7136f2ec3edfd60aProvider: SplashDependency {
     var network: Networking {
-      return self.appComponent.network
+      return appComponent.network
     }
 
     private let appComponent: AppComponent

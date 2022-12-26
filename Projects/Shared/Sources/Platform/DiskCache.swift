@@ -29,7 +29,7 @@ public final class DiskCache: DiskCacheContainer {
   }
 }
 
-// MARK: - DiskCacheContainer.Property
+// MARK: - DiskCache.Property
 
 extension DiskCache {
   @propertyWrapper
@@ -54,7 +54,7 @@ extension DiskCache {
       }
     }
 
-    open var projectedValue: Observable<Value> { self.relay.asObservable() }
+    open var projectedValue: Observable<Value> { relay.asObservable() }
 
     public init(
       key: String,
@@ -68,7 +68,7 @@ extension DiskCache {
   }
 }
 
-// MARK: - DiskCacheContainer.CodableProperty
+// MARK: - DiskCache.CodableProperty
 
 extension DiskCache {
 
@@ -88,6 +88,6 @@ extension DiskCache {
       }
     }
 
-    override public var projectedValue: Observable<Value> { self.relay.asObservable() }
+    override public var projectedValue: Observable<Value> { relay.asObservable() }
   }
 }

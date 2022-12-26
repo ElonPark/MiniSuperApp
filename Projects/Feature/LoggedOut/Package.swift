@@ -6,7 +6,7 @@ import PackageDescription
 let package = Package(
   name: "LoggedOut",
   platforms: [
-    .iOS(.v14)
+    .iOS(.v14),
   ],
   products: [
     .library(
@@ -20,20 +20,20 @@ let package = Package(
     .library(
       name: "LoggedOutTestSupport",
       targets: ["LoggedOutTestSupport"]
-    )
+    ),
   ],
   dependencies: [
     .package(url: "https://github.com/uber/RIBs.git", branch: "main"),
     .package(url: "https://github.com/uber/needle.git", .upToNextMajor(from: "0.18.1")),
     .package(path: "../../Core"),
-    .package(path: "../../Shared")
+    .package(path: "../../Shared"),
   ],
   targets: [
     .target(
       name: "LoggedOutInterface",
       dependencies: [
         .product(name: "RIBs", package: "RIBs"),
-        .product(name: "NeedleFoundation", package: "needle")
+        .product(name: "NeedleFoundation", package: "needle"),
       ]
     ),
     .target(
@@ -41,7 +41,7 @@ let package = Package(
       dependencies: [
         "LoggedOutInterface",
         .product(name: "RIBs", package: "RIBs"),
-        .product(name: "AppTestSupport", package: "Shared")
+        .product(name: "AppTestSupport", package: "Shared"),
       ]
     ),
     .target(
@@ -52,21 +52,21 @@ let package = Package(
         .product(name: "Platform", package: "Shared"),
         .product(name: "DesignSystem", package: "Shared"),
         .product(name: "Localization", package: "Shared"),
-        .product(name: "NetworkInterface", package: "Core")
+        .product(name: "NetworkInterface", package: "Core"),
       ],
       cSettings: [
-        .define("FLEXLAYOUT_SWIFT_PACKAGE")
+        .define("FLEXLAYOUT_SWIFT_PACKAGE"),
       ]
     ),
     .testTarget(
       name: "LoggedOutTests",
       dependencies: [
         "LoggedOut",
-        .product(name: "AppTestSupport", package: "Shared")
+        .product(name: "AppTestSupport", package: "Shared"),
       ],
       cSettings: [
-        .define("FLEXLAYOUT_SWIFT_PACKAGE")
+        .define("FLEXLAYOUT_SWIFT_PACKAGE"),
       ]
-    )
+    ),
   ]
 )

@@ -6,7 +6,7 @@ import PackageDescription
 let package = Package(
   name: "Splash",
   platforms: [
-    .iOS(.v14)
+    .iOS(.v14),
   ],
   products: [
     .library(
@@ -20,14 +20,14 @@ let package = Package(
     .library(
       name: "SplashTestSupport",
       targets: ["SplashTestSupport"]
-    )
+    ),
   ],
   dependencies: [
     .package(url: "https://github.com/ReactiveX/RxSwift", from: "6.5.0"),
     .package(url: "https://github.com/uber/RIBs.git", branch: "main"),
     .package(url: "https://github.com/uber/needle.git", .upToNextMajor(from: "0.18.1")),
     .package(path: "../../Core"),
-    .package(path: "../../Shared")
+    .package(path: "../../Shared"),
   ],
   targets: [
     .target(
@@ -35,7 +35,7 @@ let package = Package(
       dependencies: [
         .product(name: "RIBs", package: "RIBs"),
         .product(name: "RxSwift", package: "RxSwift"),
-        .product(name: "NeedleFoundation", package: "needle")
+        .product(name: "NeedleFoundation", package: "needle"),
       ]
     ),
     .target(
@@ -43,7 +43,7 @@ let package = Package(
       dependencies: [
         "SplashInterface",
         .product(name: "RIBs", package: "RIBs"),
-        .product(name: "AppTestSupport", package: "Shared")
+        .product(name: "AppTestSupport", package: "Shared"),
       ]
     ),
     .target(
@@ -54,21 +54,21 @@ let package = Package(
         .product(name: "Platform", package: "Shared"),
         .product(name: "DesignSystem", package: "Shared"),
         .product(name: "Localization", package: "Shared"),
-        .product(name: "NetworkInterface", package: "Core")
+        .product(name: "NetworkInterface", package: "Core"),
       ],
       cSettings: [
-        .define("FLEXLAYOUT_SWIFT_PACKAGE")
+        .define("FLEXLAYOUT_SWIFT_PACKAGE"),
       ]
     ),
     .testTarget(
       name: "SplashTests",
       dependencies: [
         "Splash",
-        .product(name: "AppTestSupport", package: "Shared")
+        .product(name: "AppTestSupport", package: "Shared"),
       ],
       cSettings: [
-        .define("FLEXLAYOUT_SWIFT_PACKAGE")
+        .define("FLEXLAYOUT_SWIFT_PACKAGE"),
       ]
-    )
+    ),
   ]
 )

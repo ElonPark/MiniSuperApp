@@ -19,15 +19,15 @@ final class LoggedOutInteractorTests: XCTestCase {
 
   override func setUpWithError() throws {
     try super.setUpWithError()
-    self.presenter = .init()
-    self.router = .init()
-    self.listener = .init()
-    self.interactor = LoggedOutInteractor(
-      presenter: self.presenter
+    presenter = .init()
+    router = .init()
+    listener = .init()
+    interactor = LoggedOutInteractor(
+      presenter: presenter
     )
 
-    self.interactor.router = self.router
-    self.interactor.listener = self.listener
+    interactor.router = router
+    interactor.listener = listener
   }
 
   // MARK: - Tests
@@ -37,10 +37,10 @@ final class LoggedOutInteractorTests: XCTestCase {
     let action = LoggedOutModels.SignUp.Action.buttonClicked
 
     // when
-    self.interactor.sendSignUpAction(action)
+    interactor.sendSignUpAction(action)
 
     // then
-    XCTAssertEqual(self.router.attachSignUpFlowRIBCallCount, 1)
+    XCTAssertEqual(router.attachSignUpFlowRIBCallCount, 1)
   }
 
   func test_sendSignInAction이_호출되면_라우터에_attachSignInFlowRIB을_호출해요() {
@@ -48,9 +48,9 @@ final class LoggedOutInteractorTests: XCTestCase {
     let action = LoggedOutModels.SignIn.Action.buttonClicked
 
     // when
-    self.interactor.sendSignInAction(action)
+    interactor.sendSignInAction(action)
 
     // then
-    XCTAssertEqual(self.router.attachSignInFlowRIBCallCount, 1)
+    XCTAssertEqual(router.attachSignInFlowRIBCallCount, 1)
   }
 }

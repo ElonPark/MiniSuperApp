@@ -30,21 +30,21 @@ final class SplashViewController:
 
   override init() {
     super.init()
-    self.modalPresentationStyle = .fullScreen
-    self.modalTransitionStyle = .crossDissolve
+    modalPresentationStyle = .fullScreen
+    modalTransitionStyle = .crossDissolve
   }
 
   override func loadView() {
-    self.view = self.contentsView
+    view = contentsView
   }
 
   // MARK: SplashPresentable
 
   func displaySplash(viewModel: SplashModels.Splash.ViewModel) {
     if viewModel.isLoading {
-      self.contentsView.startAnimating()
+      contentsView.startAnimating()
     } else {
-      self.contentsView.stopAnimating()
+      contentsView.stopAnimating()
     }
   }
 

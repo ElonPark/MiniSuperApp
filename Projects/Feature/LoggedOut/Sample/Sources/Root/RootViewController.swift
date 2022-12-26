@@ -38,20 +38,20 @@ final class RootViewController:
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    self.view.backgroundColor = Asset.Color.Static.blue
-    self.defineLayout()
-    self.addTarget()
+    view.backgroundColor = Asset.Color.Static.blue
+    defineLayout()
+    addTarget()
   }
 
   override func viewDidLayoutSubviews() {
     super.viewDidLayoutSubviews()
-    self.rootFlexContainer.pin.all()
-    self.rootFlexContainer.flex.layout()
+    rootFlexContainer.pin.all()
+    rootFlexContainer.flex.layout()
   }
 
   private func defineLayout() {
-    self.view.addSubview(self.rootFlexContainer)
-    self.rootFlexContainer.flex
+    view.addSubview(rootFlexContainer)
+    rootFlexContainer.flex
       .justifyContent(.center)
       .alignItems(.center)
       .define {
@@ -60,15 +60,15 @@ final class RootViewController:
   }
 
   private func addTarget() {
-    self.button.addTarget(
+    button.addTarget(
       self,
-      action: #selector(self.buttonAction),
+      action: #selector(buttonAction),
       for: .touchUpInside
     )
   }
 
   @objc
   private func buttonAction() {
-    self.listener?.buttonTapAction()
+    listener?.buttonTapAction()
   }
 }

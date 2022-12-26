@@ -6,7 +6,7 @@ let workspace = Workspace(
   projects: [
     "Projects/App",
     "Projects/Feature/Splash/Sample",
-    "Projects/Feature/LoggedOut/Sample"
+    "Projects/Feature/LoggedOut/Sample",
   ],
   generationOptions: .options(
     enableAutomaticXcodeSchemes: true,

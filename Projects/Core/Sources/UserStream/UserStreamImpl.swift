@@ -16,8 +16,8 @@ public final class UserStreamImpl: MutableUserStream {
 
   // MARK: UserStream
 
-  public var user: User? { self.userProperty }
-  public var userObservable: Observable<User?> { self.$userProperty }
+  public var user: User? { userProperty }
+  public var userObservable: Observable<User?> { $userProperty }
 
   // MARK: Private
 
@@ -40,6 +40,6 @@ public final class UserStreamImpl: MutableUserStream {
   // MARK: MutableUserStream
 
   public func setUser(_ user: User?) {
-    self.userProperty = user
+    userProperty = user
   }
 }

@@ -27,7 +27,7 @@ final class AppComponent: BootstrapComponent {
   var network: Networking {
     Network(
       plugins: [
-        NetworkLoggerPlugin()
+        NetworkLoggerPlugin(),
       ]
     )
   }

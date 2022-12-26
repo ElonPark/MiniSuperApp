@@ -15,7 +15,7 @@ extension ViewControllable {
   }
 
   public func present(_ viewControllable: ViewControllable, animated: Bool) {
-    self.present(viewControllable, animated: animated, completion: nil)
+    present(viewControllable, animated: animated, completion: nil)
   }
 
   public func present(
@@ -23,7 +23,7 @@ extension ViewControllable {
     animated: Bool,
     completion: (() -> Void)?
   ) {
-    self.uiviewController.present(
+    uiviewController.present(
       viewControllable.uiviewController,
       animated: animated,
       completion: completion
@@ -31,7 +31,7 @@ extension ViewControllable {
   }
 
   public func dismiss(_ viewController: ViewControllable, animated: Bool) {
-    self.dismiss(viewController, animated: animated, completion: nil)
+    dismiss(viewController, animated: animated, completion: nil)
   }
 
   public func dismiss(
@@ -49,20 +49,20 @@ extension ViewControllable {
     _ viewControllable: ViewControllable,
     animated: Bool
   ) {
-    self.navigationController?.pushViewController(
+    navigationController?.pushViewController(
       viewControllable.uiviewController,
       animated: animated
     )
   }
 
   public func popViewController(animated: Bool) {
-    self.navigationController?.popViewController(
+    navigationController?.popViewController(
       animated: animated
     )
   }
 
   public func popToRoot(animated: Bool) {
-    self.navigationController?.popToRootViewController(
+    navigationController?.popToRootViewController(
       animated: animated
     )
   }
@@ -71,7 +71,7 @@ extension ViewControllable {
     _ viewControllerables: [ViewControllable],
     animated: Bool
   ) {
-    self.navigationController?.setViewControllers(
+    navigationController?.setViewControllers(
       viewControllerables.map(\.uiviewController),
       animated: animated
     )

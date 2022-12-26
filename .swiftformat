@@ -1,13 +1,15 @@
---swiftversion 5.6
+--swiftversion 5.7
 
 # format options
 --indent 2
---extensionacl on-extension
+--acronyms
+--extensionacl on-declarations
 --modifierorder
---self insert
+--self init-only
+--importgrouping testable-bottom
 --semicolons inline
 --trailingclosures
---commas inline
+--commas "always"
 --stripunusedargs closure-only
 --maxwidth 120
 --wrapparameters before-first
@@ -21,20 +23,16 @@
 --patternlet hoist
 --marktypes if-not-empty
 --typemark "MARK: - %t"
---markextensions always
 --extensionmark  "MARK: - %t + %c"
 --groupedextension "MARK: - %c"
 --elseposition "same-line"
---emptybraces "no-space"
 --extensionacl on-declarations
 --trailingclosures
+--enumnamespaces "structs-only"
 
-# file options
---exclude Scripts, Pods, Carthage, Resource, **/Generated
-
-# rules
+# enable rules
 --enable duplicateImports
---enable enumNamespaces
+--enable docComments
 --enable isEmpty
 --enable markTypes
 --enable redundantBreak
@@ -48,10 +46,20 @@
 --enable spaceAroundComments
 --enable spaceInsideBraces
 --enable spaceInsideBrackets
+--enable redundantOptionalBinding
+--enable redundantParens
+--enable redundantPattern
+--enable wrapEnumCases
 
+# disable rules 
 --disable andOperator
 --disable blankLinesAtStartOfScope
 --disable redundantBackticks
 --disable sortedSwitchCases
 --disable redundantReturn
 --disable void
+--disable blankLinesBetweenImports
+--disable blockComments
+
+# file options
+--exclude Scripts, Pods, Carthage, Resource, **/Generated

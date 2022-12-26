@@ -47,11 +47,11 @@ final class RootInteractor:
 
   override func didBecomeActive() {
     super.didBecomeActive()
-    self.router?.attachLoggedOutRIB()
+    router?.attachLoggedOutRIB()
   }
 
   func buttonTapAction() {
-    self.router?.attachLoggedOutRIB()
+    router?.attachLoggedOutRIB()
   }
 }
 

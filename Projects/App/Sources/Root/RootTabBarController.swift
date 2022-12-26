@@ -36,6 +36,6 @@ final class RootTabBarController:
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    self.view.backgroundColor = Asset.Color.Semantic.background
+    view.backgroundColor = Asset.Color.Semantic.background
   }
 }
