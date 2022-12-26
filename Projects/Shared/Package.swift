@@ -9,8 +9,8 @@ let package = Package(
   platforms: [.iOS(.v14)],
   products: [
     .plugin(
-      name: "FeatureMockGenerator",
-      targets: ["FeatureMockGenerator"]
+      name: "MockGenerator",
+      targets: ["MockGenerator"]
     ),
     .library(
       name: "AppFoundation",
@@ -50,7 +50,7 @@ let package = Package(
   ],
   targets: [
     .plugin(
-      name: "FeatureMockGenerator",
+      name: "MockGenerator",
       capability: .command(
         intent: .custom(
           verb: "mockolo",
