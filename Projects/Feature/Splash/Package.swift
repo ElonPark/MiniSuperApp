@@ -26,8 +26,9 @@ let package = Package(
     .package(url: "https://github.com/ReactiveX/RxSwift", from: "6.5.0"),
     .package(url: "https://github.com/uber/RIBs.git", branch: "main"),
     .package(url: "https://github.com/uber/needle.git", .upToNextMajor(from: "0.18.1")),
-    .package(path: "../../Core"),
     .package(path: "../../Shared"),
+    .package(path: "../../Core"),
+    .package(path: "../../Data/BootstrapData"),
   ],
   targets: [
     .target(
@@ -55,6 +56,7 @@ let package = Package(
         .product(name: "DesignSystem", package: "Shared"),
         .product(name: "Localization", package: "Shared"),
         .product(name: "NetworkInterface", package: "Core"),
+        .product(name: "BootstrapDomain", package: "BootstrapData"),
       ],
       cSettings: [
         .define("FLEXLAYOUT_SWIFT_PACKAGE"),

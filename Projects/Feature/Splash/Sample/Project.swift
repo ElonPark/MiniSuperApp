@@ -12,11 +12,13 @@ let project = Project.app(
   additionalTargetDependency: [
     RemoteDependencies.needleFoundation.package,
     CoreDependencies.network.package,
+    DataDependencies.bootstrapData.package,
     FeatureDependencies.splash.package,
   ],
   additionalPackages: [
     RemoteDependencies.needleFoundation.packageSource,
     CoreDependencies.network.packageSource,
+    DataDependencies.bootstrapData.packageSource,
     FeatureDependencies.splash.packageSource,
   ]
 )

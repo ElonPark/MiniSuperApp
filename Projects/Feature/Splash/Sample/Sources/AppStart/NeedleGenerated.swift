@@ -1,6 +1,8 @@
 
 
 import AppFoundation
+import BootstrapData
+import BootstrapDomain
 import Foundation
 import NeedleFoundation
 import Network
@@ -39,8 +41,8 @@ private func parent1(_ component: NeedleFoundation.Scope) -> NeedleFoundation.Sc
   }
 
   private class SplashDependencye0cb7136f2ec3edfd60aProvider: SplashDependency {
-    var network: Networking {
-      return appComponent.network
+    var bootstrapRepository: BootstrapRepository {
+      return appComponent.bootstrapRepository
     }
 
     private let appComponent: AppComponent
@@ -67,7 +69,7 @@ private func parent1(_ component: NeedleFoundation.Scope) -> NeedleFoundation.Sc
 
   extension SplashComponent: Registration {
     public func registerItems() {
-      keyPathToName[\SplashDependency.network] = "network-Networking"
+      keyPathToName[\SplashDependency.bootstrapRepository] = "bootstrapRepository-BootstrapRepository"
     }
   }
 
