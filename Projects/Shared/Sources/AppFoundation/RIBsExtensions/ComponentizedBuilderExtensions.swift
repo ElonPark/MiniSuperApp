@@ -14,7 +14,7 @@ extension ComponentizedBuilder {
     with dynamicBuildDependency: DynamicBuildDependency,
     _ dynamicComponentDependency: DynamicComponentDependency
   ) -> Router {
-    return self.build(
+    return build(
       withDynamicBuildDependency: dynamicBuildDependency,
       dynamicComponentDependency: dynamicComponentDependency
     )
@@ -28,7 +28,7 @@ extension ComponentizedBuilder
   DynamicBuildDependency == Void
 {
   public final func build() -> Router {
-    return self.build(
+    return build(
       withDynamicBuildDependency: Void(),
       dynamicComponentDependency: Void()
     )
@@ -41,7 +41,7 @@ extension ComponentizedBuilder where DynamicComponentDependency == Void {
   public final func build(
     with dynamicBuildDependency: DynamicBuildDependency
   ) -> Router {
-    return self.build(
+    return build(
       withDynamicBuildDependency: dynamicBuildDependency,
       dynamicComponentDependency: Void()
     )
@@ -54,7 +54,7 @@ extension ComponentizedBuilder where DynamicBuildDependency == Void {
   public final func build(
     with dynamicComponentDependency: DynamicComponentDependency
   ) -> Router {
-    return self.build(
+    return build(
       withDynamicBuildDependency: Void(),
       dynamicComponentDependency: dynamicComponentDependency
     )

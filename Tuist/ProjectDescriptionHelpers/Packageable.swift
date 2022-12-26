@@ -21,6 +21,6 @@ extension Packageable where Self: CaseIterable, Self: RawRepresentable, Self.Raw
 }
 
 extension RawRepresentable where Self.RawValue == String {
-  public var packageName: String { self.rawValue.firstUppercased }
-  public var package: TargetDependency { .package(product: self.packageName) }
+  public var packageName: String { rawValue.firstUppercased }
+  public var package: TargetDependency { .package(product: packageName) }
 }

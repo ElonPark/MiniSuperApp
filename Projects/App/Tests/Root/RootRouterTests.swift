@@ -9,8 +9,8 @@
 import Foundation
 import XCTest
 
-@testable import MiniSuperApp
 import SplashTestSupport
+@testable import MiniSuperApp
 
 final class RootRouterTests: XCTestCase {
 
@@ -21,14 +21,14 @@ final class RootRouterTests: XCTestCase {
 
   override func setUpWithError() throws {
     try super.setUpWithError()
-    self.interactor = .init()
-    self.viewController = .init()
-    self.splashBuilder = .init()
+    interactor = .init()
+    viewController = .init()
+    splashBuilder = .init()
 
-    self.router = RootRouter(
-      interactor: self.interactor,
-      viewController: self.viewController,
-      splashBuilder: self.splashBuilder
+    router = RootRouter(
+      interactor: interactor,
+      viewController: viewController,
+      splashBuilder: splashBuilder
     )
   }
 
@@ -36,23 +36,23 @@ final class RootRouterTests: XCTestCase {
 
   func test_attachSplashRIB() {
     // when
-    self.router.attachSplashRIB()
+    router.attachSplashRIB()
 
     // then
-    XCTAssertNotNil(self.router.splashRouter)
-    XCTAssertEqual(self.splashBuilder.buildCallCount, 1)
-    XCTAssertEqual(self.viewController.presentCallCount, 1)
+    XCTAssertNotNil(router.splashRouter)
+    XCTAssertEqual(splashBuilder.buildCallCount, 1)
+    XCTAssertEqual(viewController.presentCallCount, 1)
   }
 
   func test_detachSplashRIB() {
     // given
-    self.router.attachSplashRIB()
+    router.attachSplashRIB()
 
     // when
-    self.router.detachSplashRIB()
+    router.detachSplashRIB()
 
     // then
-    XCTAssertNil(self.router.splashRouter)
-    XCTAssertEqual(self.viewController.dismissCallCount, 1)
+    XCTAssertNil(router.splashRouter)
+    XCTAssertEqual(viewController.dismissCallCount, 1)
   }
 }

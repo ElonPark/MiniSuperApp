@@ -20,30 +20,30 @@ final class SplashInteractorTests: XCTestCase {
 
   override func setUpWithError() throws {
     try super.setUpWithError()
-    self.presenter = .init()
-    self.repository = .init()
-    self.router = .init()
-    self.listener = .init()
-    self.interactor = SplashInteractor(
-      presenter: self.presenter,
-      bootstrapRepository: self.repository
+    presenter = .init()
+    repository = .init()
+    router = .init()
+    listener = .init()
+    interactor = SplashInteractor(
+      presenter: presenter,
+      bootstrapRepository: repository
     )
 
-    self.interactor.router = self.router
-    self.interactor.listener = self.listener
+    interactor.router = router
+    interactor.listener = listener
   }
 
   // MARK: - Tests
 
   func test_didBecomeActive가_호출되면_repository에_bootstrapping을_요청해요() {
     // given
-    self.repository.requestBootstrappingHandler = { .just(Void()) }
+    repository.requestBootstrappingHandler = { .just(Void()) }
 
     // when
-    self.interactor.didBecomeActive()
+    interactor.didBecomeActive()
 
     // then
-    XCTAssertEqual(self.repository.requestBootstrappingCallCount, 1)
+    XCTAssertEqual(repository.requestBootstrappingCallCount, 1)
   }
 
   func test_didBecomeActive_호출시_bootstrapping을_요청_전후로_presenter에_displaySplash를_호출해요() {
@@ -54,20 +54,20 @@ final class SplashInteractorTests: XCTestCase {
     }
     var callHistory = [History]()
 
-    self.presenter.displaySplashHandler = {
+    presenter.displaySplashHandler = {
       callHistory.append(.isLoading($0.isLoading))
     }
-    self.repository.requestBootstrappingHandler = {
+    repository.requestBootstrappingHandler = {
       callHistory.append(.bootstrapping)
       return .just(Void())
     }
 
     // when
-    self.interactor.didBecomeActive()
+    interactor.didBecomeActive()
 
     // then
-    XCTAssertEqual(self.presenter.displaySplashCallCount, 2)
-    XCTAssertEqual(self.repository.requestBootstrappingCallCount, 1)
+    XCTAssertEqual(presenter.displaySplashCallCount, 2)
+    XCTAssertEqual(repository.requestBootstrappingCallCount, 1)
     XCTAssertEqual(callHistory[0], History.isLoading(true))
     XCTAssertEqual(callHistory[1], History.bootstrapping)
     XCTAssertEqual(callHistory[2], History.isLoading(false))
@@ -75,23 +75,23 @@ final class SplashInteractorTests: XCTestCase {
 
   func test_bootstrapping을_요청_성공시_listener에_initializationComplete를_호출해요() {
     // given
-    self.repository.requestBootstrappingHandler = { .just(Void()) }
+    repository.requestBootstrappingHandler = { .just(Void()) }
 
     // when
-    self.interactor.didBecomeActive()
+    interactor.didBecomeActive()
 
     // then
-    XCTAssertEqual(self.listener.initializationCompleteCallCount, 1)
+    XCTAssertEqual(listener.initializationCompleteCallCount, 1)
   }
 
   func test_bootstrapping을_요청_실패시_presenter에_displayBootstrap를_호출해요() {
     // given
-    self.repository.requestBootstrappingHandler = { .error(URLError(.badServerResponse)) }
+    repository.requestBootstrappingHandler = { .error(URLError(.badServerResponse)) }
 
     // when
-    self.interactor.didBecomeActive()
+    interactor.didBecomeActive()
 
     // then
-    XCTAssertEqual(self.presenter.displayBootstrapCallCount, 1)
+    XCTAssertEqual(presenter.displayBootstrapCallCount, 1)
   }
 }

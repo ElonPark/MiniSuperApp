@@ -1,12 +1,11 @@
 import ProjectDescription
 
-/// Project helpers are functions that simplify the way you define your project.
-/// Share code to create targets, settings, dependencies,
-/// Create your own conventions, e.g: a func that makes sure all shared targets are "static frameworks"
-/// See https://docs.tuist.io/guides/helpers/
+// Project helpers are functions that simplify the way you define your project.
+// Share code to create targets, settings, dependencies,
+// Create your own conventions, e.g: a func that makes sure all shared targets are "static frameworks"
+// See https://docs.tuist.io/guides/helpers/
 
 extension Project {
-
   public static func defaultSettings() -> Settings {
     .settings(
       base: ["GCC_PREPROCESSOR_DEFINITIONS": "FLEXLAYOUT_SWIFT_PACKAGE=1"],
@@ -15,7 +14,7 @@ extension Project {
           name: .debug,
           settings: ["GCC_PREPROCESSOR_DEFINITIONS": .array(["DEBUG=1", "$(inherited)"])]
         ),
-        .release(name: .release)
+        .release(name: .release),
       ],
       defaultSettings: .recommended
     )
@@ -59,7 +58,7 @@ extension Project {
     additionalTargetDependency: [TargetDependency],
     additionalPackages: [Package]
   ) -> Project {
-    let targets = self.makeAppTargets(
+    let targets = makeAppTargets(
       name: name,
       platform: platform,
       scripts: scripts,
@@ -80,7 +79,7 @@ extension Project {
           ),
           testAction: .targets(["\(name)Tests"]),
           runAction: .runAction(configuration: .debug)
-        )
+        ),
       ]
     )
   }
@@ -125,7 +124,7 @@ extension Project {
       "CFBundleShortVersionString": "1.0",
       "CFBundleVersion": "1",
       "UIMainStoryboardFile": "",
-      "UILaunchStoryboardName": "LaunchScreen"
+      "UILaunchStoryboardName": "LaunchScreen",
     ]
 
     let mainTarget = Target(
@@ -151,7 +150,7 @@ extension Project {
       infoPlist: .default,
       sources: ["Tests/**"],
       dependencies: [
-        .target(name: "\(name)")
+        .target(name: "\(name)"),
       ],
       settings: Self.defaultSettings()
     )

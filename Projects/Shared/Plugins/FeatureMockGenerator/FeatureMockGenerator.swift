@@ -12,7 +12,7 @@ struct FeatureMockGenerator: CommandPlugin {
       let mockfile: String
       let arguments: [String]
 
-      if self.isInterface(target.name) {
+      if isInterface(target.name) {
         let feature = String(target.name.dropLast("Interface".count))
         mockfile = "\(projectsPath)/Feature/\(feature)/Sources/\(feature)TestSupport/\(target.name)Mocks.swift"
         arguments = [
@@ -30,7 +30,7 @@ struct FeatureMockGenerator: CommandPlugin {
           "DesignSystem",
           "Localization",
           "Network",
-          "UIKit"
+          "UIKit",
         ]
       } else {
         mockfile = "\(projectsPath)/Feature/\(target.name)/Tests/\(target.name)Tests/\(target.name)Mocks.swift"
@@ -50,12 +50,12 @@ struct FeatureMockGenerator: CommandPlugin {
           "DesignSystem",
           "Localization",
           "Network",
-          "UIKit"
+          "UIKit",
         ]
       }
 
-      try self.mockolo(with: arguments)
-      try self.swiftFormat(to: mockfile)
+      try mockolo(with: arguments)
+      try swiftFormat(to: mockfile)
     }
   }
 

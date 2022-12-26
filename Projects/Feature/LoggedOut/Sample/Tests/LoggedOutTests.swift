@@ -1,4 +1,4 @@
-@testable import LoggedOut
 import XCTest
+@testable import LoggedOut
 
 final class LoggedOutTests: XCTestCase {}

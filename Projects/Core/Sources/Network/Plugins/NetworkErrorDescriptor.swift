@@ -14,27 +14,27 @@ struct NetworkErrorDescriptor {
 
   // MARK: Properties
 
-  private var moyaError: MoyaError? { self.error as? MoyaError }
+  private var moyaError: MoyaError? { error as? MoyaError }
 
   private var moyaUnderlyingError: Error? {
-    guard case let .underlying(underlyingError, _) = self.moyaError else { return nil }
+    guard case let .underlying(underlyingError, _) = moyaError else { return nil }
     return underlyingError
   }
 
-  private var isMoyaUnderlyingError: Bool { self.moyaUnderlyingError != nil }
+  private var isMoyaUnderlyingError: Bool { moyaUnderlyingError != nil }
 
   private var afError: AFError? {
-    guard let moyaUnderlyingError = self.moyaUnderlyingError else { return self.error.asAFError }
+    guard let moyaUnderlyingError else { return error.asAFError }
     return moyaUnderlyingError.asAFError
   }
 
-  private var afUnderlyingError: Error? { self.afError?.underlyingError }
+  private var afUnderlyingError: Error? { afError?.underlyingError }
 
   private var urlError: URLError? {
-    if let urlError = self.error as? URLError {
+    if let urlError = error as? URLError {
       return urlError
     }
-    return self.afUnderlyingError as? URLError
+    return afUnderlyingError as? URLError
   }
 
   private let error: Error
@@ -46,18 +46,18 @@ struct NetworkErrorDescriptor {
   }
 
   func errorLogMessage() -> String {
-    guard let moyaError = self.moyaError else { return self.error.localizedDescription }
+    guard let moyaError else { return error.localizedDescription }
 
     var messages = [String]()
 
-    if !self.isMoyaUnderlyingError, let errorDescription = moyaError.errorDescription {
+    if !isMoyaUnderlyingError, let errorDescription = moyaError.errorDescription {
       messages.append("Moya Error Description: \(errorDescription)")
     }
 
-    messages.append(self.afErrorDebugDescriptions().joined(separator: "\n"))
-    messages.append(self.urlErrorDebugDescriptions().joined(separator: "\n"))
+    messages.append(afErrorDebugDescriptions().joined(separator: "\n"))
+    messages.append(urlErrorDebugDescriptions().joined(separator: "\n"))
 
-    if let responseString = self.responseString() {
+    if let responseString = responseString() {
       messages.append(responseString)
     }
 
@@ -65,7 +65,7 @@ struct NetworkErrorDescriptor {
   }
 
   private func afErrorDebugDescriptions() -> [String] {
-    guard let afError = self.afError else { return [] }
+    guard let afError else { return [] }
 
     var messages = [String]()
 
@@ -92,7 +92,7 @@ struct NetworkErrorDescriptor {
   }
 
   private func urlErrorDebugDescriptions() -> [String] {
-    guard let urlError = self.urlError else { return [] }
+    guard let urlError else { return [] }
 
     var messages = [String]()
 
@@ -104,7 +104,7 @@ struct NetworkErrorDescriptor {
   }
 
   private func responseString() -> String? {
-    guard let response = self.moyaError?.response else { return nil }
+    guard let response = moyaError?.response else { return nil }
     do {
       let json = try JSONSerialization.jsonObject(with: response.data)
       let prettyJSONData = try JSONSerialization.data(

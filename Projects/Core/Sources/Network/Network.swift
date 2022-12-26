@@ -17,6 +17,6 @@ public final class Network: MoyaProvider<MultiTarget>, Networking {
 
   public func request(_ target: TargetType) -> Single<Response> {
     let multiTarget = Moya.MultiTarget.target(target)
-    return self.rx.request(multiTarget)
+    return rx.request(multiTarget)
   }
 }

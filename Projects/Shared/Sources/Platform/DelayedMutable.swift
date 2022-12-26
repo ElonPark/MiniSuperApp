@@ -14,13 +14,13 @@ public struct DelayedMutable<Value> {
 
   public var wrappedValue: Value {
     get {
-      guard let value = self.value else {
+      guard let value else {
         fatalError("property accessed before being initialized: \(Value.self)")
       }
       return value
     }
     set {
-      self.value = newValue
+      value = newValue
     }
   }
 

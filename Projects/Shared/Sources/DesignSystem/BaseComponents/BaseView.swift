@@ -23,9 +23,9 @@ open class BaseView: UIView {
 
   public init() {
     super.init(frame: .zero)
-    self.accessibilityIdentifier = "\(type(of: self))"
-    self.backgroundColor = Asset.Color.Semantic.background
-    self.defineLayout()
+    accessibilityIdentifier = "\(type(of: self))"
+    backgroundColor = Asset.Color.Semantic.background
+    defineLayout()
   }
 
   @available(*, unavailable)
@@ -34,7 +34,7 @@ open class BaseView: UIView {
   }
 
   open func defineLayout() {
-    self.addSubview(self.rootFlexContainer)
+    addSubview(rootFlexContainer)
     // override here
   }
 }

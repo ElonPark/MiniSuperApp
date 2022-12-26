@@ -9,7 +9,7 @@
   import UIKit
 #endif
 
-// Deprecated typealiases
+/// Deprecated typealiases
 @available(*, deprecated, renamed: "ColorAsset.Color", message: "This typealias will be removed in SwiftGen 7.0")
 public typealias AssetColorTypeAlias = ColorAsset.Color
 @available(*, deprecated, renamed: "ImageAsset.Image", message: "This typealias will be removed in SwiftGen 7.0")
@@ -70,7 +70,7 @@ public final class ColorAsset {
     public func color(compatibleWith traitCollection: UITraitCollection) -> Color {
       let bundle = BundleToken.bundle
       guard let color = Color(named: name, in: bundle, compatibleWith: traitCollection) else {
-        fatalError("Unable to load color asset named \(self.name).")
+        fatalError("Unable to load color asset named \(name).")
       }
       return color
     }
@@ -112,7 +112,7 @@ public struct ImageAsset {
     #if os(iOS) || os(tvOS)
       let image = Image(named: name, in: bundle, compatibleWith: nil)
     #elseif os(macOS)
-      let name = NSImage.Name(self.name)
+      let name = NSImage.Name(name)
       let image = (bundle == .main) ? NSImage(named: name) : bundle.image(forResource: name)
     #elseif os(watchOS)
       let image = Image(named: name)
@@ -128,7 +128,7 @@ public struct ImageAsset {
     public func image(compatibleWith traitCollection: UITraitCollection) -> Image {
       let bundle = BundleToken.bundle
       guard let result = Image(named: name, in: bundle, compatibleWith: traitCollection) else {
-        fatalError("Unable to load image asset named \(self.name).")
+        fatalError("Unable to load image asset named \(name).")
       }
       return result
     }

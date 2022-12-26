@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     didFinishLaunchingWithOptions _: [UIApplication.LaunchOptionsKey: Any]? = nil
   ) -> Bool {
     registerProviderFactories()
-    self.configureAppLaunch()
+    configureAppLaunch()
 
     return true
   }
@@ -29,14 +29,14 @@ extension AppDelegate {
   private func configureAppLaunch() {
     let appComponent = AppComponent()
     let rootBuilder = appComponent.rootBuilder
-    (self.launchRouter, self.urlHandler) = rootBuilder.build()
+    (launchRouter, urlHandler) = rootBuilder.build()
 
-    self.configureWindowWithLaunch()
+    configureWindowWithLaunch()
   }
 
   private func configureWindowWithLaunch() {
     let window = UIWindow(frame: UIScreen.main.bounds)
     self.window = window
-    self.launchRouter?.launch(from: window)
+    launchRouter?.launch(from: window)
   }
 }

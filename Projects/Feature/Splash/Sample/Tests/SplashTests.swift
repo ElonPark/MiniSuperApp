@@ -1,4 +1,4 @@
-@testable import Splash
 import XCTest
+@testable import Splash
 
 final class SplashTests: XCTestCase {}

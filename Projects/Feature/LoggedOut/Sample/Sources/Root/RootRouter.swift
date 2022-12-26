@@ -40,17 +40,17 @@ final class RootRouter:
   }
 
   func attachLoggedOutRIB() {
-    guard self.loggedOutRouter == nil else { return }
-    let router = self.loggedOutBuilder.build(with: .init(listener: self.interactor))
-    self.loggedOutRouter = router
-    self.attachChild(router)
-    self.viewController.present(router.viewControllable, animated: false)
+    guard loggedOutRouter == nil else { return }
+    let router = loggedOutBuilder.build(with: .init(listener: interactor))
+    loggedOutRouter = router
+    attachChild(router)
+    viewController.present(router.viewControllable, animated: false)
   }
 
   func detachLoggedOutRIB() {
     guard let router = loggedOutRouter else { return }
-    self.loggedOutRouter = nil
-    self.detachChild(router)
-    self.viewController.dismiss(router.viewControllable, animated: true)
+    loggedOutRouter = nil
+    detachChild(router)
+    viewController.dismiss(router.viewControllable, animated: true)
   }
 }

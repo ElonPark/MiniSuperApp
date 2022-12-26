@@ -27,7 +27,7 @@ final class SplashView: BaseView {
 
   override func defineLayout() {
     super.defineLayout()
-    self.rootFlexContainer.flex
+    rootFlexContainer.flex
       .justifyContent(.center)
       .alignItems(.center)
       .define {
@@ -39,15 +39,15 @@ final class SplashView: BaseView {
 
   override func layoutSubviews() {
     super.layoutSubviews()
-    self.rootFlexContainer.pin.all()
-    self.rootFlexContainer.flex.layout()
+    rootFlexContainer.pin.all()
+    rootFlexContainer.flex.layout()
   }
 
   func startAnimating() {
-    self.loadingIndicator.startAnimating()
+    loadingIndicator.startAnimating()
   }
 
   func stopAnimating() {
-    self.loadingIndicator.stopAnimating()
+    loadingIndicator.stopAnimating()
   }
 }

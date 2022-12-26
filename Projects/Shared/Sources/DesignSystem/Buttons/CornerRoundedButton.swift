@@ -13,29 +13,29 @@ open class CornerRoundedButton: UIButton {
 
   var cornerRadius: CGFloat = 0.5 {
     willSet {
-      self.layer.cornerRadius = newValue
-      self.setNeedsLayout()
+      layer.cornerRadius = newValue
+      setNeedsLayout()
     }
   }
 
   var cornerCurve: CALayerCornerCurve = .continuous {
     willSet {
-      self.layer.cornerCurve = newValue
-      self.setNeedsLayout()
+      layer.cornerCurve = newValue
+      setNeedsLayout()
     }
   }
 
   var borderColor: UIColor = .clear {
     willSet {
-      self.layer.borderColor = newValue.cgColor
-      self.setNeedsLayout()
+      layer.borderColor = newValue.cgColor
+      setNeedsLayout()
     }
   }
 
   var borderWidth: CGFloat = .zero {
     willSet {
-      self.layer.borderWidth = newValue
-      self.setNeedsLayout()
+      layer.borderWidth = newValue
+      setNeedsLayout()
     }
   }
 
@@ -48,10 +48,10 @@ open class CornerRoundedButton: UIButton {
     borderWidth: CGFloat = .zero
   ) {
     super.init(frame: .zero)
-    self.layer.cornerRadius = cornerRadius
-    self.layer.cornerCurve = cornerCurve
-    self.layer.borderColor = borderColor.cgColor
-    self.layer.borderWidth = borderWidth
+    layer.cornerRadius = cornerRadius
+    layer.cornerCurve = cornerCurve
+    layer.borderColor = borderColor.cgColor
+    layer.borderWidth = borderWidth
   }
 
   @available(*, unavailable)
@@ -61,7 +61,7 @@ open class CornerRoundedButton: UIButton {
 
   override open func layoutSubviews() {
     super.layoutSubviews()
-    self.traitCollection.performAsCurrent {
+    traitCollection.performAsCurrent {
       self.layer.borderColor = self.borderColor.cgColor
     }
   }

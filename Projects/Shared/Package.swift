@@ -39,14 +39,14 @@ let package = Package(
     .library(
       name: "Localization",
       targets: ["Localization"]
-    )
+    ),
   ],
   dependencies: [
     .package(url: "https://github.com/ReactiveX/RxSwift", from: "6.5.0"),
     .package(url: "https://github.com/uber/RIBs.git", branch: "main"),
     .package(url: "https://github.com/layoutBox/FlexLayout.git", .upToNextMajor(from: "1.3.24")),
     .package(url: "https://github.com/layoutBox/PinLayout.git", .upToNextMajor(from: "1.10.3")),
-    .package(url: "https://github.com/devxoul/Then", .upToNextMajor(from: "3.0.0"))
+    .package(url: "https://github.com/devxoul/Then", .upToNextMajor(from: "3.0.0")),
   ],
   targets: [
     .plugin(
@@ -57,7 +57,7 @@ let package = Package(
           description: "Generate mock files from Swift protocols"
         ),
         permissions: [
-          .writeToPackageDirectory(reason: "Generate mock files info package")
+          .writeToPackageDirectory(reason: "Generate mock files info package"),
         ]
       )
     ),
@@ -74,7 +74,7 @@ let package = Package(
       dependencies: [
         .product(name: "RxSwift", package: "RxSwift"),
         .product(name: "RxRelay", package: "RxSwift"),
-        "Entity"
+        "Entity",
       ]
     ),
     .target(
@@ -85,7 +85,7 @@ let package = Package(
       name: "AppResource",
       dependencies: [],
       resources: [
-        .process("Resources")
+        .process("Resources"),
       ]
     ),
     .target(
@@ -94,31 +94,31 @@ let package = Package(
         "FlexLayout",
         "PinLayout",
         "Then",
-        "AppResource"
+        "AppResource",
       ],
       cSettings: [
-        .define("FLEXLAYOUT_SWIFT_PACKAGE")
+        .define("FLEXLAYOUT_SWIFT_PACKAGE"),
       ],
       cxxSettings: [
-        .define("FLEXLAYOUT_SWIFT_PACKAGE")
+        .define("FLEXLAYOUT_SWIFT_PACKAGE"),
       ],
       swiftSettings: [
-        .define("FLEXLAYOUT_SWIFT_PACKAGE")
+        .define("FLEXLAYOUT_SWIFT_PACKAGE"),
       ]
     ),
     .target(
       name: "Localization",
       dependencies: [],
       resources: [
-        .process("Resources")
+        .process("Resources"),
       ]
     ),
     .testTarget(
       name: "PlatformTests",
       dependencies: [
         "Platform",
-        "AppTestSupport"
+        "AppTestSupport",
       ]
-    )
+    ),
   ]
 )

@@ -40,17 +40,17 @@ final class RootRouter:
   }
 
   func attachSplashRIB() {
-    guard self.splashRouter == nil else { return }
-    let router = self.splashBuilder.build(with: .init(listener: self.interactor))
-    self.splashRouter = router
-    self.attachChild(router)
-    self.viewController.present(router.viewControllable, animated: false)
+    guard splashRouter == nil else { return }
+    let router = splashBuilder.build(with: .init(listener: interactor))
+    splashRouter = router
+    attachChild(router)
+    viewController.present(router.viewControllable, animated: false)
   }
 
   func detachSplashRIB() {
     guard let router = splashRouter else { return }
-    self.splashRouter = nil
-    self.detachChild(router)
-    self.viewController.dismiss(router.viewControllable, animated: true)
+    splashRouter = nil
+    detachChild(router)
+    viewController.dismiss(router.viewControllable, animated: true)
   }
 }

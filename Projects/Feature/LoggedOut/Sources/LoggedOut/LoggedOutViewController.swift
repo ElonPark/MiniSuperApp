@@ -34,8 +34,8 @@ final class LoggedOutViewController:
 
   override init() {
     super.init()
-    self.modalPresentationStyle = .fullScreen
-    self.modalTransitionStyle = .crossDissolve
+    modalPresentationStyle = .fullScreen
+    modalTransitionStyle = .crossDissolve
   }
 
   @available(*, unavailable)
@@ -44,17 +44,17 @@ final class LoggedOutViewController:
   }
 
   override func loadView() {
-    self.view = self.contentsView
+    view = contentsView
   }
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    self.addSignUpButtonAction()
-    self.addSignInButtonAction()
+    addSignUpButtonAction()
+    addSignInButtonAction()
   }
 
   private func addSignUpButtonAction() {
-    self.contentsView.signUpButton.addAction(
+    contentsView.signUpButton.addAction(
       UIAction { [weak self] _ in
         self?.listener?.sendSignUpAction(.buttonClicked)
       },
@@ -63,7 +63,7 @@ final class LoggedOutViewController:
   }
 
   private func addSignInButtonAction() {
-    self.contentsView.signInButton.addAction(
+    contentsView.signInButton.addAction(
       UIAction { [weak self] _ in
         self?.listener?.sendSignInAction(.buttonClicked)
       },

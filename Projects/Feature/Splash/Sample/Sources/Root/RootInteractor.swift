@@ -47,15 +47,15 @@ final class RootInteractor:
 
   override func didBecomeActive() {
     super.didBecomeActive()
-    self.startLaunchSequence()
+    startLaunchSequence()
   }
 
   func startLaunchSequence() {
-    self.router?.attachSplashRIB()
+    router?.attachSplashRIB()
   }
 
   func initializationComplete() {
-    self.router?.detachSplashRIB()
+    router?.detachSplashRIB()
   }
 }
 

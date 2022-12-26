@@ -35,10 +35,10 @@ final class LoggedOutInteractor:
   }
 
   func sendSignUpAction(_ action: LoggedOutModels.SignUp.Action) {
-    self.router?.attachSignUpFlowRIB()
+    router?.attachSignUpFlowRIB()
   }
 
   func sendSignInAction(_ action: LoggedOutModels.SignIn.Action) {
-    self.router?.attachSignInFlowRIB()
+    router?.attachSignInFlowRIB()
   }
 }

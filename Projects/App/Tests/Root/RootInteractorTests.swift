@@ -19,29 +19,29 @@ final class RootInteractorTests: XCTestCase {
 
   override func setUpWithError() throws {
     try super.setUpWithError()
-    self.router = .init()
-    self.presenter = .init()
-    self.interactor = RootInteractor(
-      presenter: self.presenter
+    router = .init()
+    presenter = .init()
+    interactor = RootInteractor(
+      presenter: presenter
     )
-    self.interactor.router = self.router
+    interactor.router = router
   }
 
   // MARK: - Tests
 
   func test_didBecomeActive가_호출되면_router에_attachSplashRIB를_요청해요() {
     // when
-    self.interactor.didBecomeActive()
+    interactor.didBecomeActive()
 
     // then
-    XCTAssertEqual(self.router.attachSplashRIBCallCount, 1)
+    XCTAssertEqual(router.attachSplashRIBCallCount, 1)
   }
 
   func test_initializationComplete가_호출되면_router에_attachSplashRIB를_요청해요() {
     // when
-    self.interactor.initializationComplete()
+    interactor.initializationComplete()
 
     // then
-    XCTAssertEqual(self.router.detachSplashRIBCallCount, 1)
+    XCTAssertEqual(router.detachSplashRIBCallCount, 1)
   }
 }

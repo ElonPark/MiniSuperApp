@@ -13,7 +13,7 @@ open class BaseLabel: UILabel {
 
   override public init(frame: CGRect) {
     super.init(frame: frame)
-    self.adjustsFontForContentSizeCategory = true
+    adjustsFontForContentSizeCategory = true
   }
 
   @available(*, unavailable)

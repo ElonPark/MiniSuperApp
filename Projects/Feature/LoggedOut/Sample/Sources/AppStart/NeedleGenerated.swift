@@ -24,7 +24,7 @@ private func parent1(_ component: NeedleFoundation.Scope) -> NeedleFoundation.Sc
 
   private class RootDependency3944cc797a4a88956fb5Provider: RootDependency {
     var loggedOutBuilder: LoggedOutBuildable {
-      return self.appComponent.loggedOutBuilder
+      return appComponent.loggedOutBuilder
     }
 
     private let appComponent: AppComponent
