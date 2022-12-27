@@ -12,34 +12,26 @@ import RxSwift
 import Platform
 import UserStreamInterface
 
-public final class UserStreamImpl: MutableUserStream {
+public final class UserStreamImpl: MutableUserStream, UserDefaultsContainer {
 
   // MARK: UserStream
 
-  public var user: User? { userProperty }
-  public var userObservable: Observable<User?> { $userProperty }
+  @CodableDefaults(key: "currentUser", default: nil)
+  public private(set) var user: User?
+  public var userObservable: Observable<User?> { $user }
 
   // MARK: Private
 
-  @DiskCache.CodableProperty(
-    key: "currentUser",
-    defaultValue: nil,
-    diskCache: UserStreamImpl.diskCache.container
-  )
-  private var userProperty: User?
-
-  @DelayedMutable
-  private static var diskCache: DiskCache
+  public var userDefaults: UserDefaults
 
   // MARK: Initializing
 
-  public init(diskCache: DiskCache) {
-    Self.diskCache = diskCache
+  public init(userDefaults: UserDefaults) {
+    self.userDefaults = userDefaults
+    _user.register(self)
   }
 
-  // MARK: MutableUserStream
-
-  public func setUser(_ user: User?) {
-    userProperty = user
+  public func configure(user: User?) {
+    self.user = user
   }
 }

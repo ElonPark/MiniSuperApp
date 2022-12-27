@@ -16,18 +16,18 @@ import UserStreamInterface
 
 final class UserStreamTests: XCTestCase {
 
-  var diskCache: DiskCache!
+  var userDefaults: UserDefaultsStub!
   var userStream: UserStreamImpl!
 
   override func setUpWithError() throws {
     try super.setUpWithError()
-    diskCache = DiskCache(container: UserDefaultsStub())
-    userStream = UserStreamImpl(diskCache: diskCache)
+    userDefaults = UserDefaultsStub()
+    userStream = UserStreamImpl(userDefaults: userDefaults)
   }
 
   override func tearDownWithError() throws {
     try super.tearDownWithError()
-    diskCache = nil
+    userDefaults = nil
     userStream = nil
   }
 }
@@ -37,6 +37,9 @@ final class UserStreamTests: XCTestCase {
 extension UserStreamTests {
 
   func test_user을_호출하면_기본값으로_nil을_반환해요() {
+    // given
+    userDefaults = UserDefaultsStub()
+
     // when
     let result = userStream.user
 
@@ -48,35 +51,40 @@ extension UserStreamTests {
     // given: 파라미터로 유저를
     let user = User(id: 0, name: "test")
 
-    // when: setUser에_전달하면
-    userStream.setUser(user)
+    // when: userStream에 user를 전달하면
+    userStream.configure(user: user)
 
     // then: user프로퍼티를 업데이트해요.
-    XCTAssertEqual(userStream.user, user)
+    XCTAssertEqual(userStream.user?.id, 0)
+    XCTAssertEqual(userStream.user?.name, "test")
   }
 
   func test_setUser에_nil_전달시() {
     // given: 파라미터로 nil을
     let user: User? = nil
+    userDefaults.setCodable(value: User(id: 0, name: "test"), forKey: "currentUser")
 
-    // when: setUser에_전달하면
-    userStream.setUser(user)
+    // when: userStream.user에 nil을 전달하면
+    userStream.configure(user: user)
 
     // then: user프로퍼티를 nil로 변경해요.
-    XCTAssertNil(userStream.user)
+    let savedValue: User? = userDefaults.codable(forKey: "currentUser")
+    XCTAssertNil(savedValue)
   }
 
   func test_user값을_변경하면_diskCache에_저장해요() {
     // given
-    let inputValue = User(id: 999, name: "test")
+    let user = User(id: 999, name: "test")
 
     // when
-    userStream.setUser(inputValue)
+    userStream.configure(user: user)
 
     // then
-    XCTAssertEqual(userStream.user, inputValue)
+    XCTAssertEqual(userStream.user?.id, 999)
+    XCTAssertEqual(userStream.user?.name, "test")
 
-    let savedValue: User? = diskCache.container.codable(for: "currentUser")
-    XCTAssertEqual(savedValue, inputValue)
+    let savedValue: User? = userDefaults.codable(forKey: "currentUser")
+    XCTAssertEqual(savedValue?.id, 999)
+    XCTAssertEqual(savedValue?.name, "test")
   }
 }
