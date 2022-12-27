@@ -19,5 +19,5 @@ public protocol UserStream: AnyObject {
 // MARK: - MutableUserStream
 
 public protocol MutableUserStream: UserStream {
-  func setUser(_ user: User?)
+  func configure(user: User?)
 }
