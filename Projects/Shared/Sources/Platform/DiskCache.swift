@@ -77,13 +77,13 @@ extension DiskCache {
 
     override public var wrappedValue: Value {
       get {
-        self.diskCache().codable(for: self.key) ?? self.defaultValue
+        self.diskCache().codable(forKey: self.key) ?? self.defaultValue
       }
       set {
         if let optionalValue = newValue as? AnyOptional, optionalValue.isNil {
           self.diskCache().removeObject(forKey: self.key)
         } else {
-          self.diskCache().setCodable(value: newValue, for: self.key)
+          self.diskCache().setCodable(value: newValue, forKey: self.key)
         }
       }
     }
