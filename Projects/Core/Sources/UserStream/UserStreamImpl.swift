@@ -28,7 +28,7 @@ public final class UserStreamImpl: MutableUserStream, UserDefaultsContainer {
 
   public init(userDefaults: UserDefaults) {
     self.userDefaults = userDefaults
-    _user.register(self)
+    register(userDefaultsContainer: self)
   }
 
   public func configure(user: User?) {
