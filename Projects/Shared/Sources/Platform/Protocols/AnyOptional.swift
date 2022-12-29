@@ -20,3 +20,16 @@ public protocol AnyOptional {
 extension Optional: AnyOptional {
   public var isNil: Bool { self == nil }
 }
+
+// MARK: - AnyOptionalCheckable
+
+public protocol AnyOptionalCheckable {
+  func isNil(_ value: Any) -> Bool
+}
+
+extension AnyOptionalCheckable {
+  public func isNil(_ value: Any) -> Bool {
+    let isOptionalNil = (value as? AnyOptional)?.isNil ?? false
+    return isOptionalNil || value is NSNull
+  }
+}
