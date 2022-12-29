@@ -11,7 +11,7 @@ import RxRelay
 import RxSwift
 
 @propertyWrapper
-public class Defaults<Value> {
+public class Defaults<Value>: UserDefaultsContainerRegistrable {
 
   // MARK: - Public
 
@@ -37,7 +37,10 @@ public class Defaults<Value> {
   let defaultValue: Value
 
   private weak var container: UserDefaultsContainer?
-  var userDefaults: UserDefaults? { container?.userDefaults }
+  var userDefaults: UserDefaults? {
+    assert(container != nil, "should register UserDefaultsContainer!")
+    return container?.userDefaults
+  }
 
   lazy var relay = BehaviorRelay(value: self.defaultValue)
 
@@ -53,7 +56,7 @@ public class Defaults<Value> {
     self.container = container
   }
 
-  public func register(_ container: UserDefaultsContainer) {
+  public func register(container: UserDefaultsContainer) {
     self.container = container
   }
 }
